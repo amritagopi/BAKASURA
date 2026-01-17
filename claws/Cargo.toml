@@ -1,0 +1,13 @@
+[package]
+name = "bakasura_claws"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "bakasura_claws"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+scraper = "0.18"

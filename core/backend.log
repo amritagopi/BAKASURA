@@ -1,0 +1,880 @@
+2026-01-16 11:37:33,747 [INFO] Incoming Request: POST /analyze
+2026-01-16 11:37:51,047 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 11:37:52,768 [INFO] Response Status: 200
+2026-01-16 11:38:46,246 [INFO] Incoming Request: POST /analyze
+2026-01-16 11:38:46,943 [INFO] Response Status: 200
+2026-01-16 11:42:05,298 [INFO] Incoming Request: POST /analyze
+2026-01-16 11:42:05,941 [INFO] Response Status: 200
+2026-01-16 17:37:35,423 [INFO] Incoming Request: POST /analyze
+2026-01-16 17:37:47,752 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 17:37:54,725 [INFO] Response Status: 200
+2026-01-16 17:46:42,626 [INFO] Incoming Request: POST /analyze
+2026-01-16 17:46:53,281 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 17:46:55,915 [INFO] Response Status: 200
+2026-01-16 17:52:29,710 [INFO] Incoming Request: POST /analyze
+2026-01-16 17:52:40,189 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 17:52:42,829 [INFO] Response Status: 200
+2026-01-16 17:55:13,979 [INFO] Incoming Request: POST /analyze
+2026-01-16 17:55:20,893 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 17:55:24,044 [INFO] Response Status: 200
+2026-01-16 18:16:13,337 [INFO] Incoming Request: POST /analyze
+2026-01-16 18:16:22,922 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 18:16:26,034 [INFO] Response Status: 200
+2026-01-16 18:26:34,584 [INFO] Incoming Request: POST /analyze
+2026-01-16 18:26:44,858 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 18:26:50,082 [INFO] Response Status: 200
+2026-01-16 18:44:36,350 [INFO] Incoming Request: POST /analyze
+2026-01-16 18:44:50,301 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 18:44:55,667 [INFO] Response Status: 200
+2026-01-16 18:53:18,968 [INFO] Incoming Request: POST /analyze
+2026-01-16 18:53:28,064 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 18:53:33,417 [INFO] Response Status: 200
+2026-01-16 19:24:11,152 [INFO] Incoming Request: POST /analyze
+2026-01-16 19:24:20,455 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 19:24:25,452 [INFO] Response Status: 200
+2026-01-16 19:26:28,816 [INFO] Incoming Request: POST /analyze
+2026-01-16 19:26:56,421 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 19:27:00,814 [INFO] Response Status: 200
+2026-01-16 19:30:30,597 [INFO] Incoming Request: POST /analyze
+2026-01-16 19:30:38,892 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 19:30:41,494 [INFO] Response Status: 200
+2026-01-16 20:55:06,578 [INFO] Incoming Request: POST /analyze
+2026-01-16 20:55:23,451 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-16 20:55:29,596 [INFO] Response Status: 200
+2026-01-17 00:56:52,878 [INFO] Incoming Request: POST /analyze
+2026-01-17 00:57:08,833 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 00:57:12,815 [INFO] Response Status: 200
+2026-01-17 02:36:30,996 [INFO] Incoming Request: POST /analyze
+2026-01-17 02:36:32,788 [INFO] Response Status: 200
+2026-01-17 02:43:37,520 [INFO] Incoming Request: POST /analyze
+2026-01-17 02:43:39,565 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:43:39,669 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:43:39,670 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:43:39,709 [INFO] Response Status: 200
+2026-01-17 02:45:26,818 [INFO] Incoming Request: POST /analyze
+2026-01-17 02:45:28,847 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:45:28,850 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:45:28,852 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:45:28,891 [INFO] Response Status: 200
+2026-01-17 02:47:04,037 [INFO] Incoming Request: POST /analyze
+2026-01-17 02:47:06,101 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:47:06,103 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:47:06,104 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:47:06,142 [INFO] Response Status: 200
+2026-01-17 02:56:44,562 [INFO] Incoming Request: GET /
+2026-01-17 02:56:44,564 [INFO] Response Status: 200
+2026-01-17 02:56:44,568 [INFO] Incoming Request: POST /analyze
+2026-01-17 02:56:46,249 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<Connection.run() done, defined at C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:56:46,251 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<Connection.run() done, defined at C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 02:56:46,253 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<Connection.run() done, defined at C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "C:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:11:39,337 [INFO] Incoming Request: POST /analyze
+2026-01-17 13:11:41,538 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:11:41,609 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:11:41,612 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:11:41,646 [INFO] Response Status: 200
+2026-01-17 13:12:50,524 [INFO] Incoming Request: GET /
+2026-01-17 13:12:50,530 [INFO] Response Status: 200
+2026-01-17 13:12:50,541 [INFO] Incoming Request: POST /analyze
+2026-01-17 13:12:52,940 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:12:52,943 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:12:52,945 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:12:52,979 [INFO] Response Status: 200
+2026-01-17 13:13:31,912 [INFO] Incoming Request: GET /
+2026-01-17 13:13:31,913 [INFO] Response Status: 200
+2026-01-17 13:13:31,917 [INFO] Incoming Request: POST /analyze
+2026-01-17 13:13:33,989 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-30' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:13:33,990 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-31' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:13:33,991 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-32' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:13:34,024 [INFO] Response Status: 200
+2026-01-17 13:14:01,091 [INFO] Incoming Request: GET /
+2026-01-17 13:14:01,091 [INFO] Response Status: 200
+2026-01-17 13:14:01,096 [INFO] Incoming Request: POST /analyze
+2026-01-17 13:14:03,025 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-48' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:14:03,027 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-49' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:14:03,031 [ERROR] Task exception was never retrieved
+future: <Task finished name='Task-50' coro=<Connection.run() done, defined at c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py:305> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_connection.py", line 312, in run
+    await self._transport.connect()
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "c:\Users\annac\OSINT\bakasura\.venv\lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\subprocess.py", line 218, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1681, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "C:\Users\annac\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 498, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2026-01-17 13:14:03,069 [INFO] Response Status: 200
+2026-01-17 14:47:24,201 [INFO] Incoming Request: POST /analyze
+2026-01-17 14:48:56,089 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 14:50:22,793 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 14:50:31,163 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 14:50:44,267 [INFO] Response Status: 200
+2026-01-17 15:05:24,507 [INFO] Incoming Request: POST /analyze
+2026-01-17 15:07:52,893 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 15:12:40,758 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 15:13:06,350 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 15:13:18,482 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 15:13:41,824 [INFO] Response Status: 200
+2026-01-17 15:39:09,422 [INFO] Incoming Request: POST /analyze
+2026-01-17 15:39:11,314 [INFO] response: https://www.bing.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 15:42:33,263 [INFO] Incoming Request: GET /
+2026-01-17 15:42:33,264 [INFO] Response Status: 200
+2026-01-17 15:42:33,269 [INFO] Incoming Request: POST /analyze
+2026-01-17 15:42:35,330 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 15:42:36,487 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 15:42:37,113 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-17 15:42:38,086 [INFO] response: https://search.brave.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&source=web 200
+2026-01-17 15:46:46,079 [INFO] Incoming Request: POST /analyze
+2026-01-17 15:46:47,762 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 15:46:48,609 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 15:46:49,407 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-17 15:46:51,052 [INFO] response: https://yandex.com/search/site/?text=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&web=1&searchid=2484906 200
+2026-01-17 15:50:21,023 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 15:50:28,156 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 15:50:29,265 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=fl.ru%20profile%20ID%3A999677 200
+2026-01-17 15:50:29,347 [INFO] response: https://grokipedia.com/api/typeahead?query=fl.ru+profile+ID%3A999677&limit=1 200
+2026-01-17 15:50:31,500 [INFO] response: https://www.mojeek.com/search?q=fl.ru+profile+ID%3A999677 200
+2026-01-17 15:50:32,520 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 15:53:11,799 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 15:53:12,620 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=TenChat%20username%3A%20solomoon83 200
+2026-01-17 15:53:13,074 [INFO] response: https://grokipedia.com/api/typeahead?query=TenChat+username%3A+solomoon83&limit=1 200
+2026-01-17 15:53:15,148 [INFO] response: https://www.mojeek.com/search?q=TenChat+username%3A+solomoon83 200
+2026-01-17 15:53:16,644 [INFO] response: https://yandex.com/search/site/?text=TenChat+username%3A+solomoon83&web=1&searchid=6960740 200
+2026-01-17 15:55:45,532 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 15:55:46,599 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Vkontakte%20ID%3A10869123%2C%20VKontakte%20handle%3A%20vash_psicholog_online 200
+2026-01-17 15:55:46,888 [INFO] response: https://grokipedia.com/api/typeahead?query=Vkontakte+ID%3A10869123%2C+VKontakte+handle%3A+vash_psicholog_online&limit=1 200
+2026-01-17 15:55:48,411 [INFO] response: https://yandex.com/search/site/?text=Vkontakte+ID%3A10869123%2C+VKontakte+handle%3A+vash_psicholog_online&web=1&searchid=8897316 200
+2026-01-17 16:00:08,117 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:00:09,039 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Phone%20number%20associated%20with%20Skype%20account%3A%20solomoon83 200
+2026-01-17 16:00:09,494 [INFO] response: https://grokipedia.com/api/typeahead?query=Phone+number+associated+with+Skype+account%3A+solomoon83&limit=1 200
+2026-01-17 16:00:11,854 [INFO] response: https://www.mojeek.com/search?q=Phone+number+associated+with+Skype+account%3A+solomoon83 200
+2026-01-17 16:00:16,045 [INFO] response: https://yandex.com/search/site/?text=Phone+number+associated+with+Skype+account%3A+solomoon83&web=1&searchid=8511872 200
+2026-01-17 16:02:34,118 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:02:35,160 [INFO] response: https://grokipedia.com/api/typeahead?query=Email+address+associated+with+TenChat+profile&limit=1 200
+2026-01-17 16:02:35,760 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Email%20address%20associated%20with%20TenChat%20profile 200
+2026-01-17 16:02:36,621 [INFO] response: https://search.yahoo.com/search;_ylt=nSASw_4ngeibhED8s6wan7zS;_ylu=3Te5vVthRzxc8ZA-OhDLueuCEOybo36dTbp7f8UEpMSpB4A?p=Email+address+associated+with+TenChat+profile 200
+2026-01-17 16:02:37,383 [INFO] response: https://www.google.com/search?q=Email+address+associated+with+TenChat+profile&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 16:05:19,973 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 16:05:30,800 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:30,815 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:30,816 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:30,816 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:30,818 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:30,820 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:30,820 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:30,826 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:32,559 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 16:05:34,627 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:34,644 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:34,644 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:34,644 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:34,644 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:34,645 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:34,645 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:34,645 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:35,570 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 16:05:36,585 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:36,609 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:36,616 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,616 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,616 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,621 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,622 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,623 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:36,920 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:38,935 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:38,953 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:38,953 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:38,955 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:38,955 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:38,955 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:39,207 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:39,208 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:39,210 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,045 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:41,088 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:41,090 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,093 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,414 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:41,425 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,426 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,426 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:41,427 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,429 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:43,457 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:43,460 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,461 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,462 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,462 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,463 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,463 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:43,761 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:45,391 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:45,407 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:45,407 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:45,408 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:45,664 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:45,675 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:45,675 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:45,676 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:45,676 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,689 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:47,703 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:47,703 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,703 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,703 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,703 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,712 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:47,713 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:48,034 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:49,678 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:49,703 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:49,703 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:49,703 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:49,963 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:49,972 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:49,972 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:49,972 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:49,983 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:51,995 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:05:52,033 [INFO] Error in engine grokipedia: TypeError('quote_from_bytes() expected bytes')
+2026-01-17 16:05:52,037 [INFO] Error in engine grokipedia: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,037 [INFO] Error in engine google: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,343 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:05:52,390 [INFO] Error in engine yandex: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,391 [INFO] Error in engine brave: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,391 [INFO] Error in engine mojeek: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,391 [INFO] Error in engine yahoo: DDGSException('TypeError: TypeError("argument \'params\': \'dict\' object cannot be converted to \'PyString\'")')
+2026-01-17 16:05:52,965 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 16:06:02,846 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 16:06:27,420 [INFO] Response Status: 200
+2026-01-17 16:34:34,419 [INFO] Incoming Request: POST /analyze
+2026-01-17 16:34:35,972 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:34:36,779 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 16:34:36,922 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-17 16:34:37,240 [INFO] response: https://www.google.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 16:34:39,422 [INFO] response: https://yandex.com/search/site/?text=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&web=1&searchid=7589240 200
+2026-01-17 16:37:42,699 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 16:37:47,070 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:37:48,233 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovsky%20email 200
+2026-01-17 16:37:48,481 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovsky+email&limit=1 200
+2026-01-17 16:37:49,572 [INFO] response: https://search.brave.com/search?q=Pavel+Stolbovsky+email&source=web 200
+2026-01-17 16:39:34,749 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:39:35,507 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=10869123%20VK%20ID 200
+2026-01-17 16:39:36,193 [INFO] response: https://grokipedia.com/api/typeahead?query=10869123+VK+ID&limit=1 200
+2026-01-17 16:39:36,505 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:39:36,794 [INFO] response: https://www.google.com/search?q=10869123+VK+ID&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 16:39:39,640 [INFO] response: https://yandex.com/search/site/?text=10869123+VK+ID&web=1&searchid=9156559 200
+2026-01-17 16:42:11,864 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:42:13,084 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=solomoon83%20Skype%20username 200
+2026-01-17 16:42:14,004 [INFO] response: https://grokipedia.com/api/typeahead?query=solomoon83+Skype+username&limit=1 200
+2026-01-17 16:42:15,910 [INFO] response: https://yandex.com/search/site/?text=solomoon83+Skype+username&web=1&searchid=9584445 200
+2026-01-17 16:45:17,016 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:45:18,003 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Psychological%20consulting%20job 200
+2026-01-17 16:45:18,455 [INFO] response: https://grokipedia.com/api/typeahead?query=Psychological+consulting+job&limit=1 200
+2026-01-17 16:45:19,382 [INFO] response: https://search.yahoo.com/search;_ylt=Df5vodSUpxKTYdQVs8DwnB_T;_ylu=Sk9dvVVMsHTKtO3a13Wmg9txygDYSvdqA_SPkIqqHbDFglQ?p=Psychological+consulting+job 200
+2026-01-17 16:45:20,343 [INFO] response: https://www.google.com/search?q=Psychological+consulting+job&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 16:47:10,485 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:47:11,273 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Barcelona%2C%20Russia%20location 200
+2026-01-17 16:47:12,278 [INFO] response: https://grokipedia.com/api/typeahead?query=Barcelona%2C+Russia+location&limit=1 200
+2026-01-17 16:47:12,605 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:47:13,834 [INFO] response: https://search.brave.com/search?q=Barcelona%2C+Russia+location&source=web 200
+2026-01-17 16:49:12,529 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 16:49:23,519 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:49:24,634 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=email%20address%20Pavel%20Stolbovsky 200
+2026-01-17 16:49:27,015 [INFO] response: https://grokipedia.com/api/typeahead?query=email+address+Pavel+Stolbovsky&limit=1 200
+2026-01-17 16:49:28,877 [INFO] response: https://yandex.com/search/site/?text=email+address+Pavel+Stolbovsky&web=1&searchid=2027483 200
+2026-01-17 16:52:00,606 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:52:01,386 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=phone%20number%2010869123 200
+2026-01-17 16:52:02,083 [INFO] response: https://grokipedia.com/api/typeahead?query=phone+number+10869123&limit=1 200
+2026-01-17 16:52:03,217 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-17 16:52:05,594 [INFO] response: https://www.mojeek.com/search?q=phone+number+10869123 200
+2026-01-17 16:52:07,399 [INFO] response: https://search.brave.com/search?q=phone+number+10869123&source=web 200
+2026-01-17 16:54:18,427 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:54:20,632 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Skype%20solomoon83 200
+2026-01-17 16:54:20,923 [INFO] response: https://grokipedia.com/api/typeahead?query=Skype+solomoon83&limit=1 200
+2026-01-17 16:54:22,004 [INFO] response: https://search.brave.com/search?q=Skype+solomoon83&source=web 200
+2026-01-17 16:56:17,048 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:56:18,060 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Vkontakte%20ID%2010869123 200
+2026-01-17 16:56:18,354 [INFO] response: https://grokipedia.com/api/typeahead?query=Vkontakte+ID+10869123&limit=1 200
+2026-01-17 16:56:19,190 [INFO] response: https://search.yahoo.com/search;_ylt=cRTTM2s9qTBZ6KXzffV6H6js;_ylu=gjNPcermd7jfwX6kbEdfgpe6J5FlaUvkgb-b6yEi1E70NiU?p=Vkontakte+ID+10869123 200
+2026-01-17 16:56:21,736 [INFO] response: https://www.mojeek.com/search?q=Vkontakte+ID+10869123 200
+2026-01-17 16:56:22,031 [INFO] response: https://www.google.com/search?q=Vkontakte+ID+10869123&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 16:56:24,008 [INFO] response: https://yandex.com/search/site/?text=Vkontakte+ID+10869123&web=1&searchid=3378522 200
+2026-01-17 16:59:39,423 [WARNING] KeyError('api') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-17 16:59:40,982 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovsky+LinkedIn+profile&limit=1 200
+2026-01-17 16:59:41,367 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovsky%20LinkedIn%20profile 200
+2026-01-17 16:59:42,428 [INFO] response: https://search.brave.com/search?q=Pavel+Stolbovsky+LinkedIn+profile&source=web 200
+2026-01-17 17:01:16,376 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 17:01:28,795 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 17:02:04,347 [INFO] Response Status: 200
+2026-01-17 17:05:59,201 [INFO] Incoming Request: GET /keys
+2026-01-17 17:05:59,204 [INFO] Response Status: 404
+2026-01-17 17:05:59,211 [INFO] Incoming Request: GET /keys
+2026-01-17 17:05:59,214 [INFO] Response Status: 404
+2026-01-17 17:34:32,005 [INFO] Incoming Request: GET /keys
+2026-01-17 17:34:32,006 [INFO] Response Status: 404
+2026-01-17 17:34:32,015 [INFO] Incoming Request: GET /keys
+2026-01-17 17:34:32,016 [INFO] Response Status: 404
+2026-01-17 17:34:37,473 [INFO] Incoming Request: POST /analyze
+2026-01-17 17:34:39,981 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-17 17:34:41,041 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 17:34:41,919 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 17:34:43,022 [INFO] response: https://www.mojeek.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 403
+2026-01-17 17:34:44,027 [INFO] response: https://search.brave.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&source=web 200
+2026-01-17 17:38:20,749 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 17:38:31,739 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbowitsky%20phone%20number 200
+2026-01-17 17:38:33,605 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbowitsky+phone+number&limit=1 200
+2026-01-17 17:38:33,905 [INFO] response: https://www.google.com/search?q=Pavel+Stolbowitsky+phone+number&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 17:38:34,559 [INFO] response: https://search.brave.com/search?q=Pavel+Stolbowitsky+phone+number&source=web 429
+2026-01-17 17:38:36,725 [INFO] response: https://www.mojeek.com/search?q=Pavel+Stolbowitsky+phone+number 200
+2026-01-17 17:38:37,780 [INFO] response: https://search.yahoo.com/search;_ylt=AWsr8LvR9QaubxyeTK2QUWR1;_ylu=a3eUnDQaPFUjaAmwKtpQ2CWoxhoVXpQye1TNcaU5hkMxnf0?p=Pavel+Stolbowitsky+phone+number 200
+2026-01-17 17:38:39,944 [INFO] response: https://yandex.com/search/site/?text=Pavel+Stolbowitsky+phone+number&web=1&searchid=5219376 200
+2026-01-17 17:41:21,096 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbowitsky%20email 200
+2026-01-17 17:41:21,532 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbowitsky+email&limit=1 200
+2026-01-17 17:41:22,139 [INFO] response: https://search.brave.com/search?q=Pavel+Stolbowitsky+email&source=web 429
+2026-01-17 17:41:22,548 [INFO] response: https://www.google.com/search?q=Pavel+Stolbowitsky+email&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 17:41:23,839 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 17:44:03,407 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbowitsky+Facebook&limit=1 200
+2026-01-17 17:44:03,834 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbowitsky%20Facebook 200
+2026-01-17 17:44:05,945 [INFO] response: https://www.mojeek.com/search?q=Pavel+Stolbowitsky+Facebook 200
+2026-01-17 17:44:06,326 [INFO] response: https://www.google.com/search?q=Pavel+Stolbowitsky+Facebook&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 17:44:07,323 [INFO] response: https://search.yahoo.com/search;_ylt=v7oRqye61nYybA0dJjPTwrg6;_ylu=mwfQsBdiQYKbpX3ON19OOK0wpfavKz-92cDm8OZPh0iOciw?p=Pavel+Stolbowitsky+Facebook 200
+2026-01-17 17:44:09,841 [INFO] response: https://yandex.com/search/site/?text=Pavel+Stolbowitsky+Facebook&web=1&searchid=9166259 200
+2026-01-17 17:47:16,312 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbowitsky%20VK%20handle 200
+2026-01-17 17:47:17,045 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbowitsky+VK+handle&limit=1 200
+2026-01-17 17:47:20,016 [INFO] response: https://yandex.com/search/site/?text=Pavel+Stolbowitsky+VK+handle&web=1&searchid=1287776 200
+2026-01-17 17:50:56,910 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbowitsky%20Skype 200
+2026-01-17 17:50:57,109 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbowitsky+Skype&limit=1 200
+2026-01-17 17:50:57,448 [INFO] response: https://www.google.com/search?q=Pavel+Stolbowitsky+Skype&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 17:50:59,895 [INFO] response: https://www.mojeek.com/search?q=Pavel+Stolbowitsky+Skype 200
+2026-01-17 17:51:00,744 [INFO] response: https://search.yahoo.com/search;_ylt=rXxo9_w6cR-O2H20mLxDAoIz;_ylu=NUKczEmftpCBr1S9RCnIbKr69jbmdbBgyj8EnuPwNy_4rfw?p=Pavel+Stolbowitsky+Skype 200
+2026-01-17 17:51:03,304 [INFO] response: https://yandex.com/search/site/?text=Pavel+Stolbowitsky+Skype&web=1&searchid=7152227 200
+2026-01-17 17:54:42,781 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 17:54:57,202 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovskiy%20phone%20number 200
+2026-01-17 17:54:57,378 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovskiy+phone+number&limit=1 200
+2026-01-17 17:54:57,794 [INFO] response: https://www.google.com/search?q=Pavel+Stolbovskiy+phone+number&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 17:57:40,773 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovskiy+email+address&limit=1 200
+2026-01-17 17:57:40,940 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovskiy%20email%20address 200
+2026-01-17 17:57:44,102 [INFO] response: https://www.mojeek.com/search?q=Pavel+Stolbovskiy+email+address 200
+2026-01-17 17:57:45,377 [INFO] response: https://search.yahoo.com/search;_ylt=0iIxaY2ZFSsfwaqcbHYESQ-a;_ylu=yfK92ovD_FIDFiiA1PdDPOQEyYDUfjY0uTX154fSL8e9zZM?p=Pavel+Stolbovskiy+email+address 200
+2026-01-17 17:57:47,237 [INFO] response: https://yandex.com/search/site/?text=Pavel+Stolbovskiy+email+address&web=1&searchid=4271999 200
+2026-01-17 18:00:53,079 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovskiy%20VK%20username 200
+2026-01-17 18:00:53,285 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovskiy+VK+username&limit=1 200
+2026-01-17 18:00:54,549 [INFO] response: https://www.google.com/search?q=Pavel+Stolbovskiy+VK+username&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 18:03:16,667 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovskiy%20Skype%20ID 200
+2026-01-17 18:03:17,081 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovskiy+Skype+ID&limit=1 200
+2026-01-17 18:03:19,332 [INFO] response: https://www.mojeek.com/search?q=Pavel+Stolbovskiy+Skype+ID 200
+2026-01-17 18:03:20,609 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 18:04:54,557 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 18:05:06,531 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 18:05:31,073 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 18:05:52,137 [INFO] Response Status: 200
+2026-01-17 20:12:30,674 [INFO] Incoming Request: GET /keys
+2026-01-17 20:12:30,675 [INFO] Response Status: 404
+2026-01-17 20:12:30,683 [INFO] Incoming Request: GET /keys
+2026-01-17 20:12:30,685 [INFO] Response Status: 404
+2026-01-17 20:12:56,509 [INFO] Incoming Request: POST /analyze
+2026-01-17 20:12:58,542 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-17 20:13:02,137 [INFO] Error in engine yahoo: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%90%D0%BD%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-01-17 20:13:02,987 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:13:03,249 [INFO] response: https://search.yahoo.com/search;_ylt=mCd_cvAh6In2huh1pNVGPiVB;_ylu=Q2K7zb4j2aemESN8a011BTxoaOJXa4tChLnUFL9cw3452iM?p=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-17 20:16:10,347 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22amritagopi%22%20profile 200
+2026-01-17 20:16:12,840 [INFO] response: https://grokipedia.com/api/typeahead?query=%22amritagopi%22+profile&limit=1 200
+2026-01-17 20:16:13,890 [INFO] response: https://search.brave.com/search?q=%22amritagopi%22+profile&source=web 200
+2026-01-17 20:19:11,838 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22amritagopi%22%20%22%D0%90%D0%BD%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-17 20:19:12,230 [INFO] response: https://grokipedia.com/api/typeahead?query=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-17 20:19:13,107 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:19:13,698 [INFO] response: https://search.brave.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-17 20:19:14,042 [INFO] response: https://www.google.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:19:15,693 [INFO] response: https://www.mojeek.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-17 20:19:32,903 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:19:46,596 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Anna%20Chemeris%22%20director%20R%26D%20Moscow 200
+2026-01-17 20:19:46,888 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Anna+Chemeris%22+director+R%26D+Moscow&limit=1 200
+2026-01-17 20:19:47,680 [INFO] response: https://search.yahoo.com/search;_ylt=fr0c8bnMbhFc3b0g2iFrg1cp;_ylu=hRQN4reOp_DkExOaGzpueN6Fj4g7I25t9TGMDx6kwOrauEU?p=%22Anna+Chemeris%22+director+R%26D+Moscow 200
+2026-01-17 20:19:49,502 [INFO] response: https://yandex.com/search/site/?text=%22Anna+Chemeris%22+director+R%26D+Moscow&web=1&searchid=5258814 200
+2026-01-17 20:22:30,165 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Anna%20Chemeris%22%20psychologist%20St%20Petersburg 200
+2026-01-17 20:22:30,398 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Anna+Chemeris%22+psychologist+St+Petersburg&limit=1 200
+2026-01-17 20:22:30,713 [INFO] response: https://www.google.com/search?q=%22Anna+Chemeris%22+psychologist+St+Petersburg&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:24:40,710 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Anna+Chemeris%22+San+Francisco&limit=1 200
+2026-01-17 20:24:44,685 [INFO] Error in engine grokipedia: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Anna%20Chemeris%22%20San%20Francisco): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-01-17 20:24:46,869 [INFO] response: https://yandex.com/search/site/?text=%22Anna+Chemeris%22+San+Francisco&web=1&searchid=7724039 200
+2026-01-17 20:26:21,684 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:26:31,365 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Anna%20Chemeris%22%20email 200
+2026-01-17 20:26:32,781 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Anna+Chemeris%22+email&limit=1 200
+2026-01-17 20:26:34,378 [INFO] response: https://www.mojeek.com/search?q=%22Anna+Chemeris%22+email 200
+2026-01-17 20:29:04,972 [INFO] response: https://grokipedia.com/api/typeahead?query=Anna+Chemeris+phone+number&limit=1 200
+2026-01-17 20:29:05,145 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Anna%20Chemeris%20phone%20number 200
+2026-01-17 20:29:06,334 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:31:29,790 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Anna%20Chemeris%20VK 200
+2026-01-17 20:31:29,846 [INFO] response: https://grokipedia.com/api/typeahead?query=Anna+Chemeris+VK&limit=1 200
+2026-01-17 20:31:30,196 [INFO] response: https://www.google.com/search?q=Anna+Chemeris+VK&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:33:51,181 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Anna%20Chemeris%20Instagram 200
+2026-01-17 20:33:51,627 [INFO] response: https://grokipedia.com/api/typeahead?query=Anna+Chemeris+Instagram&limit=1 200
+2026-01-17 20:33:53,908 [INFO] response: https://www.mojeek.com/search?q=Anna+Chemeris+Instagram 200
+2026-01-17 20:35:53,384 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Anna%20Chemeris%20Facebook 200
+2026-01-17 20:35:53,672 [INFO] response: https://grokipedia.com/api/typeahead?query=Anna+Chemeris+Facebook&limit=1 200
+2026-01-17 20:35:54,170 [INFO] response: https://search.brave.com/search?q=Anna+Chemeris+Facebook&source=web 429
+2026-01-17 20:35:55,141 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:37:37,895 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:37:52,205 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:38:07,438 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:38:37,757 [INFO] Response Status: 200
+2026-01-17 20:45:07,221 [INFO] Incoming Request: GET /keys
+2026-01-17 20:45:07,232 [INFO] Response Status: 404
+2026-01-17 20:45:07,242 [INFO] Incoming Request: GET /keys
+2026-01-17 20:45:07,243 [INFO] Response Status: 404
+2026-01-17 20:45:31,763 [INFO] Incoming Request: POST /analyze
+2026-01-17 20:45:33,649 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%90%D0%BD%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22%20%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22 200
+2026-01-17 20:45:35,606 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22&limit=1 200
+2026-01-17 20:45:36,587 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:45:37,629 [INFO] response: https://www.mojeek.com/search?q=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22 403
+2026-01-17 20:45:37,944 [INFO] response: https://www.google.com/search?q=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:45:38,813 [INFO] response: https://search.brave.com/search?q=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22&source=web 429
+2026-01-17 20:45:40,999 [INFO] response: https://yandex.com/search/site/?text=%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D1%80%D0%B8%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0%D0%BD%22&web=1&searchid=6613847 200
+2026-01-17 20:46:06,285 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22amritagopi%22%20profile 200
+2026-01-17 20:46:07,904 [INFO] response: https://grokipedia.com/api/typeahead?query=%22amritagopi%22+profile&limit=1 200
+2026-01-17 20:46:08,346 [INFO] response: https://search.brave.com/search?q=%22amritagopi%22+profile&source=web 429
+2026-01-17 20:46:09,297 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:46:09,645 [INFO] response: https://www.google.com/search?q=%22amritagopi%22+profile&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:48:57,054 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22amritagopi%22%20%22%D0%90%D0%BD%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-17 20:48:58,534 [INFO] response: https://grokipedia.com/api/typeahead?query=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-17 20:48:59,466 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:48:59,817 [INFO] response: https://www.google.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:49:00,626 [INFO] response: https://search.brave.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-17 20:49:01,651 [INFO] response: https://www.mojeek.com/search?q=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-17 20:49:04,507 [INFO] response: https://yandex.com/search/site/?text=%22amritagopi%22+%22%D0%90%D0%BD%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=1510043 200
+2026-01-17 20:49:11,323 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:49:21,629 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Amrita%20Gopi%20psychologist%20Germany 200
+2026-01-17 20:49:23,033 [INFO] response: https://grokipedia.com/api/typeahead?query=Amrita+Gopi+psychologist+Germany&limit=1 200
+2026-01-17 20:49:23,929 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:52:16,831 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Amrita%20Gopi%20Simhachalam%20Temple%20employee 200
+2026-01-17 20:52:18,415 [INFO] response: https://grokipedia.com/api/typeahead?query=Amrita+Gopi+Simhachalam+Temple+employee&limit=1 200
+2026-01-17 20:52:20,579 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 20:54:18,178 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 20:54:28,046 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Amritagopi%20developer%20Hugging%20Face 200
+2026-01-17 20:54:28,822 [INFO] response: https://grokipedia.com/api/typeahead?query=Amritagopi+developer+Hugging+Face&limit=1 200
+2026-01-17 20:54:31,121 [INFO] response: https://yandex.com/search/site/?text=Amritagopi+developer+Hugging+Face&web=1&searchid=6504502 200
+2026-01-17 20:58:28,739 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=AmritaGopi%20Simhachalam%20Temple%20project%20manager 200
+2026-01-17 20:58:29,164 [INFO] response: https://grokipedia.com/api/typeahead?query=AmritaGopi+Simhachalam+Temple+project+manager&limit=1 200
+2026-01-17 20:58:29,467 [INFO] response: https://www.google.com/search?q=AmritaGopi+Simhachalam+Temple+project+manager&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 20:58:30,621 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:00:07,233 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:00:22,223 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:00:39,998 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:01:00,498 [INFO] Response Status: 200
+2026-01-17 21:10:08,049 [INFO] Incoming Request: GET /keys
+2026-01-17 21:10:08,049 [INFO] Response Status: 404
+2026-01-17 21:10:08,056 [INFO] Incoming Request: GET /keys
+2026-01-17 21:10:08,056 [INFO] Response Status: 404
+2026-01-17 21:10:35,368 [INFO] Incoming Request: POST /analyze
+2026-01-17 21:10:37,933 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22%20%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22 200
+2026-01-17 21:10:38,497 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&limit=1 200
+2026-01-17 21:10:39,395 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:10:41,233 [INFO] response: https://yandex.com/search/site/?text=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&web=1&searchid=9039826 200
+2026-01-17 21:10:42,555 [INFO] response: https://www.mojeek.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22 200
+2026-01-17 21:10:43,362 [INFO] response: https://search.brave.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&source=web 429
+2026-01-17 21:10:43,759 [INFO] response: https://www.google.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 21:11:19,015 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:11:32,623 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Tatiana+Lazareva%22+email&limit=1 200
+2026-01-17 21:11:32,879 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Tatiana%20Lazareva%22%20email 200
+2026-01-17 21:11:35,815 [INFO] response: https://yandex.com/search/site/?text=%22Tatiana+Lazareva%22+email&web=1&searchid=1929197 200
+2026-01-17 21:14:52,396 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Elena%20Gribanova%20%28Lisitsyna%29%22%20vk%20profile 200
+2026-01-17 21:14:53,237 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Elena+Gribanova+%28Lisitsyna%29%22+vk+profile&limit=1 200
+2026-01-17 21:14:53,565 [INFO] response: https://www.google.com/search?q=%22Elena+Gribanova+%28Lisitsyna%29%22+vk+profile&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 21:14:54,497 [INFO] response: https://search.brave.com/search?q=%22Elena+Gribanova+%28Lisitsyna%29%22+vk+profile&source=web 429
+2026-01-17 21:14:56,601 [INFO] response: https://www.mojeek.com/search?q=%22Elena+Gribanova+%28Lisitsyna%29%22+vk+profile 200
+2026-01-17 21:14:57,557 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:14:59,626 [INFO] response: https://yandex.com/search/site/?text=%22Elena+Gribanova+%28Lisitsyna%29%22+vk+profile&web=1&searchid=8207966 200
+2026-01-17 21:15:01,571 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Russian_federation%22%20contact%20list 200
+2026-01-17 21:15:05,363 [INFO] Error in engine mojeek: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://grokipedia.com/api/typeahead?query=%22Russian_federation%22+contact+list&limit=1): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-01-17 21:15:06,524 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:15:07,178 [INFO] response: https://www.mojeek.com/search?q=%22Russian_federation%22+contact+list 200
+2026-01-17 21:18:16,895 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Shaposhnik%20%28Lazareuk%29%22%20location%3A%20Moscow 200
+2026-01-17 21:18:17,385 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Shaposhnik+%28Lazareuk%29%22+location%3A+Moscow&limit=1 200
+2026-01-17 21:18:18,658 [INFO] response: https://search.brave.com/search?q=%22Shaposhnik+%28Lazareuk%29%22+location%3A+Moscow&source=web 200
+2026-01-17 21:21:05,651 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:21:19,270 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22&limit=1 200
+2026-01-17 21:21:20,932 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0%20%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22 200
+2026-01-17 21:21:21,446 [INFO] response: https://search.brave.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22&source=web 429
+2026-01-17 21:21:22,270 [INFO] response: https://search.yahoo.com/search;_ylt=z6U9-Xh5fF1v0eZEZROu_dHh;_ylu=3G-V0s5cXB2miGFJBtMnKf5bIDQKUO3YgnuZnzQVU3h8N7w?p=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22 200
+2026-01-17 21:21:24,141 [INFO] response: https://yandex.com/search/site/?text=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22&web=1&searchid=6242588 200
+2026-01-17 21:21:25,844 [INFO] response: https://www.mojeek.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22 403
+2026-01-17 21:21:26,310 [INFO] response: https://www.google.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 21:24:15,267 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%20%D0%A8%D0%B0%D0%BF%D0%BE%D1%88%D0%BD%D0%B8%D0%BA%20%28%D0%9B%D0%B0%D0%B7%D0%B0%D1%80%D1%83%D0%BA%29%22 200
+2026-01-17 21:24:16,701 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0+%D0%A8%D0%B0%D0%BF%D0%BE%D1%88%D0%BD%D0%B8%D0%BA+%28%D0%9B%D0%B0%D0%B7%D0%B0%D1%80%D1%83%D0%BA%29%22&limit=1 200
+2026-01-17 21:24:17,259 [INFO] response: https://search.brave.com/search?q=%22%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0+%D0%A8%D0%B0%D0%BF%D0%BE%D1%88%D0%BD%D0%B8%D0%BA+%28%D0%9B%D0%B0%D0%B7%D0%B0%D1%80%D1%83%D0%BA%29%22&source=web 429
+2026-01-17 21:24:20,817 [INFO] response: https://yandex.com/search/site/?text=%22%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0+%D0%A8%D0%B0%D0%BF%D0%BE%D1%88%D0%BD%D0%B8%D0%BA+%28%D0%9B%D0%B0%D0%B7%D0%B0%D1%80%D1%83%D0%BA%29%22&web=1&searchid=5744619 200
+2026-01-17 21:24:21,939 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:27:34,961 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0%20%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22%20psychologist%20Moscow%20Russia 200
+2026-01-17 21:27:34,972 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22+psychologist+Moscow+Russia&limit=1 200
+2026-01-17 21:27:36,300 [INFO] response: https://www.mojeek.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22+psychologist+Moscow+Russia 403
+2026-01-17 21:27:36,664 [INFO] response: https://www.google.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22+psychologist+Moscow+Russia&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 21:27:38,367 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 21:27:40,080 [INFO] response: https://yandex.com/search/site/?text=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22+psychologist+Moscow+Russia&web=1&searchid=2561477 200
+2026-01-17 21:27:40,611 [INFO] response: https://search.brave.com/search?q=%22%D0%95%D0%BB%D0%B5%D0%BD%D0%B0+%D0%93%D1%80%D0%B8%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0+%28%D0%9B%D0%B8%D1%81%D0%B8%D1%86%D1%8B%D0%BD%D0%B0%29%22+psychologist+Moscow+Russia&source=web 429
+2026-01-17 21:27:45,340 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:28:02,835 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:28:32,059 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 21:28:49,028 [INFO] Response Status: 200
