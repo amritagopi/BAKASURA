@@ -123,7 +123,7 @@ def save_api_keys(keys: Dict[str, str]):
     else:
         raise HTTPException(status_code=500, detail="Failed to save keys")
 
-@app.post("/analyze")
+@app.post("/api/analyze")
 async def analyze_target(request: AnalysisRequest):
     """
     Triggers the LangGraph workflow.

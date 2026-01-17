@@ -882,3 +882,102 @@ NotImplementedError
 2026-01-17 21:32:51,246 [INFO] Response Status: 404
 2026-01-17 21:32:51,285 [INFO] Incoming Request: GET /keys
 2026-01-17 21:32:51,291 [INFO] Response Status: 404
+2026-01-17 22:10:49,422 [INFO] Incoming Request: GET /keys
+2026-01-17 22:10:49,431 [INFO] Response Status: 404
+2026-01-17 22:10:49,443 [INFO] Incoming Request: GET /keys
+2026-01-17 22:10:49,451 [INFO] Response Status: 404
+2026-01-17 22:10:54,892 [INFO] Incoming Request: POST /keys
+2026-01-17 22:10:54,894 [INFO] Response Status: 404
+2026-01-17 22:12:03,522 [INFO] Incoming Request: POST /analyze
+2026-01-17 22:12:05,364 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22%20%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22 200
+2026-01-17 22:12:06,145 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&limit=1 200
+2026-01-17 22:12:06,651 [INFO] response: https://search.brave.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&source=web 429
+2026-01-17 22:12:06,997 [INFO] response: https://www.google.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 22:12:08,482 [INFO] response: https://www.mojeek.com/search?q=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22 200
+2026-01-17 22:12:09,594 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 22:12:13,441 [INFO] response: https://yandex.com/search/site/?text=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%91%D1%80%D0%B0%D0%B8%D0%BB%D0%BE%D0%B2%22&web=1&searchid=6056134 200
+2026-01-17 22:12:50,999 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 22:13:07,873 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%27Tatiana%20Shaposhnik%27%20vkontakte.ru 200
+2026-01-17 22:13:08,068 [INFO] response: https://grokipedia.com/api/typeahead?query=%27Tatiana+Shaposhnik%27+vkontakte.ru&limit=1 200
+2026-01-17 22:13:11,104 [INFO] response: https://yandex.com/search/site/?text=%27Tatiana+Shaposhnik%27+vkontakte.ru&web=1&searchid=8558344 200
+2026-01-17 22:16:53,419 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%27Viktoriya%20Makar-zaretskaya%27%20vkontakte.ru 200
+2026-01-17 22:16:55,259 [INFO] response: https://grokipedia.com/api/typeahead?query=%27Viktoriya+Makar-zaretskaya%27+vkontakte.ru&limit=1 200
+2026-01-17 22:16:57,729 [INFO] response: https://www.mojeek.com/search?q=%27Viktoriya+Makar-zaretskaya%27+vkontakte.ru 200
+2026-01-17 22:17:00,749 [INFO] response: https://yandex.com/search/site/?text=%27Viktoriya+Makar-zaretskaya%27+vkontakte.ru&web=1&searchid=8932643 200
+2026-01-17 22:21:40,793 [INFO] response: https://grokipedia.com/api/typeahead?query=%27Sergey+Sha%27+vkontakte.ru&limit=1 200
+2026-01-17 22:21:41,075 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%27Sergey%20Sha%27%20vkontakte.ru 200
+2026-01-17 22:21:41,998 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 22:25:34,148 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 22:25:58,334 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Victoria%20Makar%20-zaretskaya%22%20Russia 200
+2026-01-17 22:25:59,757 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Victoria+Makar+-zaretskaya%22+Russia&limit=1 200
+2026-01-17 22:26:04,826 [INFO] Error in engine duckduckgo: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://yandex.com/search/site/?text=%22Victoria+Makar+-zaretskaya%22+Russia&web=1&searchid=2835373): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-01-17 22:26:05,210 [INFO] response: https://www.google.com/search?q=%22Victoria+Makar+-zaretskaya%22+Russia&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 22:26:05,673 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 22:28:16,598 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9%20%D0%A8%D0%B0%22%20Russia 200
+2026-01-17 22:28:17,423 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9+%D0%A8%D0%B0%22+Russia&limit=1 200
+2026-01-17 22:28:19,252 [INFO] response: https://search.yahoo.com/search;_ylt=9ZWOY0INWhYF3wwzaC-FuKae;_ylu=GsoQsku736rFRh5ofXDBpDUlsE3_e-6R5hEf1z-VBZVjgmQ?p=%22%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9+%D0%A8%D0%B0%22+Russia 200
+2026-01-17 22:28:21,170 [INFO] response: https://www.mojeek.com/search?q=%22%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9+%D0%A8%D0%B0%22+Russia 200
+2026-01-17 22:28:22,581 [INFO] response: https://search.brave.com/search?q=%22%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9+%D0%A8%D0%B0%22+Russia&source=web 200
+2026-01-17 22:33:29,801 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C&limit=1 200
+2026-01-17 22:33:33,357 [INFO] Error in engine grokipedia: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Viktoriya%20Makar%20-zaretskaya%22%20Ukraine%20M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-01-17 22:33:34,434 [INFO] response: https://search.yahoo.com/search;_ylt=5X_CkaNz_GF8O3YOLSAG5Vg3;_ylu=td8gLWPuZgR1HH5Fw4reMwIl5dbM7Tphnun9Qox_ttShhZI?p=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C 200
+2026-01-17 22:33:35,185 [INFO] response: https://search.brave.com/search?q=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C&source=web 429
+2026-01-17 22:33:35,597 [INFO] response: https://www.google.com/search?q=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 22:33:37,746 [INFO] response: https://yandex.com/search/site/?text=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C&web=1&searchid=6548336 200
+2026-01-17 22:33:39,554 [INFO] response: https://www.mojeek.com/search?q=%22Viktoriya+Makar+-zaretskaya%22+Ukraine+M%D0%B5%D0%BB%D0%B8%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C 200
+2026-01-17 22:33:40,655 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 22:34:00,826 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow&limit=1 200
+2026-01-17 22:34:01,451 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Tatiana%20Shaposnik%20Lazaruuk%22%20psychologist%20Moscow 200
+2026-01-17 22:34:01,881 [INFO] response: https://search.brave.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow&source=web 429
+2026-01-17 22:34:05,320 [INFO] response: https://yandex.com/search/site/?text=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow&web=1&searchid=4728851 200
+2026-01-17 22:34:07,299 [INFO] response: https://www.mojeek.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow 200
+2026-01-17 22:34:08,075 [INFO] response: https://search.yahoo.com/search;_ylt=qfwqTG7EGy-EuV65VANDAzM1;_ylu=cz8rNMI9rIM0u2g-pRhArlFbuIO6ZaeZEMiXGT6TfZslVSY?p=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow 200
+2026-01-17 22:34:08,797 [INFO] response: https://www.google.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+psychologist+Moscow&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 22:36:58,609 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22Tatiana%20Shaposnik%20Lazaruuk%22%20profession%20Moscow 200
+2026-01-17 22:36:59,072 [INFO] response: https://grokipedia.com/api/typeahead?query=%22Tatiana+Shaposnik+Lazaruuk%22+profession+Moscow&limit=1 200
+2026-01-17 22:37:01,870 [INFO] response: https://www.mojeek.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+profession+Moscow 200
+2026-01-17 22:37:03,066 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-17 22:37:03,352 [INFO] response: https://www.google.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+profession+Moscow&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-17 22:37:08,629 [INFO] response: https://yandex.com/search/site/?text=%22Tatiana+Shaposnik+Lazaruuk%22+profession+Moscow&web=1&searchid=1387298 200
+2026-01-17 22:37:08,639 [INFO] Error in engine yandex: TimeoutException("Request timed out: RuntimeError('request or response body error: request or response body error: operation timed out\\n\\nCaused by:\\n    0: request or response body error: operation timed out\\n    1: operation timed out')")
+2026-01-17 22:37:09,151 [INFO] response: https://search.brave.com/search?q=%22Tatiana+Shaposnik+Lazaruuk%22+profession+Moscow&source=web 429
+2026-01-17 22:37:13,755 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 22:37:24,695 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 22:37:35,222 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 22:38:26,501 [INFO] Response Status: 200
+2026-01-17 22:49:14,410 [INFO] Incoming Request: GET /keys
+2026-01-17 22:49:14,421 [INFO] Response Status: 404
+2026-01-17 22:49:14,434 [INFO] Incoming Request: GET /keys
+2026-01-17 22:49:14,438 [INFO] Response Status: 404
+2026-01-17 22:51:59,591 [INFO] Incoming Request: GET /keys
+2026-01-17 22:51:59,593 [INFO] Response Status: 404
+2026-01-17 22:51:59,629 [INFO] Incoming Request: GET /keys
+2026-01-17 22:51:59,633 [INFO] Response Status: 404
+2026-01-17 22:52:42,713 [INFO] Incoming Request: POST /analyze
+2026-01-17 22:52:44,680 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 22:52:45,011 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-17 22:52:45,541 [INFO] response: https://search.brave.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&source=web 429
+2026-01-17 22:52:46,505 [INFO] response: https://search.yahoo.com/search;_ylt=xMfGJr19TuenYGOLQfaU0djr;_ylu=ahrxBZ8uMnbwMIkBEln2FOi0cINhaIUCs7Ud9ZSJJ6qrZCk?p=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-17 22:52:48,766 [INFO] response: https://yandex.com/search/site/?text=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&web=1&searchid=3521466 200
+2026-01-17 23:07:18,079 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 23:16:57,162 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 23:19:45,662 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 23:19:59,968 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 23:20:36,717 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-17 23:21:28,769 [INFO] Response Status: 200
+2026-01-18 00:18:05,316 [INFO] Incoming Request: GET /keys
+2026-01-18 00:18:05,322 [INFO] Response Status: 404
+2026-01-18 00:18:05,334 [INFO] Incoming Request: GET /keys
+2026-01-18 00:18:05,334 [INFO] Response Status: 404
+2026-01-18 00:18:11,078 [INFO] Incoming Request: POST /analyze
+2026-01-18 00:25:17,421 [INFO] Response Status: 200
+2026-01-18 00:35:14,783 [INFO] Incoming Request: GET /api/keys
+2026-01-18 00:35:14,788 [INFO] Response Status: 200
+2026-01-18 00:35:14,800 [INFO] Incoming Request: GET /api/keys
+2026-01-18 00:35:14,801 [INFO] Response Status: 200
+2026-01-18 00:50:55,904 [INFO] Incoming Request: GET /api/keys
+2026-01-18 00:50:55,977 [INFO] Response Status: 200
+2026-01-18 00:50:55,992 [INFO] Incoming Request: GET /api/keys
+2026-01-18 00:50:55,998 [INFO] Response Status: 200
+2026-01-18 00:51:11,720 [INFO] Incoming Request: POST /api/analyze
+2026-01-18 00:57:33,646 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"

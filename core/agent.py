@@ -95,6 +95,8 @@ async def input_validation_node(state: AgentState):
         "visited_queries": [],
         "visited_urls": [],
         "gathered_data": [],
+        "timeline_events": [],
+        "connections": [],
         "depth": 0,
         "max_depth": 3  # INCREASED: Allows 3 rounds of expansion
     }
@@ -113,10 +115,18 @@ async def search_node(state: AgentState):
     profile = state["profile"]
     name = profile["name"]
     
-    # Strict filter keywords
-    filter_keywords = [name.lower()]
+    # RELAXED filter keywords: split name into parts for partial matching
+    name_parts = name.lower().split()
+    filter_keywords = name_parts.copy()  # ["павел", "столбовский"]
+    filter_keywords.append(name.lower())  # Full name too
     if profile.get("nickname"): filter_keywords.append(profile["nickname"].lower())
-    if profile.get("phone"): filter_keywords.append(profile["phone"])
+    if profile.get("phone"): 
+        phone = profile["phone"]
+        filter_keywords.append(phone)
+        # Also add phone without + and spaces
+        filter_keywords.append(phone.replace("+", "").replace(" ", "").replace("-", ""))
+    if profile.get("city"): filter_keywords.append(profile["city"].lower())
+
     
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
     
@@ -211,35 +221,28 @@ async def extraction_node(state: AgentState):
     
     context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(data)])
     
-    prompt = f"""You are an OSINT Hunter. Extract ALL valuable pivots from these data sources.
+    prompt = f"""You are an OSINT Hunter. Extract ALL valuable pivots, events, and connections.
 
 Looking for:
-1. Email addresses
-2. Usernames/handles (VK, Skype, Telegram, Instagram, Facebook)
-3. Phone numbers
-4. Profession/Job (psychologist, developer, etc.)
-5. Friends/Contacts names (especially from VK mirror sites like ru-world.net, profiles-vkontakte.ru, gomelin.com)
-6. Interests, hobbies, books, music (for personality profiling)
-7. Education, workplace info
-8. Geographic locations (cities where friends live)
+1. Email addresses, handles, phone numbers.
+2. TIMELINE EVENTS: Dates or years associated with the target (birth, graduation, job change, photo uploads).
+3. CONNECTIONS: Names of people often mentioned with the target (friends, relatives, colleagues).
+4. Profession/Job and geographic locations.
 
 Context:
 {context}
 
 Return JSON:
 {{
-  "new_search_queries": ["query1", "query2"],
-  "extracted_contacts": ["contact1", "contact2"],
-  "extracted_handles": ["@handle1", "skype:xxx"],
-  "profession": "if found",
-  "key_friends": ["friend names that appear frequently"]
+  "new_search_queries": ["query1"],
+  "timeline_events": [ {{ "date": "YYYY or DD.MM.YYYY", "event": "What happened", "source_url": "original source url" }} ],
+  "key_connections": ["Name 1", "Name 2"],
+  "profession": "if found"
 }}
 
 Rules:
-1. Queries must be specific.
-2. If you see VK friends list, extract top frequent names for "mutual connections" research.
-3. If profession found, create query like '"Name" profession city'.
-4. Extract Skype, VK handle if visible.
+1. If you see dates in snippets, create a timeline event.
+2. If you see a list of friends or coworkers, add them to key_connections.
 """
     try:
         res = llm.invoke([HumanMessage(content=prompt)])
@@ -247,23 +250,29 @@ Rules:
         try:
             parsed = json.loads(res.content)
             new_qs = parsed.get("new_search_queries", [])
-            print(f"[EXTRACTION] Found {len(new_qs)} new pivots: {new_qs}")
+            new_events = parsed.get("timeline_events", [])
+            new_conns = parsed.get("key_connections", [])
+            
+            print(f"[EXTRACTION] Found {len(new_qs)} new pivots, {len(new_events)} events.")
             
             current_q = state.get("search_queue", [])
             visited_q = state.get("visited_queries", [])
             
             final_q = current_q
             for q in new_qs:
-                # Sanitize: Ensure q is a string
-                if isinstance(q, dict):
-                    q = q.get("query") or str(q)
-                if not isinstance(q, str):
-                    q = str(q)
-                    
-                if q not in visited_q and q not in current_q:
+                if isinstance(q, str) and q not in visited_q and q not in current_q:
                     final_q.append(q)
             
-            return {"search_queue": final_q, "depth": depth + 1}
+            # Combine and deduplicate
+            events = state.get("timeline_events", []) + new_events
+            connections = list(set(state.get("connections", []) + new_conns))
+            
+            return {
+                "search_queue": final_q, 
+                "timeline_events": events,
+                "connections": connections,
+                "depth": depth + 1
+            }
             
         except:
             return {"depth": depth + 1}
@@ -297,30 +306,35 @@ Additional Clues: {profile.get('other_clues', 'Unknown')}
     for i, item in enumerate(data, start=1):
         sources_str += f"\nSOURCE {i} ({item['title']}):\n{item['url']}\n{item['snippet'][:1000]}\n---\n"
 
+    timeline_str = "\n".join([f"- {e['date']}: {e['event']} (Source: {e['source_url']})" for e in state.get("timeline_events", [])])
+    connections_str = ", ".join(state.get("connections", []))
+
     prompt = f"""You are a STRICT OSINT DATA ANALYST.
 {target_section}
 
 EVIDENCE COLLECTED:
 {sources_str}
 
+EXTRACTED TIMELINE:
+{timeline_str}
+
+SOCIAL CONNECTIONS:
+{connections_str}
+
 TASK: Build a confirmed digital dossier.
+ENTITY RESOLUTION: Use the timeline and social connections to verify if the data belongs to the SAME PERSON.
+
 HARD RULES:
 1. JSON output only.
-2. "is_person_found": boolean (Only true if name/context matches target perfectly).
-3. "matched_sources": list of dicts {{ "title", "url", "reason" }}.
-4. "facts": list of strings (biographical facts, job, education).
-5. "digital_footprint": {{
-     "emails": ["confirmed emails"], 
-     "phones": ["confirmed phone numbers"], 
-     "social_links": ["URLs to VK, OK, TG, etc."],
-     "handles": ["@nicknames found"]
-   }},
-6. "uncertain": list of strings (data that might belong to another person).
-7. "notes": string.
+2. "is_person_found": boolean.
+3. "matched_sources": list of dicts.
+4. "facts": list.
+5. "digital_footprint": {{ "emails", "phones", "social_links", "handles" }}.
+6. "timeline": [ {{ "date", "event", "source" }} ].
+7. "social_graph": [ {{ "name", "relation_context" }} ].
+8. "uncertain": list.
+9. "notes": string.
 
-VERIFICATION RULE: 
-If a phone number or email is found, explain WHY you think it belongs to {profile.get('name', 'the target')} in the "notes" or "facts". 
-If the name is common, be extra skeptical.
 Analyze now."""
 
     try:

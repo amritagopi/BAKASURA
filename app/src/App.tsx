@@ -254,7 +254,15 @@ function App() {
 
               {(() => {
                 let parsed;
-                const responseContent = typeof result.response === 'string' ? result.response : JSON.stringify(result.response);
+                const responseContent = typeof result.response === 'string' ? result.response : JSON.stringify(result.response || {});
+
+                if (!responseContent || responseContent === '{}' || responseContent === 'null') {
+                  return (
+                    <div style={{ color: '#f87171', fontSize: '1.1rem', padding: '1rem', background: 'rgba(255,0,0,0.05)', borderRadius: '8px' }}>
+                      ⚠️ Поиск не дал результатов. Попробуй добавить больше деталей (город, никнейм, телефон) или проверь подключение к интернету.
+                    </div>
+                  );
+                }
 
                 try {
                   // Clean up markdown code blocks if present (just in case backend missed it)
@@ -262,7 +270,10 @@ function App() {
                   if (cleanJson.includes("```json")) {
                     cleanJson = cleanJson.replace(/```json/g, "").replace(/```/g, "");
                   }
-                  parsed = JSON.parse(cleanJson);
+                  if (cleanJson.includes("```")) {
+                    cleanJson = cleanJson.replace(/```/g, "");
+                  }
+                  parsed = JSON.parse(cleanJson.trim());
                 } catch (e) {
                   return (
                     <div style={{ color: 'var(--text-main)', fontSize: '1.1rem', lineHeight: '1.6', whiteSpace: 'pre-line' }}>
@@ -270,6 +281,7 @@ function App() {
                     </div>
                   );
                 }
+
 
                 return (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -354,16 +366,16 @@ function App() {
                             </div>
                           )}
                           {parsed.digital_footprint.social_links?.length > 0 && (
-                             <div style={{ gridColumn: '1 / -1' }}>
-                               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Social Profiles</div>
-                               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.25rem' }}>
-                                 {parsed.digital_footprint.social_links.map((link: string, i: number) => (
-                                   <a key={i} href={link} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontSize: '0.9rem' }}>
-                                     {new URL(link).hostname.replace('www.', '')}
-                                   </a>
-                                 ))}
-                               </div>
-                             </div>
+                            <div style={{ gridColumn: '1 / -1' }}>
+                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Social Profiles</div>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.25rem' }}>
+                                {parsed.digital_footprint.social_links.map((link: string, i: number) => (
+                                  <a key={i} href={link} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontSize: '0.9rem' }}>
+                                    {new URL(link).hostname.replace('www.', '')}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
                           )}
                         </div>
                       </div>
@@ -380,24 +392,71 @@ function App() {
                               Evidence: {parsed.personality_analysis.personality_type?.source_evidence}
                             </div>
                           </div>
-                          
+
                           {parsed.personality_analysis.summary && (
                             <div style={{ fontStyle: 'italic', color: '#ccc', borderLeft: '2px solid #a855f7', paddingLeft: '1rem' }}>
                               "{parsed.personality_analysis.summary}"
                             </div>
                           )}
-                          
+
                           {parsed.personality_analysis.red_flags?.length > 0 && (
                             <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
                               <div style={{ color: '#f87171', fontWeight: 'bold', fontSize: '0.8rem', marginBottom: '0.5rem' }}>RED FLAGS</div>
                               {parsed.personality_analysis.red_flags.map((flag: any, i: number) => (
                                 <div key={i} style={{ marginBottom: '0.5rem' }}>
-                                  • {flag.flag} <br/>
+                                  • {flag.flag} <br />
                                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Ref: {flag.source_evidence}</span>
                                 </div>
                               ))}
                             </div>
                           )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Timeline */}
+                    {parsed.timeline?.length > 0 && (
+                      <div style={{ marginTop: '1.5rem' }}>
+                        <h4 style={{ color: '#fbbf24', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.85rem' }}>⌛ Operational Timeline</h4>
+                        <div style={{ position: 'relative', paddingLeft: '2rem', borderLeft: '2px solid #333' }}>
+                          {parsed.timeline.map((event: any, i: number) => (
+                            <div key={i} style={{ marginBottom: '1.5rem', position: 'relative' }}>
+                              <div style={{
+                                position: 'absolute',
+                                left: '-2.45rem',
+                                top: '0.25rem',
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: 'var(--primary)',
+                                boxShadow: '0 0 10px var(--primary)'
+                              }} />
+                              <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold' }}>{event.date}</div>
+                              <div style={{ color: '#eee', fontSize: '0.95rem' }}>{event.event}</div>
+                              {event.source && <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>via {new URL(event.source).hostname}</div>}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Social Graph */}
+                    {parsed.social_graph?.length > 0 && (
+                      <div style={{ marginTop: '1.5rem' }}>
+                        <h4 style={{ color: '#6366f1', marginBottom: '0.75rem', textTransform: 'uppercase', fontSize: '0.85rem' }}>🔗 Social Connections</h4>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                          {parsed.social_graph.map((person: any, i: number) => (
+                            <div key={i} style={{
+                              padding: '0.4rem 0.8rem',
+                              background: 'rgba(99, 102, 241, 0.1)',
+                              border: '1px solid rgba(99, 102, 241, 0.3)',
+                              borderRadius: '20px',
+                              fontSize: '0.85rem',
+                              color: '#a5b4fc'
+                            }}>
+                              {person.name} <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>({person.relation_context})</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
