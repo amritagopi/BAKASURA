@@ -29,7 +29,8 @@ def search_brave(query: str, max_results: int = 10) -> List[Dict[str, str]]:
         params = {
             "q": query,
             "count": max_results,
-            "safesearch": "off"
+            "safesearch": "off",
+            "text_decorations": 0
         }
         resp = requests.get(
             "https://api.search.brave.com/res/v1/web/search",
@@ -38,14 +39,8 @@ def search_brave(query: str, max_results: int = 10) -> List[Dict[str, str]]:
             timeout=15
         )
         
-        if resp.status_code == 429:
-            print("[BRAVE API] Rate limit exceeded, continuing...")
-            return []
-        if resp.status_code == 401:
-            print("[BRAVE API] Invalid API key, continuing...")
-            return []
         if resp.status_code != 200:
-            print(f"[BRAVE API] Error {resp.status_code}, continuing...")
+            print(f"[BRAVE API] Error {resp.status_code}: {resp.text}")
             return []
         
         data = resp.json()
@@ -57,11 +52,17 @@ def search_brave(query: str, max_results: int = 10) -> List[Dict[str, str]]:
                 "body": item.get("description", "")
             })
         
+        # RETRY LOGIC: If 0 results and query has quotes, try without quotes
+        if not results and '"' in query:
+            print("[BRAVE API] 0 results with quotes, retrying without quotes...")
+            simplified_query = query.replace('"', '')
+            return search_brave(simplified_query, max_results)
+
         print(f"[BRAVE API] Found {len(results)} results")
         return results
         
     except Exception as e:
-        print(f"[BRAVE API] Error: {e}, continuing...")
+        print(f"[BRAVE API] Error: {e}")
         return []
 
 

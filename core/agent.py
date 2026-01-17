@@ -115,17 +115,20 @@ async def search_node(state: AgentState):
     profile = state["profile"]
     name = profile["name"]
     
-    # RELAXED filter keywords: split name into parts for partial matching
-    name_parts = name.lower().split()
-    filter_keywords = name_parts.copy()  # ["павел", "столбовский"]
-    filter_keywords.append(name.lower())  # Full name too
-    if profile.get("nickname"): filter_keywords.append(profile["nickname"].lower())
-    if profile.get("phone"): 
+    # PRIMARY keywords (Must have at least one of these)
+    primary_keywords = name_parts.copy()
+    primary_keywords.append(name.lower())
+    if profile.get("nickname"): primary_keywords.append(profile["nickname"].lower())
+    if profile.get("phone"):
         phone = profile["phone"]
-        filter_keywords.append(phone)
-        # Also add phone without + and spaces
-        filter_keywords.append(phone.replace("+", "").replace(" ", "").replace("-", ""))
-    if profile.get("city"): filter_keywords.append(profile["city"].lower())
+        primary_keywords.append(phone)
+        primary_keywords.append(phone.replace("+", "").replace(" ", "").replace("-", ""))
+
+    # SECONDARY keywords (Good for confirmation but not enough alone)
+    secondary_keywords = []
+    if profile.get("city"): secondary_keywords.append(profile["city"].lower())
+    if profile.get("country"): secondary_keywords.append(profile["country"].lower())
+    if profile.get("other_clues"): secondary_keywords.extend(profile["other_clues"].lower().split())
 
     
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
@@ -157,7 +160,6 @@ async def search_node(state: AgentState):
             visited_u.add(url)
             
             print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
-            print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
             try:
                 # USE NEW SCRAPER - ASYNC WAIT
                 clean_text = await fetch_dynamic_page(url)
@@ -170,20 +172,19 @@ async def search_node(state: AgentState):
                 clean_text = " ".join(clean_text.split())
                 lower_text = clean_text.lower()
                 
-                # PRE-FILTER
-                # Relaxed: Check Text OR URL for identity match
-                text_match = any(k in lower_text for k in filter_keywords if k)
-                url_match = any(k in url.lower() for k in filter_keywords if k)
+                # STRICTER FILTER: Must match at least ONE primary keyword
+                text_match_primary = any(k in lower_text for k in primary_keywords if k)
+                url_match_primary = any(k in url.lower() for k in primary_keywords if k)
                 
-                if not (text_match or url_match):
-                    print(f"[FILTER] Dropped {url[:40]} - No identity match in Text or URL.")
+                if not (text_match_primary or url_match_primary):
+                    print(f"[FILTER] Dropped {url[:40]} - No Primary Identity Match (Name/Nick/Phone).")
                     continue
                     
                 print(f"[FETCH] ACCEPTED: {url[:60]}")
                 item: SourceItem = {
                     "title": title[:200],
                     "url": url,
-                    "snippet": clean_text[:15000]  # INCREASED for deeper analysis
+                    "snippet": clean_text[:8000]  # Reduced for stability, still plenty for LLM
                 }
                 new_items.append(item)
                 
@@ -243,6 +244,8 @@ Return JSON:
 Rules:
 1. If you see dates in snippets, create a timeline event.
 2. If you see a list of friends or coworkers, add them to key_connections.
+3. CRITICAL: Only add specific personal identifiers (unique handles, full names, emails) to "new_search_queries". 
+4. DO NOT add generic city names, generic company names, or common words as separate queries.
 """
     try:
         res = llm.invoke([HumanMessage(content=prompt)])
@@ -259,8 +262,18 @@ Rules:
             visited_q = state.get("visited_queries", [])
             
             final_q = current_q
+            # Blacklist generic terms
+            blacklist = ["барнаул", "россия", "алтайский край", "администрация", "город"]
+            
             for q in new_qs:
-                if isinstance(q, str) and q not in visited_q and q not in current_q:
+                if isinstance(q, str) and q.strip():
+                    q_lower = q.lower()
+                    # Skip if too short or in blacklist or already visited
+                    if len(q_lower) < 4 or q_lower in blacklist or q_lower in visited_q or q in current_q:
+                        continue
+                    # Skip if it's just the city name provided in profile
+                    if profile.get("city") and q_lower == profile["city"].lower():
+                        continue
                     final_q.append(q)
             
             # Combine and deduplicate
