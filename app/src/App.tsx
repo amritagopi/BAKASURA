@@ -334,6 +334,74 @@ function App() {
                       </div>
                     )}
 
+                    {/* Digital Footprint */}
+                    {parsed.digital_footprint && (
+                      <div style={{ background: 'rgba(255, 69, 0, 0.05)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px border var(--border-subtle)' }}>
+                        <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', textTransform: 'uppercase', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <Skull size={16} /> Digital Footprint
+                        </h4>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                          {parsed.digital_footprint.emails?.length > 0 && (
+                            <div>
+                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Emails</div>
+                              {parsed.digital_footprint.emails.map((e: string, i: number) => <div key={i} style={{ color: '#4ade80' }}>{e}</div>)}
+                            </div>
+                          )}
+                          {parsed.digital_footprint.phones?.length > 0 && (
+                            <div>
+                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Phones</div>
+                              {parsed.digital_footprint.phones.map((p: string, i: number) => <div key={i} style={{ color: '#60a5fa' }}>{p}</div>)}
+                            </div>
+                          )}
+                          {parsed.digital_footprint.social_links?.length > 0 && (
+                             <div style={{ gridColumn: '1 / -1' }}>
+                               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Social Profiles</div>
+                               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.25rem' }}>
+                                 {parsed.digital_footprint.social_links.map((link: string, i: number) => (
+                                   <a key={i} href={link} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontSize: '0.9rem' }}>
+                                     {new URL(link).hostname.replace('www.', '')}
+                                   </a>
+                                 ))}
+                               </div>
+                             </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Personality Analysis (if merged) */}
+                    {parsed.personality_analysis && (
+                      <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '1.5rem' }}>
+                        <h4 style={{ color: '#a855f7', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.9rem' }}>Psychological Profile</h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                          <div style={{ background: '#111', padding: '1rem', borderRadius: '8px' }}>
+                            <div style={{ color: '#a855f7', fontWeight: 'bold' }}>Type: {parsed.personality_analysis.personality_type?.value}</div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                              Evidence: {parsed.personality_analysis.personality_type?.source_evidence}
+                            </div>
+                          </div>
+                          
+                          {parsed.personality_analysis.summary && (
+                            <div style={{ fontStyle: 'italic', color: '#ccc', borderLeft: '2px solid #a855f7', paddingLeft: '1rem' }}>
+                              "{parsed.personality_analysis.summary}"
+                            </div>
+                          )}
+                          
+                          {parsed.personality_analysis.red_flags?.length > 0 && (
+                            <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+                              <div style={{ color: '#f87171', fontWeight: 'bold', fontSize: '0.8rem', marginBottom: '0.5rem' }}>RED FLAGS</div>
+                              {parsed.personality_analysis.red_flags.map((flag: any, i: number) => (
+                                <div key={i} style={{ marginBottom: '0.5rem' }}>
+                                  • {flag.flag} <br/>
+                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Ref: {flag.source_evidence}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Uncertain / Notes */}
                     {((Array.isArray(parsed.uncertain) && parsed.uncertain.length > 0) || parsed.notes) && (
                       <div style={{ background: '#151515', padding: '1rem', borderRadius: 'var(--radius-md)' }}>

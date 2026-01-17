@@ -31,6 +31,12 @@ class SourceItem(TypedDict):
     url: str
     snippet: str
 
+class TimelineEvent(TypedDict):
+    """A point in time for the target's life."""
+    date: str
+    event: str
+    source_url: str
+
 class AgentState(TypedDict):
     """The working memory of the demon."""
     messages: List[BaseMessage]
@@ -41,6 +47,10 @@ class AgentState(TypedDict):
     search_queue: List[str]          # Queries waiting to be executed
     visited_queries: List[str]       # Queries strictly already executed
     visited_urls: List[str]          # URLs already fetched to avoid cycles
+    
+    # Advanced Intelligence
+    timeline_events: List[TimelineEvent]
+    connections: List[str]            # Mutual friends / frequent associations
     
     depth: int                       # Current recursion depth
     max_depth: int                   # Max recursion limit
@@ -287,28 +297,37 @@ Additional Clues: {profile.get('other_clues', 'Unknown')}
     for i, item in enumerate(data, start=1):
         sources_str += f"\nSOURCE {i} ({item['title']}):\n{item['url']}\n{item['snippet'][:1000]}\n---\n"
 
-    prompt = f"""You are a STRICT DATA ANALYST.
+    prompt = f"""You are a STRICT OSINT DATA ANALYST.
 {target_section}
 
 EVIDENCE COLLECTED:
 {sources_str}
 
-TASK: Build a confirmed dossier.
+TASK: Build a confirmed digital dossier.
 HARD RULES:
 1. JSON output only.
-2. "is_person_found": boolean.
+2. "is_person_found": boolean (Only true if name/context matches target perfectly).
 3. "matched_sources": list of dicts {{ "title", "url", "reason" }}.
-4. "facts": list of strings.
-5. "uncertain": list of strings.
-6. "notes": string.
+4. "facts": list of strings (biographical facts, job, education).
+5. "digital_footprint": {{
+     "emails": ["confirmed emails"], 
+     "phones": ["confirmed phone numbers"], 
+     "social_links": ["URLs to VK, OK, TG, etc."],
+     "handles": ["@nicknames found"]
+   }},
+6. "uncertain": list of strings (data that might belong to another person).
+7. "notes": string.
 
+VERIFICATION RULE: 
+If a phone number or email is found, explain WHY you think it belongs to {profile.get('name', 'the target')} in the "notes" or "facts". 
+If the name is common, be extra skeptical.
 Analyze now."""
 
     try:
         response = llm.invoke([HumanMessage(content=prompt)])
-        return {"messages": [response]}
+        return {"messages": state.get("messages", []) + [response]}
     except Exception as e:
-        return {"messages": [SystemMessage(content=f"Error: {e}")]}
+        return {"messages": state.get("messages", []) + [SystemMessage(content=f"Error: {e}")]}
 
 
 async def personality_node(state: AgentState):
@@ -325,47 +344,71 @@ async def personality_node(state: AgentState):
         return {}  # Skip if no data
     
     # Combine all text for deep analysis
-    all_text = "\n\n".join([
-        f"=== SOURCE: {d['title']} ===\n{d['snippet'][:5000]}" 
-        for d in data[:5]  # Top 5 sources
-    ])
+    all_text = ""
+    for i, d in enumerate(data[:10]): # Top 10 sources
+        all_text += f"SOURCE_ID_{i}: {d['title']}\nURL: {d['url']}\nCONTENT: {d['snippet'][:3000]}\n===\n"
     
-    prompt = f"""You are a PSYCHOLOGICAL PROFILER. Analyze the following content about this person:
+    prompt = f"""You are an EXPERT CRIMINOLOGIST and PSYCHOLOGICAL PROFILER. 
+Analyze the following OSINT data about: {profile.get('name', 'Unknown')}
 
-TARGET: {profile.get('name', 'Unknown')}
+COLLECTED DATA:
+{all_text[:25000]}
 
-COLLECTED CONTENT:
-{all_text[:20000]}
+TASK: 
+Create a nuanced psychological profile. 
+CRITICAL RULE: For EVERY observation, you MUST provide a "source_evidence" string explaining exactly which source and what text led to this conclusion. 
 
-Create a psychological profile. Return JSON with these fields:
+Rules to avoid bias:
+1. Do NOT confuse the nature of the website (e.g., social media aggregator) with the person's personality. 
+2. Having a social media profile or photos is NORMAL, not "exhibitionism" or "attention-seeking" unless the content itself is extreme or overtly suggestive.
+3. Be respectful and objective. If no data exists for a field, state "Insufficient data".
 
+Return JSON with these fields:
 {{
-  "personality_type": "Brief description (e.g., 'Extrovert, creative, ambitious')",
-  "interests": ["list", "of", "interests"],
-  "communication_style": "How they express themselves",
-  "values": ["what they seem to value"],
-  "intelligence_markers": "Observations about intellect/education",
-  "emotional_patterns": "Emotional tendencies observed",
-  "social_behavior": "How they interact with others",
-  "consistency": "Are their statements/views consistent?",
-  "red_flags": ["Any concerning patterns or inconsistencies"],
-  "positive_traits": ["Notable positive characteristics"],
-  "summary": "2-3 sentence overall impression"
+  "personality_type": {{ "value": "description", "source_evidence": "quote or citation" }},
+  "interests": [ {{ "item": "name", "source_evidence": "..." }} ],
+  "communication_style": {{ "value": "...", "source_evidence": "..." }},
+  "values": [ {{ "item": "...", "source_evidence": "..." }} ],
+  "intelligence_markers": {{ "value": "...", "source_evidence": "..." }},
+  "emotional_patterns": {{ "value": "...", "source_evidence": "..." }},
+  "social_behavior": {{ "value": "...", "source_evidence": "..." }},
+  "consistency": {{ "value": "...", "source_evidence": "..." }},
+  "red_flags": [ {{ "flag": "...", "source_evidence": "..." }} ],
+  "positive_traits": [ {{ "trait": "...", "source_evidence": "..." }} ],
+  "summary": "Overall impression based ONLY on the evidence above."
 }}
-
-Be objective. Base conclusions ONLY on evidence in the text. If unsure, say so."""
+"""
 
     try:
         response = llm.invoke([HumanMessage(content=prompt)])
-        # Store in messages for frontend
         import json
         try:
-            parsed = json.loads(response.content)
-            # Create a formatted message for display
-            profile_msg = f"PERSONALITY PROFILE:\n{json.dumps(parsed, indent=2, ensure_ascii=False)}"
-            return {"messages": state.get("messages", []) + [SystemMessage(content=profile_msg)]}
+            personality_data = json.loads(response.content)
+            # Try to find the dossier in previous messages
+            messages = state.get("messages", [])
+            dossier = {}
+            if messages:
+                content = messages[-1].content
+                try:
+                    # Strip markdown if needed
+                    clean_json = content
+                    if "```json" in content:
+                        clean_json = content.split("```json")[-1].split("```")[0].strip()
+                    elif "```" in content:
+                        clean_json = content.split("```")[-2].strip()
+                    dossier = json.loads(clean_json)
+                except: pass
+            
+            if dossier and isinstance(dossier, dict):
+                # MERGE: Add personality to the main report
+                dossier["personality_analysis"] = personality_data
+                return {"messages": messages + [SystemMessage(content=json.dumps(dossier, ensure_ascii=False))]}
+            else:
+                # Fallback: Just return personality
+                profile_msg = f"PERSONALITY PROFILE (WITH EVIDENCE):\n{json.dumps(personality_data, indent=2, ensure_ascii=False)}"
+                return {"messages": messages + [SystemMessage(content=profile_msg)]}
         except:
-            return {}
+            return {"messages": state.get("messages", []) + [response]}
     except Exception as e:
         print(f"[PERSONALITY] Error: {e}")
         return {}

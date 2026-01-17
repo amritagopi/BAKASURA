@@ -878,3 +878,7 @@ NotImplementedError
 2026-01-17 21:28:02,835 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-17 21:28:32,059 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-17 21:28:49,028 [INFO] Response Status: 200
+2026-01-17 21:32:51,233 [INFO] Incoming Request: GET /keys
+2026-01-17 21:32:51,246 [INFO] Response Status: 404
+2026-01-17 21:32:51,285 [INFO] Incoming Request: GET /keys
+2026-01-17 21:32:51,291 [INFO] Response Status: 404
