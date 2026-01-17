@@ -116,6 +116,7 @@ async def search_node(state: AgentState):
     name = profile["name"]
     
     # PRIMARY keywords (Must have at least one of these)
+    name_parts = name.lower().split()
     primary_keywords = name_parts.copy()
     primary_keywords.append(name.lower())
     if profile.get("nickname"): primary_keywords.append(profile["nickname"].lower())

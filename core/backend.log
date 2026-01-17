@@ -993,3 +993,9 @@ NotImplementedError
 2026-01-18 01:11:59,151 [INFO] Response Status: 500
 2026-01-18 01:12:32,413 [INFO] Incoming Request: POST /api/analyze
 2026-01-18 01:12:32,419 [INFO] Response Status: 500
+2026-01-18 01:12:55,060 [INFO] Incoming Request: GET /api/keys
+2026-01-18 01:12:55,068 [INFO] Response Status: 200
+2026-01-18 01:12:55,087 [INFO] Incoming Request: GET /api/keys
+2026-01-18 01:12:55,133 [INFO] Response Status: 200
+2026-01-18 01:13:00,932 [INFO] Incoming Request: POST /api/analyze
+2026-01-18 01:13:00,941 [INFO] Response Status: 500
