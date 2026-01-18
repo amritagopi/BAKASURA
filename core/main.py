@@ -183,8 +183,11 @@ async def analyze_target(request: AnalysisRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    # loop="asyncio" uses the standard asyncio policy we set at the top of the file
-    # reload=False is CRITICAL on Windows because the reloader spawns child processes 
-    # that might reset the loop policy or fail to inherit it correctly.
-    print("[SYSTEM] Starting Bakasura Brain on Windows Proactor Loop...")
-    uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=False, loop="asyncio")
+    print("[SYSTEM] Starting Bakasura Brain...")
+    
+    # CRITICAL: Force Proactor Loop policy BEFORE uvicorn starts
+    if sys.platform == 'win32':
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+        
+    # Удаляем loop="asyncio", пусть uvicorn сам подхватит нашу политику
+    uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=False)
