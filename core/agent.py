@@ -136,11 +136,6 @@ async def search_node(state: AgentState):
         primary_keywords.append(phone)
         primary_keywords.append(phone.replace("+", "").replace(" ", "").replace("-", ""))
     
-    # SECONDARY keywords (Good for confirmation but not enough alone)
-    secondary_keywords = []
-    if profile.get("city"): secondary_keywords.append(profile["city"].lower())
-    if profile.get("country"): secondary_keywords.append(profile["country"].lower())
-    if profile.get("other_clues"): secondary_keywords.extend(profile["other_clues"].lower().split())
     
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
     
@@ -202,31 +197,13 @@ async def search_node(state: AgentState):
                 
                 # 2. Secondary Context Match (City/Country/Found IDs)
                 found_ids = state.get("found_identifiers", [])
-                text_match_secondary = any(k in lower_text for k in secondary_keywords + found_ids if k)
                 
-                # FIX #2: IMPROVED RELEVANCY LOGIC (less aggressive filtering)
-                # Old logic was too strict: required BOTH primary AND secondary
-                # New logic: more balanced scoring approach
                 
-                if is_pivot_search:
-                    # Pivot searches must have primary name (strict)
-                    if not text_match_primary:
-                        print(f"[FILTER] Dropped {url[:40]} - Pivot search but target name '{name}' not found on page.")
-                        continue
-                else:
-                    # Regular searches: require primary match
-                    # OR require primary in URL + secondary on page
-                    # This allows relevant results that match on primary keyword
-                    if text_match_primary:
-                        # Found primary keyword on page - good enough
-                        pass
-                    elif url_match_primary and text_match_secondary:
-                        # Found primary in URL + secondary on page - also good
-                        pass
-                    else:
-                        # Didn't meet criteria
-                        print(f"[FILTER] Dropped {url[:40]} - No primary match or insufficient context.")
-                        continue
+                # SIMPLE FILTER LOGIC (reverted to original, working version)
+                # Accept if name/nickname/phone appears in text OR url
+                if not (text_match_primary or url_match_primary):
+                    print(f"[FILTER] Dropped {url[:40]} - No identity match in Text or URL.")
+                    continue
                 
                 print(f"[FETCH] ACCEPTED: {url[:60]}")
                 item: SourceItem = {
