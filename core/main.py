@@ -85,11 +85,58 @@ class AnalysisRequest(BaseModel):
 
 # --- Endpoints ---
 
-@app.get("/")
+@app.get("/health")
 def health_check():
     return {"status": "alive", "message": "Bakasura is hungry."}
 
-@app.post("/analyze")
+class SettingsRequest(BaseModel):
+    # Using names from config.py SERVICES list
+    brave_search: Optional[str] = None
+    exa_ai: Optional[str] = None
+    hunter_io: Optional[str] = None
+    hibp: Optional[str] = None
+    shodan: Optional[str] = None
+    fullcontact: Optional[str] = None
+    clearbit: Optional[str] = None
+    social_searcher: Optional[str] = None
+
+from config import load_keys, save_keys, SERVICES
+
+@app.post("/api/settings")
+async def save_settings(settings: SettingsRequest):
+    """Saves API keys using core.config utility"""
+    try:
+        data = load_keys()
+        
+        # Update keys if present in request
+        settings_dict = settings.model_dump(exclude_unset=True)
+        for key, value in settings_dict.items():
+            if value is not None:
+                data[key] = value
+            
+        if save_keys(data):
+            return {"status": "success", "message": "Settings saved."}
+        else:
+            raise Exception("save_keys returned False")
+    except Exception as e:
+        logger.error(f"Failed to save settings: {e}")
+        raise HTTPException(status_code=500, detail="Failed to save settings.")
+
+@app.get("/api/settings")
+async def get_settings():
+    """Returns the current API keys (masked) using core.config utility"""
+    try:
+        data = load_keys()
+        # Create a response with all known services, masked
+        resp = {}
+        for service in SERVICES:
+            val = data.get(service, "")
+            resp[service] = val[:4] + "****" if val else ""
+        return resp
+    except Exception:
+        return {s: "" for s in SERVICES}
+
+@app.post("/api/analyze")
 async def analyze_target(request: AnalysisRequest):
     """
     Triggers the LangGraph workflow.

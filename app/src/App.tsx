@@ -31,6 +31,45 @@ function App() {
   const [isThinking, setIsThinking] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [apiKeys, setApiKeys] = useState<{ [key: string]: string }>({
+    brave_search: '',
+    exa_ai: '',
+    hunter_io: '',
+    hibp: '',
+    shodan: '',
+    fullcontact: '',
+    clearbit: '',
+    social_searcher: ''
+  });
+
+  const fetchSettings = async () => {
+    try {
+      const resp = await fetch('/api/settings');
+      if (resp.ok) {
+        const data = await resp.json();
+        setApiKeys(prev => ({ ...prev, ...data }));
+      }
+    } catch (err) {
+      console.error('Failed to fetch settings', err);
+    }
+  };
+
+  const saveSettings = async () => {
+    try {
+      const resp = await fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiKeys),
+      });
+      if (resp.ok) {
+        setShowSettings(false);
+        fetchSettings();
+      }
+    } catch (err) {
+      alert('Failed to save settings');
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -71,11 +110,17 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <div className="title">
+        <div className="title" onClick={() => setResult(null)} style={{ cursor: 'pointer' }}>
           <Skull size={32} />
           <span>Bakasura</span>
         </div>
-        <div className="status">
+        <div className="status" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <button
+            onClick={() => { setShowSettings(true); fetchSettings(); }}
+            style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
+          >
+            Settings
+          </button>
           {isThinking ? (
             <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>HUNTING...</span>
           ) : (
@@ -83,6 +128,66 @@ function App() {
           )}
         </div>
       </header>
+
+      {showSettings && (
+        <div className="modal-overlay" style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div className="card" style={{ width: '500px', maxWidth: '95%', maxHeight: '90vh', overflowY: 'auto' }}>
+            <h2 className="label" style={{ marginBottom: '1.5rem' }}>OSINT API Protocol</h2>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="input-group">
+                <label className="label">Brave Search</label>
+                <input className="input" type="password" placeholder="brave_..." value={apiKeys.brave_search}
+                  onChange={(e) => setApiKeys({ ...apiKeys, brave_search: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Exa (Metaphor)</label>
+                <input className="input" type="password" placeholder="exa_..." value={apiKeys.exa_ai}
+                  onChange={(e) => setApiKeys({ ...apiKeys, exa_ai: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Hunter.io</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.hunter_io}
+                  onChange={(e) => setApiKeys({ ...apiKeys, hunter_io: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">HIBP (Pwned)</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.hibp}
+                  onChange={(e) => setApiKeys({ ...apiKeys, hibp: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Shodan</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.shodan}
+                  onChange={(e) => setApiKeys({ ...apiKeys, shodan: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">FullContact</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.fullcontact}
+                  onChange={(e) => setApiKeys({ ...apiKeys, fullcontact: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Clearbit</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.clearbit}
+                  onChange={(e) => setApiKeys({ ...apiKeys, clearbit: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Social Searcher</label>
+                <input className="input" type="password" placeholder="key..." value={apiKeys.social_searcher}
+                  onChange={(e) => setApiKeys({ ...apiKeys, social_searcher: e.target.value })} />
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+              <button className="btn" onClick={saveSettings}>SAVE PROTOCOL</button>
+              <button className="btn" style={{ background: '#333' }} onClick={() => setShowSettings(false)}>ABORT</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main>
         {!isThinking && !result && (
