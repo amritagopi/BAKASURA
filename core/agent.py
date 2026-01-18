@@ -5,6 +5,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, BaseMessage
 import sys
 import os
 import time
+import asyncio
 # Ensure we can import our rust extension (Optional backup)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 # IMPORT NEW SCRAPER
@@ -109,7 +110,7 @@ async def input_validation_node(state: AgentState):
         "connections": [],
         "found_identifiers": [],
         "depth": 0,
-        "max_depth": 3
+        "max_depth": 5
     }
 
 async def search_node(state: AgentState):
@@ -140,9 +141,7 @@ async def search_node(state: AgentState):
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
     
     new_items: List[SourceItem] = []
-    queries_to_run = []
-    
-    # Identify if we are in a "pivot" search (not searching for primary name)
+    queries_to_run_actual = []
     is_pivot_search = False
     
     for q in queue:
@@ -156,65 +155,77 @@ async def search_node(state: AgentState):
             if profile["name"].lower() not in q.lower():
                 is_pivot_search = True
             
-            queries_to_run.append(q)
+            queries_to_run_actual.append(q)
             visited_q.append(q)
-            if len(queries_to_run) >= 5:
+            if len(queries_to_run_actual) >= 10:
                 break
     
-    if not queries_to_run:
+    if not queries_to_run_actual:
         print("[SEARCH] No new queries to run.")
         return {"search_queue": []}
     
-    for q in queries_to_run:
+    # 2. Parallel Search and Fetch
+    search_tasks = []
+    for q in queries_to_run_actual:
         print(f"[SEARCH] Hunting: {q}")
-        links = perform_search(q, max_results=10) # INCREASED: 10 results per query
+        search_tasks.append(asyncio.to_thread(perform_search, q, max_results=20))
+    
+    search_results = await asyncio.gather(*search_tasks)
+    
+    all_links = []
+    for results in search_results:
+        all_links.extend(results)
+    
+    # Deduplicate links by URL across all queries
+    unique_links = []
+    seen_step_urls = set()
+    for link in all_links:
+        u = link["href"]
+        if u not in visited_u and u not in seen_step_urls:
+            unique_links.append(link)
+            seen_step_urls.add(u)
+    
+    # Batch fetch pages
+    async def safe_fetch(link):
+        url = link["href"]
+        title = link["title"] or ""
+        print(f"[FETCH] Downloading: {title[:60]}...")
+        try:
+            clean_text = await fetch_dynamic_page(url)
+            if clean_text and len(clean_text) >= 100:
+                return {"title": title, "url": url, "text": clean_text}
+        except Exception as e:
+            print(f"[FETCH ERROR] {url}: {e}")
+        return None
+
+    fetch_tasks = [safe_fetch(link) for link in unique_links[:30]] # Limit to 30 concurrent fetches per step
+    fetched_pages = await asyncio.gather(*fetch_tasks)
+    
+    for page in fetched_pages:
+        if not page: continue
         
-        for link in links:
-            url = link["href"]
-            title = link["title"] or ""
-            
-            if url in visited_u:
-                continue
-            visited_u.add(url)
-            
-            print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
-            
-            try:
-                # USE NEW SCRAPER - ASYNC WAIT
-                clean_text = await fetch_dynamic_page(url)
-                
-                if not clean_text or len(clean_text) < 100:
-                    print(f"[FETCH FAIL] Empty/Short content from {url}")
-                    continue
-                
-                # --- FIX: Create lower_text BEFORE using it! ---
-                lower_text = clean_text.lower()
-                # -----------------------------------------------
-                # STRICTER ENTITY RESOLUTION
-                # 1. Primary Identity Match (Name/Nick/Phone)
-                text_match_primary = any(k in lower_text for k in primary_keywords if k)
-                url_match_primary = any(k in url.lower() for k in primary_keywords if k)
-                
-                # 2. Secondary Context Match (City/Country/Found IDs)
-                found_ids = state.get("found_identifiers", [])
-                
-                
-                # SIMPLE FILTER LOGIC (reverted to original, working version)
-                # Accept if name/nickname/phone appears in text OR url
-                if not (text_match_primary or url_match_primary):
-                    print(f"[FILTER] Dropped {url[:40]} - No identity match in Text or URL.")
-                    continue
-                
-                print(f"[FETCH] ACCEPTED: {url[:60]}")
-                item: SourceItem = {
-                    "title": title[:200],
-                    "url": url,
-                    "snippet": clean_text[:12000] # Reduced for stability, still plenty for LLM
-                }
-                new_items.append(item)
-                
-            except Exception as e:
-                print(f"[FETCH ERROR] {e}")
+        url = page["url"]
+        title = page["title"]
+        clean_text = page["text"]
+        lower_text = clean_text.lower()
+        
+        # Identity match
+        text_match_primary = any(k in lower_text for k in primary_keywords if k)
+        url_match_primary = any(k in url.lower() for k in primary_keywords if k)
+        
+        # SIMPLE FILTER LOGIC
+        if not (text_match_primary or url_match_primary):
+            print(f"[FILTER] Dropped {url[:40]} - No identity match.")
+            continue
+        
+        print(f"[FETCH] ACCEPTED: {url[:60]}")
+        item: SourceItem = {
+            "title": title[:200],
+            "url": url,
+            "snippet": clean_text[:15000] # Slightly increased snippet
+        }
+        new_items.append(item)
+        visited_u.add(url)
     
     total_data = gathering + new_items
     remaining_queue = [q for q in queue if q not in visited_q]
@@ -244,7 +255,7 @@ async def extraction_node(state: AgentState):
     
     llm = ChatOllama(model="llama3.1", format="json")
     
-    context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(data)])
+    context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:4000]}\n" for i, d in enumerate(data)])
     
     # FIX #3: IMPROVED EXTRACTION PROMPT with better constraints
     # Added stricter validation rules to prevent hallucination
@@ -356,7 +367,7 @@ Additional Clues: {profile.get('other_clues', 'Unknown')}
     
     sources_str = ""
     for i, item in enumerate(data, start=1):
-        sources_str += f"\nSOURCE {i} ({item['title']}):\n{item['url']}\n{item['snippet'][:1000]}\n---\n"
+        sources_str += f"\nSOURCE {i} ({item['title']}):\n{item['url']}\n{item['snippet'][:5000]}\n---\n"
     
     timeline_str = "\n".join([f"- {e['date']}: {e['event']} (Source: {e['source_url']})" for e in state.get("timeline_events", [])])
     connections_str = ", ".join(state.get("connections", []))
@@ -408,14 +419,15 @@ async def personality_node(state: AgentState):
         return {} # Skip if no data
     
     # Combine all text for deep analysis
+    # Combine more text for deeper analysis
     all_text = ""
-    for i, d in enumerate(data[:10]): # Top 10 sources
-        all_text += f"SOURCE_ID_{i}: {d['title']}\nURL: {d['url']}\nCONTENT: {d['snippet'][:3000]}\n===\n"
+    for i, d in enumerate(data[:20]): # Increased to 20 sources
+        all_text += f"SOURCE_ID_{i}: {d['title']}\nURL: {d['url']}\nCONTENT: {d['snippet'][:6000]}\n===\n"
     
     prompt = f"""You are an EXPERT CRIMINOLOGIST and PSYCHOLOGICAL PROFILER.
 Analyze the following OSINT data about: {profile.get('name', 'Unknown')}
 COLLECTED DATA:
-{all_text[:25000]}
+{all_text[:80000]}
 TASK: 
 Create a nuanced psychological profile.
 CRITICAL RULE: For EVERY observation, you MUST provide a "source_evidence" string explaining exactly which source and what text led to this conclusion.
