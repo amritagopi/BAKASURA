@@ -1172,3 +1172,29 @@ NotImplementedError
 2026-01-19 02:33:32,907 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-19 02:33:36,966 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-19 02:34:03,849 [INFO] Response Status: 200
+2026-01-19 02:46:34,825 [INFO] Incoming Request: POST /api/analyze
+2026-01-19 02:46:34,831 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-01-19 02:46:38,106 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&limit=1 200
+2026-01-19 02:46:38,138 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22%20%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22 200
+2026-01-19 02:46:38,422 [INFO] response: https://www.google.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-19 02:46:39,643 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-19 02:46:40,667 [INFO] response: https://search.brave.com/search?q=%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22+%22%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%22&source=web 200
+2026-01-19 02:48:55,485 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%2B79646032895%22 200
+2026-01-19 02:48:56,345 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%2B79646032895%22&limit=1 200
+2026-01-19 02:48:57,648 [INFO] response: https://yandex.com/search/site/?text=%22%2B79646032895%22&web=1&searchid=3066491 200
+2026-01-19 02:51:17,830 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-19 02:51:29,070 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Pavel%20Stolbovsky%20email 200
+2026-01-19 02:51:29,325 [INFO] response: https://grokipedia.com/api/typeahead?query=Pavel+Stolbovsky+email&limit=1 200
+2026-01-19 02:51:29,589 [INFO] response: https://www.google.com/search?q=Pavel+Stolbovsky+email&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-19 02:53:24,755 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=pavestolbovskiy.com 200
+2026-01-19 02:53:25,033 [INFO] response: https://grokipedia.com/api/typeahead?query=pavestolbovskiy.com&limit=1 200
+2026-01-19 02:53:25,868 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-01-19 02:55:08,898 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%2B79646032895%20phone%20number%20owner 200
+2026-01-19 02:55:09,152 [INFO] response: https://grokipedia.com/api/typeahead?query=%2B79646032895+phone+number+owner&limit=1 200
+2026-01-19 02:55:10,392 [INFO] response: https://yandex.com/search/site/?text=%2B79646032895+phone+number+owner&web=1&searchid=3740376 200
+2026-01-19 02:55:11,303 [INFO] response: https://search.yahoo.com/search;_ylt=LlKoJj8vemE2hii3RRYxcwz3;_ylu=MBO0amqczIKUJxH6g4FX4hybvG8wQXKeAzKrPB_UZLzkMm0?p=%2B79646032895+phone+number+owner 200
+2026-01-19 02:55:11,987 [INFO] response: https://www.google.com/search?q=%2B79646032895+phone+number+owner&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-01-19 02:55:13,369 [INFO] response: https://search.brave.com/search?q=%2B79646032895+phone+number+owner&source=web 200
+2026-01-19 02:56:53,849 [INFO] response: https://grokipedia.com/api/typeahead?query=%28964%29+603-2895+contact+details&limit=1 200
+2026-01-19 02:56:53,903 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%28964%29%20603-2895%20contact%20details 200
+2026-01-19 02:56:54,866 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"

@@ -8,6 +8,7 @@ import os
 import requests
 
 from config import load_keys as _get_api_keys
+from api_services import search_brave, search_exa
 
 def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     """

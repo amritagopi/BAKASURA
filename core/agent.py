@@ -110,6 +110,39 @@ async def search_node(state: AgentState):
     
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
     
+    def is_garbage_url(url: str, title: str, profile: TargetProfile) -> bool:
+        """Face control for URLs to avoid obvious noise."""
+        bad_domains = [
+            "fandom.com", "yandex.ru/maps", "google.com/search", 
+            "youtube.com/channel", "wikipedia.org", "bigenc.ru",
+            "facebook.com/public", "pinterest.com", "instagram.com/p/"
+        ]
+        
+        url_lower = url.lower()
+        title_lower = title.lower()
+        
+        # 1. Domain Blacklist
+        if any(d in url_lower for d in bad_domains):
+            return True
+        
+        # 2. Strict Nickname Match (Avoid 'solomontaiwo' if looking for 'solomoon')
+        target_nick = profile.get("nickname", "").lower()
+        if target_nick:
+            # If a common variant like 'solomon' is in URL, but NOT our specific nick
+            if "solomon" in url_lower and target_nick not in url_lower:
+                return True
+            # Case for general nick mismatch in URL path
+            if "/" + target_nick not in url_lower and target_nick in url_lower:
+                 # Check if it was just a substring of another word
+                 import re
+                 if not re.search(rf"\b{re.escape(target_nick)}\b", url_lower):
+                     return True
+
+        return False
+
+    # Poison keywords that indicate we found a different person (e.g. a famous gymnast)
+    poison_keywords = ["gymnast", "olympic", "medalist", "died", "born 1929", "ussr", "champion", "athlete"]
+
     new_items: List[SourceItem] = []
     
     queries_to_run = []
@@ -134,9 +167,15 @@ async def search_node(state: AgentState):
             
             if url in visited_u:
                 continue
+            
+            # 1. PRE-FILTER (URL FAKECONTROL)
+            if is_garbage_url(url, title, profile):
+                print(f"[SKIP] Garbage URL: {url[:60]}...")
+                visited_u.add(url) # Don't revisit garbage
+                continue
+
             visited_u.add(url)
             
-            print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
             print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
             try:
                 # USE NEW SCRAPER - ASYNC WAIT
@@ -146,11 +185,17 @@ async def search_node(state: AgentState):
                     print(f"[FETCH FAIL] Empty/Short content from {url}")
                     continue
                 
-                # Cleanup whitespace just in case
+                # Cleanup whitespace
                 clean_text = " ".join(clean_text.split())
                 lower_text = clean_text.lower()
                 
-                # PRE-FILTER
+                # 2. POISON FILTER (Tezka Check)
+                is_poisoned = any(pk in lower_text for pk in poison_keywords)
+                if is_poisoned:
+                    print(f"[POISON] Dropped {url[:40]} - Contains poison keywords (Tezka detected).")
+                    continue
+
+                # 3. IDENTITY FILTER
                 # Relaxed: Check Text OR URL for identity match
                 text_match = any(k in lower_text for k in filter_keywords if k)
                 url_match = any(k in url.lower() for k in filter_keywords if k)
