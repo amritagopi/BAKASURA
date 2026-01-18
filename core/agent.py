@@ -299,6 +299,7 @@ async def analyze_node(state: AgentState):
     print("--- FINAL ANALYSIS ---")
     llm = ChatOllama(model="llama3.1", format="json")
     profile = state["profile"]
+    data = state.get("gathered_data", [])
     if not data:
         print("[ANALYZE] WARNING: No data collected in the entire hunt.")
         return {"messages": [SystemMessage(content="No relevant data was found for this target after multiple search rounds.")]}
