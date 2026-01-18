@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Flame, Search, Skull, Settings } from 'lucide-react';
+import { useState } from 'react';
+import { Flame, Search, Skull } from 'lucide-react';
 import './App.css';
 
 // Define the shape of our "Dead Data"
@@ -18,18 +18,6 @@ interface AnalysisResult {
   gathered_data: string[];
 }
 
-// API Key service labels for display
-const API_LABELS: Record<string, string> = {
-  brave_search: "Brave Search (2000/месяц)",
-  exa_ai: "Exa.ai (1000/месяц)",
-  hunter_io: "Hunter.io (25/месяц)",
-  hibp: "Have I Been Pwned",
-  shodan: "Shodan (100/месяц)",
-  fullcontact: "FullContact",
-  clearbit: "Clearbit (50/месяц)",
-  social_searcher: "Social Searcher (100/день)"
-};
-
 function App() {
   const [profile, setProfile] = useState<TargetProfile>({
     name: '',
@@ -43,41 +31,6 @@ function App() {
   const [isThinking, setIsThinking] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  // Settings Modal State
-  const [showSettings, setShowSettings] = useState(false);
-  const [apiKeys, setApiKeys] = useState<Record<string, string>>({});
-  const [services, setServices] = useState<string[]>([]);
-  const [savingKeys, setSavingKeys] = useState(false);
-
-  // Load API keys on mount
-  useEffect(() => {
-    fetch('/api/keys')
-      .then(res => res.json())
-      .then(data => {
-        setApiKeys(data.keys || {});
-        setServices(data.services || []);
-      })
-      .catch(err => console.log('Failed to load keys:', err));
-  }, []);
-
-  // Save API keys
-  const saveApiKeys = async () => {
-    setSavingKeys(true);
-    try {
-      const res = await fetch('/api/keys', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(apiKeys)
-      });
-      if (res.ok) {
-        setShowSettings(false);
-      }
-    } catch (err) {
-      console.log('Failed to save keys:', err);
-    }
-    setSavingKeys(false);
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -122,29 +75,12 @@ function App() {
           <Skull size={32} />
           <span>Bakasura</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div className="status">
-            {isThinking ? (
-              <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>HUNTING...</span>
-            ) : (
-              <span style={{ color: 'var(--text-muted)' }}>IDLE</span>
-            )}
-          </div>
-          <button
-            onClick={() => setShowSettings(true)}
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-sm)',
-              padding: '0.5rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center'
-            }}
-            title="API Settings"
-          >
-            <Settings size={20} color="var(--text-muted)" />
-          </button>
+        <div className="status">
+          {isThinking ? (
+            <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>HUNTING...</span>
+          ) : (
+            <span style={{ color: 'var(--text-muted)' }}>IDLE</span>
+          )}
         </div>
       </header>
 
@@ -254,15 +190,7 @@ function App() {
 
               {(() => {
                 let parsed;
-                const responseContent = typeof result.response === 'string' ? result.response : JSON.stringify(result.response || {});
-
-                if (!responseContent || responseContent === '{}' || responseContent === 'null') {
-                  return (
-                    <div style={{ color: '#f87171', fontSize: '1.1rem', padding: '1rem', background: 'rgba(255,0,0,0.05)', borderRadius: '8px' }}>
-                      ⚠️ Поиск не дал результатов. Попробуй добавить больше деталей (город, никнейм, телефон) или проверь подключение к интернету.
-                    </div>
-                  );
-                }
+                const responseContent = typeof result.response === 'string' ? result.response : JSON.stringify(result.response);
 
                 try {
                   // Clean up markdown code blocks if present (just in case backend missed it)
@@ -270,10 +198,7 @@ function App() {
                   if (cleanJson.includes("```json")) {
                     cleanJson = cleanJson.replace(/```json/g, "").replace(/```/g, "");
                   }
-                  if (cleanJson.includes("```")) {
-                    cleanJson = cleanJson.replace(/```/g, "");
-                  }
-                  parsed = JSON.parse(cleanJson.trim());
+                  parsed = JSON.parse(cleanJson);
                 } catch (e) {
                   return (
                     <div style={{ color: 'var(--text-main)', fontSize: '1.1rem', lineHeight: '1.6', whiteSpace: 'pre-line' }}>
@@ -281,7 +206,6 @@ function App() {
                     </div>
                   );
                 }
-
 
                 return (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -346,121 +270,6 @@ function App() {
                       </div>
                     )}
 
-                    {/* Digital Footprint */}
-                    {parsed.digital_footprint && (
-                      <div style={{ background: 'rgba(255, 69, 0, 0.05)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px border var(--border-subtle)' }}>
-                        <h4 style={{ color: 'var(--primary)', marginBottom: '0.75rem', textTransform: 'uppercase', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <Skull size={16} /> Digital Footprint
-                        </h4>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-                          {parsed.digital_footprint.emails?.length > 0 && (
-                            <div>
-                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Emails</div>
-                              {parsed.digital_footprint.emails.map((e: string, i: number) => <div key={i} style={{ color: '#4ade80' }}>{e}</div>)}
-                            </div>
-                          )}
-                          {parsed.digital_footprint.phones?.length > 0 && (
-                            <div>
-                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Phones</div>
-                              {parsed.digital_footprint.phones.map((p: string, i: number) => <div key={i} style={{ color: '#60a5fa' }}>{p}</div>)}
-                            </div>
-                          )}
-                          {parsed.digital_footprint.social_links?.length > 0 && (
-                            <div style={{ gridColumn: '1 / -1' }}>
-                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Social Profiles</div>
-                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.25rem' }}>
-                                {parsed.digital_footprint.social_links.map((link: string, i: number) => (
-                                  <a key={i} href={link} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontSize: '0.9rem' }}>
-                                    {new URL(link).hostname.replace('www.', '')}
-                                  </a>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Personality Analysis (if merged) */}
-                    {parsed.personality_analysis && (
-                      <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '1.5rem' }}>
-                        <h4 style={{ color: '#a855f7', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.9rem' }}>Psychological Profile</h4>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                          <div style={{ background: '#111', padding: '1rem', borderRadius: '8px' }}>
-                            <div style={{ color: '#a855f7', fontWeight: 'bold' }}>Type: {parsed.personality_analysis.personality_type?.value}</div>
-                            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-                              Evidence: {parsed.personality_analysis.personality_type?.source_evidence}
-                            </div>
-                          </div>
-
-                          {parsed.personality_analysis.summary && (
-                            <div style={{ fontStyle: 'italic', color: '#ccc', borderLeft: '2px solid #a855f7', paddingLeft: '1rem' }}>
-                              "{parsed.personality_analysis.summary}"
-                            </div>
-                          )}
-
-                          {parsed.personality_analysis.red_flags?.length > 0 && (
-                            <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-                              <div style={{ color: '#f87171', fontWeight: 'bold', fontSize: '0.8rem', marginBottom: '0.5rem' }}>RED FLAGS</div>
-                              {parsed.personality_analysis.red_flags.map((flag: any, i: number) => (
-                                <div key={i} style={{ marginBottom: '0.5rem' }}>
-                                  • {flag.flag} <br />
-                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Ref: {flag.source_evidence}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Timeline */}
-                    {parsed.timeline?.length > 0 && (
-                      <div style={{ marginTop: '1.5rem' }}>
-                        <h4 style={{ color: '#fbbf24', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.85rem' }}>⌛ Operational Timeline</h4>
-                        <div style={{ position: 'relative', paddingLeft: '2rem', borderLeft: '2px solid #333' }}>
-                          {parsed.timeline.map((event: any, i: number) => (
-                            <div key={i} style={{ marginBottom: '1.5rem', position: 'relative' }}>
-                              <div style={{
-                                position: 'absolute',
-                                left: '-2.45rem',
-                                top: '0.25rem',
-                                width: '12px',
-                                height: '12px',
-                                borderRadius: '50%',
-                                background: 'var(--primary)',
-                                boxShadow: '0 0 10px var(--primary)'
-                              }} />
-                              <div style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: 'bold' }}>{event.date}</div>
-                              <div style={{ color: '#eee', fontSize: '0.95rem' }}>{event.event}</div>
-                              {event.source && <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>via {new URL(event.source).hostname}</div>}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Social Graph */}
-                    {parsed.social_graph?.length > 0 && (
-                      <div style={{ marginTop: '1.5rem' }}>
-                        <h4 style={{ color: '#6366f1', marginBottom: '0.75rem', textTransform: 'uppercase', fontSize: '0.85rem' }}>🔗 Social Connections</h4>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                          {parsed.social_graph.map((person: any, i: number) => (
-                            <div key={i} style={{
-                              padding: '0.4rem 0.8rem',
-                              background: 'rgba(99, 102, 241, 0.1)',
-                              border: '1px solid rgba(99, 102, 241, 0.3)',
-                              borderRadius: '20px',
-                              fontSize: '0.85rem',
-                              color: '#a5b4fc'
-                            }}>
-                              {person.name} <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>({person.relation_context})</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
                     {/* Uncertain / Notes */}
                     {((Array.isArray(parsed.uncertain) && parsed.uncertain.length > 0) || parsed.notes) && (
                       <div style={{ background: '#151515', padding: '1rem', borderRadius: 'var(--radius-md)' }}>
@@ -501,72 +310,6 @@ function App() {
           </div>
         )}
       </main>
-
-      {/* Settings Modal */}
-      {showSettings && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0,0,0,0.8)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000
-        }}>
-          <div style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2rem',
-            width: '90%',
-            maxWidth: '500px',
-            maxHeight: '80vh',
-            overflow: 'auto'
-          }}>
-            <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>⚙️ API Keys</h2>
-            <p style={{ marginBottom: '1rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-              Добавь ключи для турбо-режима. Без ключей поиск идёт через DuckDuckGo (бесплатно).
-            </p>
-
-            {services.map(service => (
-              <div key={service} className="input-group" style={{ marginBottom: '1rem' }}>
-                <label className="label" style={{ fontSize: '0.85rem' }}>
-                  {API_LABELS[service] || service}
-                </label>
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Введи API ключ..."
-                  value={apiKeys[service] || ''}
-                  onChange={(e) => setApiKeys(prev => ({ ...prev, [service]: e.target.value }))}
-                  style={{ fontSize: '0.9rem' }}
-                />
-              </div>
-            ))}
-
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
-              <button
-                className="btn"
-                onClick={saveApiKeys}
-                disabled={savingKeys}
-                style={{ flex: 1 }}
-              >
-                {savingKeys ? 'Сохраняю...' : '💾 Сохранить'}
-              </button>
-              <button
-                className="btn"
-                onClick={() => setShowSettings(false)}
-                style={{ flex: 1, background: 'transparent', border: '1px solid var(--border-subtle)' }}
-              >
-                Отмена
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -16,7 +16,7 @@ if sys.platform == 'win32':
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, Dict
+from typing import Optional
 import uvicorn
 from agent import app as agent_app, TargetProfile
 from memory import save_memory
@@ -89,41 +89,7 @@ class AnalysisRequest(BaseModel):
 def health_check():
     return {"status": "alive", "message": "Bakasura is hungry."}
 
-# --- API Key Management ---
-from config import load_keys, save_keys, SERVICES
-
-@app.get("/api/keys")
-def get_api_keys():
-    """Get all API keys (masked for security)."""
-    keys = load_keys()
-    # Mask keys for display (show only last 4 chars)
-    masked = {}
-    for service in SERVICES:
-        key = keys.get(service, "")
-        if key:
-            masked[service] = f"****{key[-4:]}" if len(key) > 4 else "****"
-        else:
-            masked[service] = ""
-    return {"keys": masked, "services": SERVICES}
-
-@app.post("/api/keys")
-def save_api_keys(keys: Dict[str, str]):
-    """Save API keys."""
-    current = load_keys()
-    for service, value in keys.items():
-        if service in SERVICES:
-            # Only update if value is not the masked placeholder
-            if value and not value.startswith("****"):
-                current[service] = value
-            elif value == "":
-                current[service] = ""
-    
-    if save_keys(current):
-        return {"status": "saved", "message": "API keys updated successfully."}
-    else:
-        raise HTTPException(status_code=500, detail="Failed to save keys")
-
-@app.post("/api/analyze")
+@app.post("/analyze")
 async def analyze_target(request: AnalysisRequest):
     """
     Triggers the LangGraph workflow.
@@ -183,11 +149,8 @@ async def analyze_target(request: AnalysisRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    print("[SYSTEM] Starting Bakasura Brain...")
-    
-    # CRITICAL: Force Proactor Loop policy BEFORE uvicorn starts
-    if sys.platform == 'win32':
-        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
-        
-    # Удаляем loop="asyncio", пусть uvicorn сам подхватит нашу политику
-    uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=False)
+    # loop="asyncio" uses the standard asyncio policy we set at the top of the file
+    # reload=False is CRITICAL on Windows because the reloader spawns child processes 
+    # that might reset the loop policy or fail to inherit it correctly.
+    print("[SYSTEM] Starting Bakasura Brain on Windows Proactor Loop...")
+    uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=False, loop="asyncio")

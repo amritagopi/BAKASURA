@@ -55,19 +55,15 @@ async def _fetch_with_playwright(url: str) -> str:
             response = await page.goto(url, timeout=45000, wait_until="domcontentloaded")
             
             # 2. Heuristic Wait (Wait for body to actually have content)
-            await page.wait_for_timeout(3000)
+            # Sometimes 'domcontentloaded' fires on the skeleton.
+            await page.wait_for_timeout(5000) # Give it a solid 5s for React/Vue hydration
             
-            # 3. AGGRESSIVE SCROLLING - Capture more posts/content
-            # Scroll multiple times to trigger lazy loading
-            for scroll_pass in range(5):
-                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                await page.wait_for_timeout(1500)
-            
-            # Scroll back to top to capture header content too
-            await page.evaluate("window.scrollTo(0, 0)")
-            await page.wait_for_timeout(500)
+            # 3. Scroll to trigger lazy loading
+            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            await page.wait_for_timeout(2000)
             
             # 4. Get content (VISIBLE TEXT ONLY)
+            # This is cleaner than getting HTML and parsing it, as browser rendering handles visibility.
             text_content = await page.evaluate("document.body.innerText")
             
             # Fallback if body is empty (e.g. frameset)
