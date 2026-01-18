@@ -206,7 +206,7 @@ async def search_node(state: AgentState):
                 item: SourceItem = {
                     "title": title[:200],
                     "url": url,
-                    "snippet": clean_text[:8000] # Reduced for stability, still plenty for LLM
+                    "snippet": clean_text[:12000] # Reduced for stability, still plenty for LLM
                 }
                 new_items.append(item)
                 
