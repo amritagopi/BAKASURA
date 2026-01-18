@@ -214,26 +214,9 @@ async def search_node(state: AgentState):
         url_match_primary = any(k in url.lower() for k in primary_keywords if k)
         
         # SIMPLE FILTER LOGIC
-        # ADAPTIVE FILTER LOGIC - Handle both primary searches and pivot searches
-            if is_pivot_search:
-                # For pivot searches: Accept if the result has some secondary context
-                # (phone patterns, location, social patterns) even without primary name
-                # This allows finding connected people and resources
-                has_secondary_context = (
-                    profile.get("phone") and profile["phone"] in clean_text or
-                    profile.get("phone") and profile["phone"].replace("+", "").replace(" ", "") in clean_text or
-                    profile.get("city") and profile["city"].lower() in lower_text or
-                    profile.get("country") and profile["country"].lower() in lower_text
-                )
-                # Always accept if primary keywords are found (strict match)
-                if not (text_match_primary or url_match_primary or has_secondary_context):
-                    print(f"[FILTER] Dropped {url[:40]} - No relevant context for pivot search.")
-                    continue
-            else:
-                # For primary searches: Strict filtering - must have primary keywords
-                if not (text_match_primary or url_match_primary):
-                    print(f"[FILTER] Dropped {url[:40]} - No identity match in primary search.")
-                    continue
+if not (text_match_primary or url_match_primary):
+            print(f"[FILTER] Dropped {url[:40]} - No identity match.")
+            continue
         
         print(f"[FETCH] ACCEPTED: {url[:60]}")
         item: SourceItem = {
