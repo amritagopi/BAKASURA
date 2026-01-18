@@ -85,6 +85,7 @@ class AnalysisRequest(BaseModel):
 
 # --- Endpoints ---
 
+@app.get("/")
 @app.get("/health")
 def health_check():
     return {"status": "alive", "message": "Bakasura is hungry."}
@@ -136,11 +137,13 @@ async def get_settings():
     except Exception:
         return {s: "" for s in SERVICES}
 
+@app.post("/analyze")
 @app.post("/api/analyze")
 async def analyze_target(request: AnalysisRequest):
     """
-    Triggers the LangGraph workflow.
+    Triggers the LangGraph workflow. Supports both legacy and new paths.
     """
+    logger.info(f"--- STARTING ANALYSIS FOR: {request.profile.name} ---")
     # Convert Pydantic model to Dict for the Agent State
     profile_dict = request.profile.model_dump()
     
@@ -162,6 +165,8 @@ async def analyze_target(request: AnalysisRequest):
         # Extract the final response from the LLM
         final_messages = result.get("messages", [])
         last_message = final_messages[-1].content if final_messages else "No thoughts."
+        if not last_message or last_message.strip() == "":
+            last_message = "The spectral forces were silent. No dossier could be generated from the gathered data."
         
         # AUTO-FIX: Ensure LLM response is a clean string (Frontend expects string)
         # If LLM returned raw JSON with markdown code blocks, strip them.

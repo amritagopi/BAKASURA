@@ -171,6 +171,7 @@ async def search_node(state: AgentState):
                 print(f"[FETCH ERROR] {e}")
 
     total_data = gathering + new_items
+    print(f"[SEARCH NODE] Finished search. Collected {len(new_items)} NEW items. Total items: {len(total_data)}")
     remaining_queue = [q for q in queue if q not in visited_q]
     
     return {
@@ -195,7 +196,8 @@ async def extraction_node(state: AgentState):
         
     data = state.get("gathered_data", [])
     if not data:
-        return {}
+        print("[EXTRACTION] No data found yet. Skipping pivot extraction for this round.")
+        return {"depth": depth + 1}
 
     llm = ChatOllama(model="llama3.1", format="json")
     
@@ -252,10 +254,11 @@ async def analyze_node(state: AgentState):
     print("--- FINAL ANALYSIS ---")
     llm = ChatOllama(model="llama3.1", format="json")
     profile = state["profile"]
-    data = state.get("gathered_data", [])
-
     if not data:
-        return {"messages": [SystemMessage(content="No data found.")]}
+        print("[ANALYZE] WARNING: No data collected in the entire hunt.")
+        return {"messages": [SystemMessage(content="No relevant data was found for this target after multiple search rounds.")]}
+    
+    print(f"[ANALYZE] Processing {len(data)} items to generate final dossier...")
 
     # REINFORCED PROMPT
     target_section = f"""
