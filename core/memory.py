@@ -53,5 +53,14 @@ target_name: {profile['name']}
     # Write to file
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(content)
+    
+    # Auto-open the file in default app (Obsidian, Notepad, etc.)
+    try:
+        import webbrowser
+        import os as _os
+        # On Windows, this opens with default .md handler
+        _os.startfile(str(file_path))
+    except Exception as e:
+        print(f"[MEMORY] Could not auto-open file: {e}")
         
     return str(file_path)

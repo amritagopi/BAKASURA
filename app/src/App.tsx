@@ -399,13 +399,30 @@ function App() {
               </div>
             )}
 
-            <button
-              className="btn"
-              style={{ marginTop: '2rem', background: 'transparent', border: '1px solid var(--border-subtle)' }}
-              onClick={() => setResult(null)}
-            >
-              NEW HUNT
-            </button>
+            <div style={{
+              marginTop: '1.5rem',
+              padding: '1rem',
+              background: 'rgba(0, 255, 136, 0.1)',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid rgba(0, 255, 136, 0.3)'
+            }}>
+              <p style={{ color: '#4ade80', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                ✅ Досье автоматически сохранено и открыто в вашем редакторе.
+              </p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                Файлы хранятся в папке <code style={{ background: '#222', padding: '0.2rem 0.4rem', borderRadius: '4px' }}>memories/</code>
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+              <button
+                className="btn"
+                style={{ background: 'transparent', border: '1px solid var(--border-subtle)' }}
+                onClick={() => setResult(null)}
+              >
+                NEW HUNT
+              </button>
+            </div>
           </div>
         )}
 

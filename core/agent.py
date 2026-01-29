@@ -9,9 +9,11 @@ import time
 # Ensure we can import our rust extension (Optional backup)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-# IMPORT NEW SCRAPER
+import json
+
 from scraper import fetch_dynamic_page
 from search_tool import perform_search
+from flowsint_tool import search_username_with_maigret
 from bs4 import BeautifulSoup
 
 # --- 1. State Definition (The Memory) ---
@@ -39,6 +41,7 @@ class AgentState(TypedDict):
     # Snowball Logic State
     gathered_data: List[SourceItem]  # All confirmed relevant data
     search_queue: List[str]          # Queries waiting to be executed
+    url_queue: List[str]             # URLs waiting to be fetched directly
     visited_queries: List[str]       # Queries strictly already executed
     visited_urls: List[str]          # URLs already fetched to avoid cycles
     
@@ -78,13 +81,51 @@ async def input_validation_node(state: AgentState):
     if phone:
         initial_queries.append(f'"{phone}"')
 
+    # --- LOAD MIRRORS ---
+    try:
+        config_path = os.path.join(os.path.dirname(__file__), "..", "config", "mirrors.json")
+        if os.path.exists(config_path):
+            with open(config_path, 'r') as f:
+                mirrors_config = json.load(f)
+                if mirrors_config.get("enable_mirrors", False):
+                    mirrors = mirrors_config.get("social_mirrors", [])
+                    print(f"[INIT] Loaded {len(mirrors)} priority mirrors.")
+                    for m in mirrors:
+                        # Add specific site searches
+                        # e.g. site:picuki.com "Target Name"
+                        initial_queries.insert(0, f'site:{m} "{name}"')
+                        if nick:
+                             initial_queries.insert(0, f'site:{m} "{nick}"')
+    except Exception as e:
+        print(f"[INIT] Failed to load mirrors: {e}")
+
+    # --- MAIGRET INTEGRATION ---
+    maigret_data = []
+    maigret_urls = []
+    
+    if nick and len(nick) > 3:
+         print(f"[INIT] Launching Maigret social scan for '{nick}'...")
+         try:
+             # Run Maigret (this may take time)
+             m_results = await search_username_with_maigret(nick)
+             for item in m_results:
+                 maigret_data.append({
+                     "title": item["title"],
+                     "url": item["url"],
+                     "snippet": item["snippet"]
+                 })
+                 maigret_urls.append(item["url"])
+         except Exception as e:
+             print(f"[INIT] Maigret failed: {e}")
+
     # Defaults
     return {
         "messages": [SystemMessage(content=f"Target Locked: {name}. Initiating Snowball Protocol.")],
         "search_queue": initial_queries,
+        "url_queue": maigret_urls,
         "visited_queries": [],
         "visited_urls": [],
-        "gathered_data": [],
+        "gathered_data": maigret_data,
         "depth": 0,
         "max_depth": 3  # INCREASED: Allows 3 rounds of expansion
     }
@@ -113,10 +154,13 @@ async def search_node(state: AgentState):
     def is_garbage_url(url: str, title: str, profile: TargetProfile) -> bool:
         """Face control for URLs to avoid obvious noise."""
         bad_domains = [
-            "fandom.com", "yandex.ru/maps", "google.com/search", 
-            "youtube.com/channel", "wikipedia.org", "bigenc.ru",
-            "facebook.com/public", "pinterest.com", "instagram.com/p/"
+            "yandex.ru/maps", "google.com/search", 
+            "wikipedia.org", "bigenc.ru"
         ]
+        
+        # Filter out API endpoints usually found in search results
+        if "api." in url.lower() or "typeahead" in url.lower() or "opensearch" in url.lower():
+             return True
         
         url_lower = url.lower()
         title_lower = title.lower()
@@ -153,14 +197,24 @@ async def search_node(state: AgentState):
         if len(queries_to_run) >= 5: # INCREASED: Batch size 5
             break
             
-    if not queries_to_run:
-        print("[SEARCH] No new queries to run.")
-        return {"search_queue": []}
+    # Also consume URL queue
+    url_queue = state.get("url_queue", [])
+    
+    if not queries_to_run and not url_queue:
+        print("[SEARCH] No new queries or URLs to run.")
+        return {"search_queue": [], "url_queue": []}
 
     for q in queries_to_run:
         print(f"[SEARCH] Hunting: {q}")
         links = perform_search(q, max_results=10) # INCREASED: 10 results per query
         
+        # Merge url_queue into links for the first query iteration (or just process them)
+        if url_queue:
+            print(f"[SEARCH] Injecting {len(url_queue)} direct URLs from queue...")
+            for u in url_queue:
+                links.append({"href": u, "title": "Direct URL Target"})
+            url_queue = [] # Consumed
+            
         for link in links:
             url = link["href"]
             title = link["title"] or ""
@@ -223,7 +277,9 @@ async def search_node(state: AgentState):
         "gathered_data": total_data,
         "visited_urls": list(visited_u),
         "visited_queries": visited_q,
-        "search_queue": remaining_queue 
+        "visited_queries": visited_q,
+        "search_queue": remaining_queue,
+        "url_queue": [] # Clear consumed URLs
     }
 
 
@@ -244,7 +300,7 @@ async def extraction_node(state: AgentState):
         print("[EXTRACTION] No data found yet. Skipping pivot extraction for this round.")
         return {"depth": depth + 1}
 
-    llm = ChatOllama(model="llama3.1", format="json")
+    llm = ChatOllama(model="qwen2.5:14b", format="json")
     
     context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(data)])
     
@@ -297,7 +353,7 @@ async def analyze_node(state: AgentState):
     FINAL Step: Produce the dossier from ALL gathered data.
     """
     print("--- FINAL ANALYSIS ---")
-    llm = ChatOllama(model="llama3.1", format="json")
+    llm = ChatOllama(model="qwen2.5:14b", format="json")
     profile = state["profile"]
     data = state.get("gathered_data", [])
     if not data:

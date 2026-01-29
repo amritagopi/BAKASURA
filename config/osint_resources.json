@@ -1,0 +1,67 @@
+[
+  {
+    "category": "Username Search",
+    "description": "Find profiles across social networks",
+    "tools": [
+      { "name": "WhatsMyName", "url": "https://whatsmyname.app/", "description": "Check for usernames across many platforms." },
+      { "name": "NameChk", "url": "https://namechk.com/", "description": "Check username availability on 100+ sites." },
+      { "name": "SherlockEye", "url": "https://sherlockeye.io/", "description": "Search for publicly available info connected to a username." },
+      { "name": "KnowEm", "url": "https://knowem.com/", "description": "Check Brand & Social Media usernames." },
+      { "name": "Blackbird (Repo)", "url": "https://github.com/p1ngul1n0/blackbird", "description": "Powerful username search tool (Python)." }
+    ]
+  },
+  {
+    "category": "Email Investigation",
+    "description": "Verify and pivot from email addresses",
+    "tools": [
+      { "name": "Have I Been Pwned", "url": "https://haveibeenpwned.com", "description": "Check if email has been compromised in data breaches." },
+      { "name": "Hunter", "url": "https://hunter.io", "description": "Find professional email addresses." },
+      { "name": "Epios", "url": "https://epios.com/", "description": "Search email without notifying the user (Google/Skype info)." },
+      { "name": "EmailHippo", "url": "https://tools.verifyemailaddress.io", "description": "Verify if an email address exists." },
+      { "name": "DeHashed", "url": "https://dehashed.com/", "description": "Search for leaked credentials (requires account)." }
+    ]
+  },
+  {
+    "category": "Phone Numbers",
+    "description": "Identify carriers, regions, and owners",
+    "tools": [
+      { "name": "TrueCaller", "url": "https://truecaller.com", "description": "Global user-contributed phone directory." },
+      { "name": "Sync.ME", "url": "https://sync.me/", "description": "Caller ID and social match." },
+      { "name": "EmobileTracker", "url": "https://www.emobiletracker.com/", "description": "Track mobile number location and owner info." },
+      { "name": "FreeCarrierLookup", "url": "https://freecarrierlookup.com/", "description": "Carrier and SMS gateway lookup." },
+      { "name": "Spy Dialer", "url": "http://spydialer.com/", "description": "Voicemail lookup (US driven)." }
+    ]
+  },
+  {
+    "category": "Maps & Geo",
+    "description": "Satellite imagery and geolocation",
+    "tools": [
+      { "name": "Google Maps", "url": "https://maps.google.com", "description": "Standard satellite and street view." },
+      { "name": "Yandex Maps", "url": "https://yandex.com/maps", "description": "Often better details for Russia/CIS/Turkey." },
+      { "name": "SunCalc", "url": "https://suncalc.org/", "description": "Sun position calculator for verifying photo times/locations." },
+      { "name": "Wikimapia", "url": "http://wikimapia.org/", "description": "Crowdsourced map tags." },
+      { "name": "Zoom Earth", "url": "https://zoom.earth/", "description": "Near real-time satellite imagery." }
+    ]
+  },
+  {
+    "category": "IP & Domain",
+    "description": "Network intelligence",
+    "tools": [
+      { "name": "Whois", "url": "https://who.is/", "description": "Domain registration info." },
+      { "name": "DNSDumpster", "url": "https://dnsdumpster.com/", "description": "DNS research tool." },
+      { "name": "Shodan", "url": "https://shodan.io", "description": "Search engine for connected devices." },
+      { "name": "Censys", "url": "https://censys.io", "description": "Assess attack surface for internet-connected devices." },
+      { "name": "UrlScan", "url": "https://urlscan.io/", "description": "Scan and screenshot websites safely." }
+    ]
+  },
+  {
+    "category": "Social Media",
+    "description": "Analyze social profiles",
+    "tools": [
+      { "name": "Social Searcher", "url": "https://www.social-searcher.com/", "description": "Real-time search in social media." },
+      { "name": "SnapMap", "url": "https://map.snapchat.com", "description": "Public snaps on a map." },
+      { "name": "Twitter Advanced", "url": "https://twitter.com/search-advanced", "description": "Official advanced search." },
+      { "name": "Picuki", "url": "https://www.picuki.com/", "description": "View Instagram without an account." }
+    ]
+  }
+]
