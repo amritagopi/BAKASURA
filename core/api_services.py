@@ -10,6 +10,44 @@ from config import get_key
 # PRIMARY SEARCH APIS (Use instead of DuckDuckGo if available)
 # ============================================================
 
+def search_searxng(query: str, max_results: int = 10) -> List[Dict[str, str]]:
+    """
+    Self-hosted SearXNG metasearch instance (Docker).
+    Requires `search.formats: [html, json]` enabled in the instance's settings.yml.
+    URL is configurable via config/api_keys.json ("searxng_url"), defaults to localhost:8080.
+    """
+    base_url = get_key("searxng_url") or "http://localhost:8080"
+
+    print(f"[SEARXNG] Searching: {query}")
+
+    try:
+        resp = requests.get(
+            f"{base_url.rstrip('/')}/search",
+            params={"q": query, "format": "json"},
+            timeout=15
+        )
+
+        if resp.status_code != 200:
+            print(f"[SEARXNG] Error {resp.status_code}, continuing...")
+            return []
+
+        data = resp.json()
+        results = []
+        for item in data.get("results", [])[:max_results]:
+            results.append({
+                "title": item.get("title", ""),
+                "href": item.get("url", ""),
+                "body": item.get("content", "")
+            })
+
+        print(f"[SEARXNG] Found {len(results)} results")
+        return results
+
+    except Exception as e:
+        print(f"[SEARXNG] Error: {e}, continuing...")
+        return []
+
+
 def search_brave(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     """
     Brave Search API - 2000 free requests/month

@@ -54,13 +54,24 @@ target_name: {profile['name']}
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(content)
     
+    # Print clear notification
+    print("\n" + "="*60)
+    print("📁 DOSSIER SAVED!")
+    print(f"   {file_path}")
+    print("="*60 + "\n")
+    
     # Auto-open the file in default app (Obsidian, Notepad, etc.)
     try:
-        import webbrowser
-        import os as _os
-        # On Windows, this opens with default .md handler
-        _os.startfile(str(file_path))
+        import subprocess
+        import sys
+        if sys.platform == 'win32':
+            # Use subprocess for more reliable opening on Windows
+            subprocess.Popen(['start', '', str(file_path)], shell=True)
+        else:
+            import webbrowser
+            webbrowser.open(f'file://{file_path}')
     except Exception as e:
         print(f"[MEMORY] Could not auto-open file: {e}")
+        print(f"[MEMORY] Manually open: {file_path}")
         
     return str(file_path)

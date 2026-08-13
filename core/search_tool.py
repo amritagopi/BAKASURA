@@ -8,15 +8,27 @@ import os
 import requests
 
 from config import load_keys as _get_api_keys
-from api_services import search_brave, search_exa
+from api_services import search_brave, search_exa, search_searxng
 
 def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     """
-    Orchestrator: Prioritizes Official APIs (via api_services.py), then falls back to DDG.
+    Orchestrator: Prioritizes the local SearXNG instance, then official APIs
+    (via api_services.py), then falls back to DDG's multi-engine scrape.
     """
     results = []
-    
-    # 1. BRAVE (Priority 1)
+
+    # 1. SEARXNG (Priority 1 - local, no rate limits)
+    try:
+        results = search_searxng(query, max_results)
+        if results:
+            print(f"[API SUCCESS] SearXNG found {len(results)} results for: {query}")
+            return results
+        else:
+            print(f"[API INFO] SearXNG returned 0 results for: {query} (or instance unreachable)")
+    except Exception as e:
+        print(f"[API WARN] SearXNG search failed: {e}")
+
+    # 2. BRAVE (Priority 2)
     try:
         results = search_brave(query, max_results)
         if results:
@@ -46,7 +58,7 @@ def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     time.sleep(random.uniform(1.0, 2.0))
     
     try:
-        with DDGS() as ddgs:
+        with DDGS(timeout=20) as ddgs:
             # Use default backend (auto), which is most reliable across versions
             ddg_gen = ddgs.text(query, max_results=max_results)
             
@@ -68,7 +80,7 @@ def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
         try:
              print("[DDG] Retrying with 'html' backend...")
              time.sleep(2)
-             with DDGS() as ddgs:
+             with DDGS(timeout=20) as ddgs:
                 ddg_gen = ddgs.text(query, max_results=max_results, backend='html')
                 for r in ddg_gen:
                     results.append({

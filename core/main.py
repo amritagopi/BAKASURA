@@ -137,6 +137,26 @@ async def get_settings():
     except Exception:
         return {s: "" for s in SERVICES}
 
+@app.post("/api/open-memories")
+async def open_memories_folder():
+    """Opens the memories folder in the OS file explorer"""
+    try:
+        import subprocess
+        import os
+        vault_path = os.path.join(os.getcwd(), "memories")
+        if not os.path.exists(vault_path):
+            os.makedirs(vault_path, exist_ok=True)
+            
+        if sys.platform == 'win32':
+            os.startfile(vault_path)
+        else:
+            # For other OS if needed
+            subprocess.Popen(['open', vault_path] if sys.platform == 'darwin' else ['xdg-open', vault_path])
+        return {"status": "success"}
+    except Exception as e:
+        logger.error(f"Failed to open memories folder: {e}")
+        return {"status": "error", "detail": str(e)}
+
 @app.post("/analyze")
 @app.post("/api/analyze")
 async def analyze_target(request: AnalysisRequest):

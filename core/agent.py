@@ -1,17 +1,18 @@
 from typing import TypedDict, List, Optional, Set
 from langgraph.graph import StateGraph, END
-from langchain_ollama import ChatOllama
+from langchain_cerebras import ChatCerebras
 from langchain_core.messages import SystemMessage, HumanMessage, BaseMessage
 import sys
 import os
 import time
+import asyncio
 
 # Ensure we can import our rust extension (Optional backup)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import json
 
-from scraper import fetch_dynamic_page
+from scraper import fetch_dynamic_page, fetch_page_sync
 from search_tool import perform_search
 from flowsint_tool import search_username_with_maigret
 from bs4 import BeautifulSoup
@@ -91,11 +92,12 @@ async def input_validation_node(state: AgentState):
                     mirrors = mirrors_config.get("social_mirrors", [])
                     print(f"[INIT] Loaded {len(mirrors)} priority mirrors.")
                     for m in mirrors:
-                        # Add specific site searches
-                        # e.g. site:picuki.com "Target Name"
-                        initial_queries.insert(0, f'site:{m} "{name}"')
+                        # Add specific site searches AFTER the base identity queries
+                        # (name/city/phone), so mirrors don't crowd them out of the
+                        # first batches. e.g. site:picuki.com "Target Name"
+                        initial_queries.append(f'site:{m} "{name}"')
                         if nick:
-                             initial_queries.insert(0, f'site:{m} "{nick}"')
+                             initial_queries.append(f'site:{m} "{nick}"')
     except Exception as e:
         print(f"[INIT] Failed to load mirrors: {e}")
 
@@ -127,7 +129,7 @@ async def input_validation_node(state: AgentState):
         "visited_urls": [],
         "gathered_data": maigret_data,
         "depth": 0,
-        "max_depth": 3  # INCREASED: Allows 3 rounds of expansion
+        "max_depth": 3  # Allows 3 rounds of snowball expansion
     }
 
 
@@ -170,7 +172,7 @@ async def search_node(state: AgentState):
             return True
         
         # 2. Strict Nickname Match (Avoid 'solomontaiwo' if looking for 'solomoon')
-        target_nick = profile.get("nickname", "").lower()
+        target_nick = (profile.get("nickname") or "").lower()
         if target_nick:
             # If a common variant like 'solomon' is in URL, but NOT our specific nick
             if "solomon" in url_lower and target_nick not in url_lower:
@@ -187,14 +189,33 @@ async def search_node(state: AgentState):
     # Poison keywords that indicate we found a different person (e.g. a famous gymnast)
     poison_keywords = ["gymnast", "olympic", "medalist", "died", "born 1929", "ussr", "champion", "athlete"]
 
+    # Markers for dead/soft-404 pages. Sites like Maigret's target list frequently
+    # return HTTP 200 with a generic "not found" template instead of a real 404 -
+    # without this, a URL containing the target's nickname (e.g. every Maigret hit)
+    # would pass the identity filter below purely on URL substring match, even when
+    # the actual fetched page says the profile doesn't exist.
+    dead_page_markers = [
+        "page not found", "404 - page not found", "does not exist in our system",
+        "user not found", "no such user", "account not found", "profile not found",
+        "this page isn't available", "page isn't available", "user does not exist",
+        "página não existe", "user tidak ditemukan", "tidak ditemukan",
+        "не найден", "не найдена", "не существует", "страница не найдена",
+        "аккаунт не найден", "пользователь не найден",
+    ]
+
+    def is_dead_page(text: str) -> bool:
+        lower = text.lower()
+        return any(marker in lower for marker in dead_page_markers)
+
     new_items: List[SourceItem] = []
-    
+    dead_urls: Set[str] = set()
+
     queries_to_run = []
     for q in queue:
         if q not in visited_q:
             queries_to_run.append(q)
             visited_q.append(q)
-        if len(queries_to_run) >= 5: # INCREASED: Batch size 5
+        if len(queries_to_run) >= 6: # Batch size per round
             break
             
     # Also consume URL queue
@@ -206,7 +227,7 @@ async def search_node(state: AgentState):
 
     for q in queries_to_run:
         print(f"[SEARCH] Hunting: {q}")
-        links = perform_search(q, max_results=10) # INCREASED: 10 results per query
+        links = await asyncio.to_thread(perform_search, q, 3)
         
         # Merge url_queue into links for the first query iteration (or just process them)
         if url_queue:
@@ -232,8 +253,11 @@ async def search_node(state: AgentState):
             
             print(f"[FETCH] Downloading (Playwright): {title[:60]}...")
             try:
-                # USE NEW SCRAPER - ASYNC WAIT
-                clean_text = await fetch_dynamic_page(url)
+                # Run Playwright in its own thread+event loop so wait_for can cancel it
+                clean_text = await asyncio.wait_for(
+                    asyncio.to_thread(fetch_page_sync, url),
+                    timeout=45.0
+                )
                 
                 if not clean_text or len(clean_text) < 100:
                     print(f"[FETCH FAIL] Empty/Short content from {url}")
@@ -242,18 +266,28 @@ async def search_node(state: AgentState):
                 # Cleanup whitespace
                 clean_text = " ".join(clean_text.split())
                 lower_text = clean_text.lower()
-                
-                # 2. POISON FILTER (Tezka Check)
+
+                # 2. DEAD PAGE FILTER (soft-404 check)
+                # Must run BEFORE the identity filter: a URL built from the target's
+                # own nickname (e.g. every Maigret hit) will always "match" on URL
+                # substring, so a dead/soft-404 page needs to be caught here or it
+                # sails through as "confirmed" evidence regardless of content.
+                if is_dead_page(lower_text):
+                    print(f"[DEAD LINK] Dropped {url[:60]} - Page reports profile not found.")
+                    dead_urls.add(url)
+                    continue
+
+                # 3. POISON FILTER (Tezka Check)
                 is_poisoned = any(pk in lower_text for pk in poison_keywords)
                 if is_poisoned:
                     print(f"[POISON] Dropped {url[:40]} - Contains poison keywords (Tezka detected).")
                     continue
 
-                # 3. IDENTITY FILTER
+                # 4. IDENTITY FILTER
                 # Relaxed: Check Text OR URL for identity match
                 text_match = any(k in lower_text for k in filter_keywords if k)
                 url_match = any(k in url.lower() for k in filter_keywords if k)
-                
+
                 if not (text_match or url_match):
                     print(f"[FILTER] Dropped {url[:40]} - No identity match in Text or URL.")
                     continue
@@ -269,14 +303,22 @@ async def search_node(state: AgentState):
             except Exception as e:
                 print(f"[FETCH ERROR] {e}")
 
+    # Drop any pre-existing entries (e.g. Maigret's canned "Match Confidence: High"
+    # claims) whose URL we just confirmed to be a dead/soft-404 page above - a
+    # claim about a URL shouldn't outlive proof that the URL doesn't resolve to
+    # anything real.
+    if dead_urls:
+        before = len(gathering)
+        gathering = [d for d in gathering if d["url"] not in dead_urls]
+        print(f"[DEAD LINK] Purged {before - len(gathering)} stale claim(s) about confirmed-dead URLs.")
+
     total_data = gathering + new_items
     print(f"[SEARCH NODE] Finished search. Collected {len(new_items)} NEW items. Total items: {len(total_data)}")
     remaining_queue = [q for q in queue if q not in visited_q]
-    
+
     return {
         "gathered_data": total_data,
         "visited_urls": list(visited_u),
-        "visited_queries": visited_q,
         "visited_queries": visited_q,
         "search_queue": remaining_queue,
         "url_queue": [] # Clear consumed URLs
@@ -300,7 +342,7 @@ async def extraction_node(state: AgentState):
         print("[EXTRACTION] No data found yet. Skipping pivot extraction for this round.")
         return {"depth": depth + 1}
 
-    llm = ChatOllama(model="qwen2.5:14b", format="json")
+    llm = ChatCerebras(model="gpt-oss-120b").bind(response_format={"type": "json_object"})
     
     context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(data)])
     
@@ -319,7 +361,7 @@ Rules:
 3. If you see a new profession/job (e.g., "Psychologist", "Photographer"), create a query for it (e.g., '"Name" Psychologist').
 """
     try:
-        res = llm.invoke([HumanMessage(content=prompt)])
+        res = await llm.ainvoke([HumanMessage(content=prompt)])
         import json
         try:
             parsed = json.loads(res.content)
@@ -353,7 +395,7 @@ async def analyze_node(state: AgentState):
     FINAL Step: Produce the dossier from ALL gathered data.
     """
     print("--- FINAL ANALYSIS ---")
-    llm = ChatOllama(model="qwen2.5:14b", format="json")
+    llm = ChatCerebras(model="gpt-oss-120b").bind(response_format={"type": "json_object"})
     profile = state["profile"]
     data = state.get("gathered_data", [])
     if not data:
@@ -365,11 +407,11 @@ async def analyze_node(state: AgentState):
     # REINFORCED PROMPT
     target_section = f"""
 !!! TARGET PROFILE - FOCUS ON THIS !!!
-Name: {profile.get('name', 'Unknown')}
-Location: {profile.get('city', 'Unknown')}, {profile.get('country', 'Unknown')}
-Phone: {profile.get('phone', 'Unknown')}
-Nickname: {profile.get('nickname', 'Unknown')}
-Additional Clues: {profile.get('other_clues', 'Unknown')}
+Name: {profile.get('name') or 'Unknown'}
+Location: {profile.get('city') or 'Unknown'}, {profile.get('country') or 'Unknown'}
+Phone: {profile.get('phone') or 'Unknown'}
+Nickname: {profile.get('nickname') or 'Unknown'}
+Additional Clues: {profile.get('other_clues') or 'Unknown'}
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 """
     sources_str = ""
@@ -390,11 +432,18 @@ HARD RULES:
 4. "facts": list of strings.
 5. "uncertain": list of strings.
 6. "notes": string.
+7. A source's TITLE (e.g. "Maigret Found: X", "Match Confidence: High") is a claim,
+   not proof. Before listing a source in "matched_sources", read its actual snippet.
+   If the snippet is a generic error/template page (not found, doesn't exist, empty
+   profile shell, unrelated homepage), it is NOT a match - put the URL in
+   "uncertain" instead, and note the contradiction in "notes".
+8. A username appearing in a URL is not evidence on its own - the snippet content
+   must actually reference the target (name, phone, or other confirmed clue).
 
 Analyze now."""
 
     try:
-        response = llm.invoke([HumanMessage(content=prompt)])
+        response = await llm.ainvoke([HumanMessage(content=prompt)])
         return {"messages": [response]}
     except Exception as e:
         return {"messages": [SystemMessage(content=f"Error: {e}")]}

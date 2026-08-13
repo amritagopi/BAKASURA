@@ -1929,3 +1929,643 @@ NotImplementedError
 2026-01-30 02:12:41,191 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-30 02:12:51,591 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-01-30 02:13:51,280 [INFO] Response Status: 200
+2026-01-30 02:46:52,143 [INFO] Incoming Request: POST /api/analyze
+2026-01-30 02:46:52,150 [INFO] --- STARTING ANALYSIS FOR: Галина Чемерис ---
+2026-01-30 02:46:54,861 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:46:56,052 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:46:56,805 [INFO] response: https://search.yahoo.com/search;_ylt=TF7LU8GFiY_CW6Hy9kn3pP6I;_ylu=7xOyZaujNqEPNPNDiF1SFF66dQZJNjFea3OjNLsj9MCQpPk?p=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:46:57,492 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:46:57,811 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:46:59,022 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=3693682 200
+2026-01-30 02:46:59,983 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:00,846 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Anitter.net%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGMec78sGIjA4XreFd2nkr4-oIRgctGaserqaauk2gLnAel_Xx0t8ejEiqKDv7Ac3rLgMeBqm3vkyAnJSWgFD 429
+2026-01-30 02:47:02,864 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:47:03,264 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:04,006 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:47:05,152 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=4243150 200
+2026-01-30 02:47:05,842 [INFO] response: https://search.yahoo.com/search;_ylt=gadZWIVy38W0A6y5ZZQpqljY;_ylu=v-x28k5PEoIWwymMEtZLPdR_qcg-GBryZKbiVHKEF7Rltus?p=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:06,429 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:47:07,198 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Anitter.net%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGM2c78sGIjC75kuu-p2bgDij3yKcVuqW5nklIOCnxVTPw9inmHqLpww3s1XpCsfIpHFHEnaRNgYyAnJSWgFD 429
+2026-01-30 02:47:07,503 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:47:08,645 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:10,548 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:11,814 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:47:12,677 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:13,567 [INFO] response: https://search.yahoo.com/search;_ylt=Ou417jU-Fzz_jhXzKbozcQzn;_ylu=iKn1mrsp7JJShPF2O-zlZ0SHmEfdtmzm6dR3T_hu0PWa4Fc?p=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:14,305 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aanonigviewer.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGNWc78sGIjB1aJNrJUuEgqIrhG-Q0N_f3ShT21b_ia8_H9fDwjmhVvT76zei8t8TA9AGkL6p2OMyAnJSWgFD 429
+2026-01-30 02:47:14,635 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:47:15,944 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=9041503 200
+2026-01-30 02:47:16,340 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:47:18,387 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:47:18,818 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:19,549 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:47:19,840 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:47:21,052 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=9551254 200
+2026-01-30 02:47:21,898 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:22,822 [INFO] response: https://search.yahoo.com/search;_ylt=7QKBKwH-p9S14PkFfSX2v1Ig;_ylu=YsYAhC1efPKEcEGZLr388mg9HJNhJ_LWFf7RWLWCqnNdjzI?p=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:23,725 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aanonigviewer.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGN6c78sGIjCbEirCtHo9H-n7PqDHXmAmdA5SYMzovPrAmaad8cJQAUO-FdA00F_-aL03RN0v0C0yAnJSWgFD 429
+2026-01-30 02:47:24,142 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:47:25,856 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:27,154 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:47:28,422 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=7861948 200
+2026-01-30 02:47:29,121 [INFO] response: https://search.yahoo.com/search;_ylt=CkGXg3MwICGB11hwLJGtcfUj;_ylu=Xfl3RypojiOb6kTIhhNBIACuV1G6mPtIpjTndX3r92lCsRI?p=site%3Agreatfon.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:29,640 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:47:30,503 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Agreatfon.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGOWc78sGIjBNK8K7qHpQ0OSpxiHOsY4XC2t2nikrlurDwdDgwtZaD-cH_ex7OC0ZCnHnzL6rDkUyAnJSWgFD 429
+2026-01-30 02:47:31,488 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:47:32,716 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 200
+2026-01-30 02:48:13,307 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:14,386 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:14,863 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:15,608 [INFO] response: https://search.yahoo.com/search;_ylt=HQMHwljFMK0c8jRSa1l7M5mj;_ylu=4iuhicM8Sk5eY1nx9Hmt5VQsWpkRSqPnbsMK_vKbfylahbU?p=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:16,582 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Adumpor.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGJOd78sGIjBkH4MzMHFW6njagM4Xuw05f1o2wo_gcpqLiN_5SzGGtq7Mr-LCa_a4tnN-k1AU2Z0yAnJSWgFD 429
+2026-01-30 02:48:16,894 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:18,171 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=7993870 200
+2026-01-30 02:48:19,406 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:21,593 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:48:22,040 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:22,983 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:23,592 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Adumpor.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGJqd78sGIjAYlAkyThcttpZF2nk6yxOXGpb9sOColuT9HhchFXTJThMIQZYI4kGCY6a8OFqGaj4yAnJSWgFD 429
+2026-01-30 02:48:23,881 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:24,345 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:25,363 [INFO] response: https://search.yahoo.com/search;_ylt=LU6zVzdgXs_JJMKlBQwq0OPU;_ylu=2GSxoA_P_KJEk8x5vAj7qNe8pWStBwYTiY72kNbTK-WpPP4?p=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:26,210 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:27,604 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=2183132 200
+2026-01-30 02:48:29,659 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:30,563 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:31,259 [INFO] response: https://search.yahoo.com/search;_ylt=Lp3eg6P04NBtiFVIihr9LqO8;_ylu=1eXP_uJIRa6rNw-4zjiezl76AkRw4e68kZKP9B3YSlZFcSo?p=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:31,883 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:32,238 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:33,528 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=8872164 200
+2026-01-30 02:48:34,379 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:35,134 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Agramhir.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGKWd78sGIjAOeV9wiGiD2nTpYB5Z0AM16L-bqZmg77deFM8CAs51XuMEtA53Jd7whc84O380cZ0yAnJSWgFD 429
+2026-01-30 02:48:37,149 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:48:37,576 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:38,672 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:39,133 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:39,843 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Agramhir.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGKqd78sGIjCaNL4-fo8-krv8a3Oz-2fNHGHMZO0FqXpYnzamitIEYnLFwvOZULo3EeeEw6G5NiQyAnJSWgFD 429
+2026-01-30 02:48:40,733 [INFO] response: https://search.yahoo.com/search;_ylt=hjJ9frCgiVYfGNciTd5W66H2;_ylu=xXPY-3ht4f5NDODLz1UxCWNKpCplSxL6aYJrFBThNmdvMcs?p=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:41,928 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=5744288 200
+2026-01-30 02:48:42,231 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:43,100 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:45,099 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:45,781 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:46,522 [INFO] response: https://search.yahoo.com/search;_ylt=Wi_hd-Hyl58J9bNHudgevUGK;_ylu=F0-TxyMqGBoHBhq3TnaWnyi2wD57n3RU67Xuf8BgzErGLCE?p=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:48,031 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=9978096 200
+2026-01-30 02:48:48,910 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:49,495 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:49,860 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:50,483 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGLWd78sGIjByVVKFonq_94aqBHqXzXjPtFkwayeY44NqPCb6Ewc3ghl4OMFxqqJEq-jrDunVeisyAnJSWgFD 429
+2026-01-30 02:48:52,486 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:48:52,934 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:53,442 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:48:54,642 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=4116324 200
+2026-01-30 02:48:55,071 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:48:55,964 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:56,429 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:48:57,164 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGLud78sGIjCw1vNlVhFBIJYMuTp3zCOhBikPxkeWKfGHVYDVtHvtrtfg0LUA5UyKhGB7_AggXKkyAnJSWgFD 429
+2026-01-30 02:48:57,910 [INFO] response: https://search.yahoo.com/search;_ylt=5blUlPmyOiLCEAwGP7UI9D3D;_ylu=ZtWJ82U-0_jxX4rPoVeKBpeOFljJm68no2w8uurcd31qgFI?p=site%3Atwstalker.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:48:59,875 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:00,637 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:01,100 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:01,427 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:02,175 [INFO] response: https://search.yahoo.com/search;_ylt=_UlSihyqW-YaM1ITnIQjTLts;_ylu=82RuCi4meFiJH01MkLzCr9Apucd88UadzfDgoLeFJ0wsukE?p=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:03,641 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=7318410 200
+2026-01-30 02:49:04,802 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:06,087 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGMSd78sGIjCknTSYWOuM_E5yb44oSTgpIp6Wl7ZYzV8IchVGsArYowxrGFL1kKc969q5pEE-CLIyAnJSWgFD 429
+2026-01-30 02:49:08,099 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:49:08,555 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:09,675 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:10,383 [INFO] response: https://search.yahoo.com/search;_ylt=HYm6IOoC8grhBXdNZZNbQZcK;_ylu=7In3S2RfiXoc2djG9GSVyp5XLaG24eR2VWx5NYnZwM5wbv8?p=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:10,876 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:11,825 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:12,928 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGMud78sGIjDMEkAcK41R9byANJaaEjajFXfVyEfLNzqqmSLZjljgPeg9lU96h7HBXxyBHJdox3cyAnJSWgFD 429
+2026-01-30 02:49:13,330 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:14,644 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=5412871 200
+2026-01-30 02:49:16,738 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aimginn.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:17,443 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:17,943 [INFO] response: https://search.brave.com/search?q=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:18,919 [INFO] response: https://www.mojeek.com/search?q=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:19,384 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:20,638 [INFO] response: https://yandex.com/search/site/?text=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=4022202 200
+2026-01-30 02:49:21,364 [INFO] response: https://search.yahoo.com/search;_ylt=7Qv1rlo13YyVITJryYvvOvZM;_ylu=XKmY5NhG193REeOMoMIjQIgtLbFzdXwfLxWuAXxa3ENsibs?p=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:22,545 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aimginn.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGNWd78sGIjAtrlwqmx8azWY6E8H0yXtRDH7NgMJXCRcb5jwCB67ScxImwo7x8Yk21EyyGVXHm24yAnJSWgFD 429
+2026-01-30 02:49:24,559 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:49:24,994 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aimginn.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:25,482 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:25,792 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:26,503 [INFO] response: https://search.yahoo.com/search;_ylt=xZyYcCz9qHLVzpo-JOMhc2RS;_ylu=0iQ5i4B8H0lisk-AoUMVF-8OWGTVYqdHe-mQ8jKqmtLxZ-8?p=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:28,125 [INFO] response: https://yandex.com/search/site/?text=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=5235988 200
+2026-01-30 02:49:29,230 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aimginn.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGNud78sGIjCIWkaETF6xki36_Vv6ecJUYmkfAfEjKEvHvh-dBRONfNsXv_uVod8j7kl-xl4saTMyAnJSWgFD 429
+2026-01-30 02:49:30,229 [INFO] response: https://www.mojeek.com/search?q=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:30,820 [INFO] response: https://search.brave.com/search?q=site%3Aimginn.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:32,674 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Apicuki.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:33,202 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:33,571 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:34,388 [INFO] response: https://www.mojeek.com/search?q=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:35,780 [INFO] response: https://yandex.com/search/site/?text=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=2684351 200
+2026-01-30 02:49:36,369 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Apicuki.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGOOd78sGIjDZ1dWzBwudJ9apmKbZHcdcYAFj1rjlDEXWop8JKJv5fhedbn-3LIP3l8zXdIvNJkIyAnJSWgFD 429
+2026-01-30 02:49:36,804 [INFO] response: https://search.brave.com/search?q=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:37,737 [INFO] response: https://search.yahoo.com/search;_ylt=bHJZmWaDcswe3H4FnFlYoXTp;_ylu=zqg8qqWufifRMDrbDwg1OWMna5GjvgQdHe33GG8V2txVRWA?p=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:39,789 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-01-30 02:49:40,227 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Apicuki.com%20%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:40,899 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&limit=1 200
+2026-01-30 02:49:41,751 [INFO] response: https://www.mojeek.com/search?q=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:42,732 [INFO] response: https://search.yahoo.com/search;_ylt=pBULiFokutzkQgY3jCpQjbTn;_ylu=kSca1ZqX2YzDgmVx8NYDMLd4fHQyLwnv2fgSEcydZK0e2BI?p=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22 200
+2026-01-30 02:49:43,385 [INFO] response: https://search.brave.com/search?q=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&source=web 429
+2026-01-30 02:49:44,628 [INFO] response: https://yandex.com/search/site/?text=site%3Apicuki.com+%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22&web=1&searchid=3698131 200
+2026-01-30 02:49:45,313 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Apicuki.com%2B%2522%25D0%2593%25D0%25B0%25D0%25BB%25D0%25B8%25D0%25BD%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGOyd78sGIjAKLm-J521bBKnKeMmCgw1XaR_Cp6ZkBA2mMZEg3rGcp3eE-IzHe0MDG7F8_nEK0p8yAnJSWgFD 429
+2026-01-30 02:49:45,602 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:48,140 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22%20%22%D0%92%D0%B8%D0%BD%D0%BD%D0%B8%D1%86%D0%B0%22 200
+2026-01-30 02:49:48,295 [INFO] response: https://grokipedia.com/api/typeahead?query=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D0%B8%D0%BD%D0%BD%D0%B8%D1%86%D0%B0%22&limit=1 200
+2026-01-30 02:49:48,558 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-01-30 02:49:49,765 [INFO] response: https://yandex.com/search/site/?text=%22%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%22+%22%D0%92%D0%B8%D0%BD%D0%BD%D0%B8%D1%86%D0%B0%22&web=1&searchid=1744823 200
+2026-01-30 02:52:22,046 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-30 02:52:32,750 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81%20User%20ID%2056680206108 200
+2026-01-30 02:52:34,567 [INFO] response: https://grokipedia.com/api/typeahead?query=%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81+User+ID+56680206108&limit=1 200
+2026-01-30 02:52:35,927 [INFO] response: https://yandex.com/search/site/?text=%D0%93%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81+User+ID+56680206108&web=1&searchid=1052331 200
+2026-01-30 02:55:00,676 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=%D0%9A%D1%81%D1%8E%D1%88%D0%B0%20%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81-%D0%BF%D0%B0%D0%B2%D0%BB%D1%83%D1%88%D0%B5%D0%BD%D0%BA%D0%BE%20Profile%20ID%20554870686420 200
+2026-01-30 02:55:00,923 [INFO] response: https://grokipedia.com/api/typeahead?query=%D0%9A%D1%81%D1%8E%D1%88%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81-%D0%BF%D0%B0%D0%B2%D0%BB%D1%83%D1%88%D0%B5%D0%BD%D0%BA%D0%BE+Profile+ID+554870686420&limit=1 200
+2026-01-30 02:55:01,748 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3D%25D0%259A%25D1%2581%25D1%258E%25D1%2588%25D0%25B0%2B%25D0%25A7%25D0%25B5%25D0%25BC%25D0%25B5%25D1%2580%25D0%25B8%25D1%2581-%25D0%25BF%25D0%25B0%25D0%25B2%25D0%25BB%25D1%2583%25D1%2588%25D0%25B5%25D0%25BD%25D0%25BA%25D0%25BE%2BProfile%2BID%2B554870686420%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-gSJVy1Use1dGKig78sGIjACWXJ65vi70UYJfIhSYoyX-HXOQwJ-UGaf9FOokrnRzuP_pfoYLdeFDmvMtNKdXaoyAnJSWgFD 429
+2026-01-30 02:55:02,230 [INFO] response: https://search.brave.com/search?q=%D0%9A%D1%81%D1%8E%D1%88%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81-%D0%BF%D0%B0%D0%B2%D0%BB%D1%83%D1%88%D0%B5%D0%BD%D0%BA%D0%BE+Profile+ID+554870686420&source=web 429
+2026-01-30 02:55:03,570 [INFO] response: https://yandex.com/search/site/?text=%D0%9A%D1%81%D1%8E%D1%88%D0%B0+%D0%A7%D0%B5%D0%BC%D0%B5%D1%80%D0%B8%D1%81-%D0%BF%D0%B0%D0%B2%D0%BB%D1%83%D1%88%D0%B5%D0%BD%D0%BA%D0%BE+Profile+ID+554870686420&web=1&searchid=9679555 200
+2026-01-30 02:57:14,540 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-30 02:57:23,143 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-30 02:58:17,646 [INFO] Response Status: 200
+2026-02-04 00:50:56,026 [INFO] Incoming Request: POST /api/analyze
+2026-02-04 00:50:56,055 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-02-04 00:52:55,840 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22pavel.psycholog%22 200
+2026-02-04 00:52:59,980 [INFO] Error in engine grokipedia: TimeoutException("Request timed out: RuntimeError('error sending request for url (https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22pavel.psycholog%22&limit=1): operation timed out\\n\\nCaused by:\\n    operation timed out')")
+2026-02-04 00:53:01,381 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-04 00:53:03,174 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22pavel.psycholog%22&web=1&searchid=9059576 200
+2026-02-04 00:53:04,204 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 00:53:05,810 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22pavel.psycholog%22&source=web 200
+2026-02-04 00:57:28,381 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 00:57:29,316 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 00:57:30,424 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 00:57:31,465 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-04 00:57:32,968 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=2173857 200
+2026-02-04 00:57:33,273 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 00:57:34,429 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-02-04 00:59:45,878 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22pavel.psycholog%22 200
+2026-02-04 00:59:46,224 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 00:59:47,111 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-04 00:59:48,613 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22pavel.psycholog%22 200
+2026-02-04 00:59:49,477 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22pavel.psycholog%22&source=web 200
+2026-02-04 00:59:49,777 [INFO] response: https://www.google.com/search?q=site%3Aanonigviewer.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 00:59:51,366 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22pavel.psycholog%22&web=1&searchid=4233528 200
+2026-02-04 00:59:54,784 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 00:59:55,403 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 00:59:56,190 [INFO] response: https://search.yahoo.com/search;_ylt=D2xk4bzF_x5hfGt7pN3iskj4;_ylu=ohQNisEjGrNAePLT2jD4QZZoLWx2tGG2UDo99oLs_3nuNOQ?p=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 00:59:57,310 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-02-04 00:59:57,595 [INFO] response: https://www.google.com/search?q=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 00:59:58,846 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:00:00,270 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=1756767 200
+2026-02-04 01:00:05,545 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22pavel.psycholog%22 200
+2026-02-04 01:00:05,853 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:00:06,378 [INFO] response: https://www.google.com/search?q=site%3Agreatfon.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:00:07,505 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-04 01:00:10,252 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22pavel.psycholog%22&web=1&searchid=7536224 200
+2026-02-04 01:00:11,470 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22pavel.psycholog%22 200
+2026-02-04 01:00:12,029 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22pavel.psycholog%22&source=web 200
+2026-02-04 01:00:31,374 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-04 01:00:37,520 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:00:37,875 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:00:38,140 [INFO] response: https://www.google.com/search?q=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:00:38,853 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:00:40,065 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=1653414 200
+2026-02-04 01:00:40,785 [INFO] response: https://search.yahoo.com/search;_ylt=4bnFsyO7oMDgZDTAuVcZ7FwO;_ylu=XZsWs6VdPHrkDK8RJYbSxYMS00rbHSr-2DCOwELLfYc6WsY?p=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:00:42,073 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:00:42,794 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-02-04 01:03:05,490 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22pavel.psycholog%22 200
+2026-02-04 01:03:06,985 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:03:08,633 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:09,446 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22&source=web 200
+2026-02-04 01:03:10,824 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22pavel.psycholog%22&web=1&searchid=6998278 200
+2026-02-04 01:03:11,150 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:12,312 [INFO] response: https://search.yahoo.com/search;_ylt=7FbMp3mDjLwlI4hceXE_c3Lg;_ylu=nQ4ET-V2bhou1Xb9Aa3j-JVgeV8GpBBrStDDZRCGtWMHkwA?p=site%3Adumpor.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:13,298 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:15,478 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:03:15,970 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22pavel.psycholog%22 200
+2026-02-04 01:03:16,382 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:03:17,620 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22pavel.psycholog%22&web=1&searchid=3004947 200
+2026-02-04 01:03:18,023 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:18,490 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:03:19,422 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:20,161 [INFO] response: https://search.yahoo.com/search;_ylt=GXlmDe1gyd8dR0zndFYSZ7kP;_ylu=WZHugucqmRZUli3WLAWkqc4QBr6KI2NOepr3w9ykH0dwRQY?p=site%3Adumpor.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:20,626 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:23,427 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:24,319 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:03:25,560 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=2452050 200
+2026-02-04 01:03:26,340 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:03:26,597 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:27,434 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:03:28,171 [INFO] response: https://search.yahoo.com/search;_ylt=cGshLQdGwKf7MjTWqXMb2ciC;_ylu=KmtuomnI9-X0EyNq_ZOKxn9z1OZ33AEeZrOB4RW-CGkTr6g?p=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:28,724 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:30,743 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:03:31,212 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:31,658 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:03:32,993 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=6066367 200
+2026-02-04 01:03:33,712 [INFO] response: https://search.yahoo.com/search;_ylt=l4H__T9ZPPIjlBOYveT7q3L0;_ylu=YZBsZkOyuKKaZjUetbdgPyvjpkyb9ZP4MECvPgYscla2yyc?p=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:34,673 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:03:34,936 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:35,653 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:36,063 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:03:38,335 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22pavel.psycholog%22 200
+2026-02-04 01:03:38,657 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:03:38,943 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:39,853 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:40,105 [INFO] response: https://www.google.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:40,852 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:03:41,773 [INFO] response: https://search.yahoo.com/search;_ylt=yhKpwvPTVoEGFhY2NaY5wG3z;_ylu=syPNE7Jhzb3yJIpv0RJOVX2Tpk9vS4xNGx-Qt-ikOA971jQ?p=site%3Agramhir.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:43,318 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22pavel.psycholog%22&web=1&searchid=7981846 200
+2026-02-04 01:03:45,326 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:03:45,830 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22pavel.psycholog%22 200
+2026-02-04 01:03:47,085 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:03:47,340 [INFO] response: https://www.google.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:03:48,167 [INFO] response: https://search.yahoo.com/search;_ylt=ZtfeUau_eYwMBIVVQ4HivP3U;_ylu=xrHCdC6gMK1WkhWH86-tnWCo2xW6SDdszpZTUp2pZ9bpksU?p=site%3Agramhir.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:49,755 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22pavel.psycholog%22&web=1&searchid=2730194 200
+2026-02-04 01:03:50,147 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:03:50,510 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:03:52,052 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22pavel.psycholog%22 200
+2026-02-04 01:03:54,379 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:55,007 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:03:55,431 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:03:56,341 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:03:57,035 [INFO] response: https://search.yahoo.com/search;_ylt=FgVblVs4WWZBALABIGFsxUE2;_ylu=hRS5UfU8sDIVJ-HmykG8HIgRiBWQcdlh4MtbScSD0V6FAaY?p=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:03:58,583 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=6780644 200
+2026-02-04 01:03:58,826 [INFO] response: https://www.google.com/search?q=site%3Agramhir.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-04 01:04:59,344 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-04 01:05:04,158 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22pavel.psycholog%22 200
+2026-02-04 01:05:04,932 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:05:05,241 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:05,718 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:05:06,781 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:08,011 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGOGbicwGIjAANw-hT1veUPmfuUmuMCUSdu8KPxm7Ypf0BaWcGn621uvAkeIwqKhTlw4srKyTO-kyAnJSWgFD 429
+2026-02-04 01:05:08,962 [INFO] response: https://search.yahoo.com/search;_ylt=fj_3jmJ9qDG6Dox4OA9JHrUU;_ylu=iZ-eobcbJxR8bpn85NJCpO7JE9ngPN8K65SRmG7uXdfvUYA?p=site%3Atwstalker.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:10,516 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22pavel.psycholog%22&web=1&searchid=6905994 200
+2026-02-04 01:05:12,524 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:05:13,007 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22pavel.psycholog%22 200
+2026-02-04 01:05:13,542 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:05:14,425 [INFO] response: https://search.yahoo.com/search;_ylt=dDl6wvyBfoxNg2M1xOg16xgV;_ylu=YNmswKsn8wsNDu8EKN7SwY2-o1xze2ks0UAdmukW6I7SGIs?p=site%3Atwstalker.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:15,788 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22pavel.psycholog%22&web=1&searchid=2636968 200
+2026-02-04 01:05:16,556 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGOqbicwGIjC06WTjnm6W1x4o86MytjAXC4Fr3SB4FgndghwAzYoTywY4o1lhjsLb-tyefBWP_GYyAnJSWgFD 429
+2026-02-04 01:05:17,491 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:17,931 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:05:18,336 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:21,356 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:05:21,372 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:05:21,793 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:05:22,698 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:05:23,035 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:24,291 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=7411357 200
+2026-02-04 01:05:25,157 [INFO] response: https://search.yahoo.com/search;_ylt=OKJyoxAu-Th-O93e0CRIXiXg;_ylu=gtMsqQxKE8ANqKUNaTt6m1BJTnjt9LietaHsjtWIDL6U5bA?p=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:05:26,055 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%259F%25D0%25B0%25D0%25B2%25D0%25B5%25D0%25BB%2B%25D0%25A1%25D1%2582%25D0%25BE%25D0%25BB%25D0%25B1%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%25D0%25B8%25D0%25B9%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGPObicwGIjDa3teKoTfXhAksz0XRIW6CnmsxXrKLexBEVr9ZGn5WH60oHFIE_aDq22J0GvVDuvAyAnJSWgFD 429
+2026-02-04 01:05:28,072 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:05:28,527 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:05:29,118 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:05:30,033 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%259F%25D0%25B0%25D0%25B2%25D0%25B5%25D0%25BB%2B%25D0%25A1%25D1%2582%25D0%25BE%25D0%25BB%25D0%25B1%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%25D0%25B8%25D0%25B9%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGPebicwGIjAe7YVLXCXRXwbQ4x7t55jxy6jBr-NEf-JUG5HCjN767mHbqS4BxrSqWVnAUCDy9XMyAnJSWgFD 429
+2026-02-04 01:05:30,370 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:31,681 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=7290162 200
+2026-02-04 01:05:32,077 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:05:32,927 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:05:33,629 [INFO] response: https://search.yahoo.com/search;_ylt=hGc3vvOhRtUf3ceGMIdiF5vD;_ylu=3AD8RRxZAZya_si-HUqVzjtUWJhe88kXpbQoYTHdHiZK8wE?p=site%3Atwstalker.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:05:35,617 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22pavel.psycholog%22 200
+2026-02-04 01:05:37,742 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:05:38,442 [INFO] response: https://search.yahoo.com/search;_ylt=-j-QkTxssvuEMGebRDUh1V3g;_ylu=wM3Gf1ckx54mUsI4ta-XPyTmrOXE1sYwngpvg_nM2xTT07c?p=site%3Afreetwitter.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:39,357 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGICcicwGIjAM5_pc-TkUInJtXED_lyoHE7IUa8XSeICYfuCo-Xr6mOj3UeVyjAPBN2sgN70cTnUyAnJSWgFD 429
+2026-02-04 01:05:39,679 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:41,035 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22pavel.psycholog%22&web=1&searchid=3768812 200
+2026-02-04 01:05:42,133 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:42,557 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:05:44,656 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:05:45,081 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22pavel.psycholog%22 200
+2026-02-04 01:05:47,325 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:05:48,931 [INFO] response: https://search.yahoo.com/search;_ylt=0YXc6WNE1CvK3E_MLhtlKljE;_ylu=F1sgq0nAi-qpp6moCnAiGGoDWTpkByUqNRTmCsbOPwyQz-U?p=site%3Afreetwitter.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:50,092 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGIucicwGIjDy6zKwg8QFO3lHOlhCPdPhq2jNL957DpCppFUpU1t4DhyPiyUxllwVMyRxjH6W7A8yAnJSWgFD 429
+2026-02-04 01:05:50,865 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:05:51,828 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22pavel.psycholog%22 200
+2026-02-04 01:05:52,477 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:05:53,704 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22pavel.psycholog%22&web=1&searchid=7393608 200
+2026-02-04 01:05:55,547 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:05:56,286 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:05:56,687 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:05:57,883 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%259F%25D0%25B0%25D0%25B2%25D0%25B5%25D0%25BB%2B%25D0%25A1%25D1%2582%25D0%25BE%25D0%25BB%25D0%25B1%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%25D0%25B8%25D0%25B9%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGJOcicwGIjCr1yMI15PGLaGmFRUO9WCNbFizZqEdAz3uUavUVPoiqJNdzrdcKeu6MLQHSXB8XUEyAnJSWgFD 429
+2026-02-04 01:05:59,156 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=6202858 200
+2026-02-04 01:05:59,969 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:06:00,510 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:06:01,404 [INFO] response: https://search.yahoo.com/search;_ylt=yKoZYGcWbU7BE7EyfrnRXck6;_ylu=hXhtGtbhlUcVlX-jeg6jLjTpPu8om0toBweg_Ew4H5VXV-s?p=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:06:03,508 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:06:04,027 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:06:04,443 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-02-04 01:06:05,414 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%259F%25D0%25B0%25D0%25B2%25D0%25B5%25D0%25BB%2B%25D0%25A1%25D1%2582%25D0%25BE%25D0%25BB%25D0%25B1%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%25D0%25B8%25D0%25B9%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGJqcicwGIjBm5aeqyz55mTpWJLwgPwsckwzUVj704BJK-GtBn3VzuvQS_Vo5zFGKLJnK6BE729wyAnJSWgFD 429
+2026-02-04 01:06:06,808 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=1070906 200
+2026-02-04 01:06:07,661 [INFO] response: https://search.yahoo.com/search;_ylt=H8Abj7on7V52b3lBBhqyj0Lp;_ylu=Gnqdt1J8lq_1sVjvhNUsSWmB-eBYOwqcmIrs4BCrgK4dH2w?p=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-02-04 01:06:08,516 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 403
+2026-02-04 01:06:08,989 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 429
+2026-02-04 01:06:22,822 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aimginn.com%20%22pavel.psycholog%22 200
+2026-02-04 01:06:23,544 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aimginn.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:06:23,971 [INFO] response: https://search.brave.com/search?q=site%3Aimginn.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:06:24,592 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aimginn.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGK6cicwGIjDtyf_KtVLVOOPGyCD56ZKdwiplfs9nLZvSk3fdyThPEML7TFFB3d1wEQa5fEJiz58yAnJSWgFD 429
+2026-02-04 01:06:25,292 [INFO] response: https://search.yahoo.com/search;_ylt=HrEzU0C35gVdmHVeUzQrsJ_v;_ylu=8jdBqQquUthmCaTM_oHzJiQ8VaZE4cDKZ5eRz4Kff7zDPGE?p=site%3Aimginn.com+%22pavel.psycholog%22 200
+2026-02-04 01:06:26,737 [INFO] response: https://yandex.com/search/site/?text=site%3Aimginn.com+%22pavel.psycholog%22&web=1&searchid=8353414 200
+2026-02-04 01:06:27,069 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:06:28,052 [INFO] response: https://www.mojeek.com/search?q=site%3Aimginn.com+%22pavel.psycholog%22 200
+2026-02-04 01:06:30,484 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-04 01:06:30,930 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aimginn.com%20%22pavel.psycholog%22 200
+2026-02-04 01:06:31,609 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aimginn.com+%22pavel.psycholog%22&limit=1 200
+2026-02-04 01:06:32,178 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aimginn.com%2B%2522pavel.psycholog%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSEU6Z-s2kvAhbKAavGLWcicwGIjDMyAbsV33L4BXGqZ42LN0RlKDvlUSFKcFcNEefqdOII2EXN3ygxaoRLpWJdboYQgUyAnJSWgFD 429
+2026-02-04 01:06:32,520 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-04 01:06:33,787 [INFO] response: https://yandex.com/search/site/?text=site%3Aimginn.com+%22pavel.psycholog%22&web=1&searchid=8018773 200
+2026-02-04 01:06:34,239 [INFO] response: https://search.brave.com/search?q=site%3Aimginn.com+%22pavel.psycholog%22&source=web 429
+2026-02-04 01:06:35,195 [INFO] response: https://www.mojeek.com/search?q=site%3Aimginn.com+%22pavel.psycholog%22 200
+2026-02-04 01:06:35,975 [INFO] response: https://search.yahoo.com/search;_ylt=w-agEUoosM8DkV2ov7e9__5N;_ylu=Ve7uYFOzoBllLykMhPjWvYxzYILivlAAOd2QxCWvCrOfTv4?p=site%3Aimginn.com+%22pavel.psycholog%22 200
+2026-02-04 01:06:37,120 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-04 01:06:48,094 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-02-04 01:07:43,177 [INFO] Response Status: 200
+2026-02-04 02:21:37,190 [INFO] Incoming Request: GET /api/settings
+2026-02-04 02:21:37,385 [INFO] Response Status: 200
+2026-02-11 08:41:32,988 [INFO] Incoming Request: POST /api/analyze
+2026-02-11 08:41:32,995 [INFO] --- STARTING ANALYSIS FOR: Руслан Абыкеев ---
+2026-02-11 08:43:36,058 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22iceberg%22 200
+2026-02-11 08:43:36,415 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22iceberg%22&limit=1 200
+2026-02-11 08:43:37,241 [INFO] response: https://search.yahoo.com/search;_ylt=DOwtX8o40Gbg25E_-pNYcRXA;_ylu=pDsbwjmkyx_TzoABH8q9XVuIlM0YY3afwyN3Ba__ozwqzGg?p=site%3Anitter.net+%22iceberg%22 200
+2026-02-11 08:43:38,521 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22iceberg%22&source=web 200
+2026-02-11 08:45:28,191 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:45:28,343 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:45:29,601 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-11 08:45:30,532 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 200
+2026-02-11 08:47:30,053 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22iceberg%22 200
+2026-02-11 08:47:30,759 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22iceberg%22&limit=1 200
+2026-02-11 08:47:31,441 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22iceberg%22&source=web 200
+2026-02-11 08:47:32,777 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22iceberg%22&web=1&searchid=8908284 200
+2026-02-11 08:47:33,107 [INFO] response: https://www.google.com/search?q=site%3Aanonigviewer.com+%22iceberg%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:47:34,097 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-02-11 08:47:35,210 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22iceberg%22 200
+2026-02-11 08:47:38,678 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:38,975 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:47:39,289 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:47:39,852 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 200
+2026-02-11 08:47:40,949 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:41,379 [INFO] response: https://www.google.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:47:42,682 [INFO] response: https://search.yahoo.com/search;_ylt=C7NK39lvnjw7wgiDtviqIvVt;_ylu=54aWzHU7WomaAXpxpewMZHsSmFtXEt1O36hsPwqqh0PX4Wg?p=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:44,124 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=2757880 200
+2026-02-11 08:47:46,138 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:47:46,603 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:47,242 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:47:47,577 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:47:48,773 [INFO] response: https://yandex.com/search/site/?text=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=3981100 200
+2026-02-11 08:47:49,566 [INFO] response: https://search.yahoo.com/search;_ylt=zux_HeTuwXycsGE-zPG9YQyP;_ylu=Jojsw8Wgl3QM2DaEgzFfC7eIhYZw9HJpH3yN87eo95neerc?p=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:50,280 [INFO] response: https://search.brave.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 200
+2026-02-11 08:47:51,117 [INFO] response: https://www.mojeek.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:47:51,618 [INFO] response: https://www.google.com/search?q=site%3Aanonigviewer.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:47:55,463 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22iceberg%22 200
+2026-02-11 08:47:56,227 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22iceberg%22&limit=1 200
+2026-02-11 08:47:56,836 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22iceberg%22&source=web 200
+2026-02-11 08:47:58,228 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22iceberg%22&web=1&searchid=4140019 200
+2026-02-11 08:47:59,194 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22iceberg%22 200
+2026-02-11 08:47:59,438 [INFO] response: https://www.google.com/search?q=site%3Agreatfon.com+%22iceberg%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:47:59,927 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:48:00,694 [INFO] response: https://search.yahoo.com/search;_ylt=CiF2mM9Xn9IYo8-qffJCsPDC;_ylu=UyhS0jkNoal1ZofP7lVQJZ1el98Wyc6W74x3pE9vKxdQUOc?p=site%3Agreatfon.com+%22iceberg%22 200
+2026-02-11 08:49:57,095 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-02-11 08:49:59,170 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:49:59,352 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:49:59,621 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:50:00,291 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 200
+2026-02-11 08:50:01,535 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=8374426 200
+2026-02-11 08:50:01,820 [INFO] response: https://www.google.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:50:02,848 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:50:03,811 [INFO] response: https://search.yahoo.com/search;_ylt=Om139qIJa2XjRqlXTzUeMaN9;_ylu=NMg8AG-OEcm3FtqBrFXl3b1yOLOQ1Erdy6v8mAcVGFvXUYY?p=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:50:06,048 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:50:06,515 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agreatfon.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:50:07,551 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:50:07,979 [INFO] response: https://search.brave.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:50:08,911 [INFO] response: https://www.mojeek.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:50:10,327 [INFO] response: https://yandex.com/search/site/?text=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=4306279 200
+2026-02-11 08:50:10,693 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:50:10,994 [INFO] response: https://www.google.com/search?q=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:50:11,937 [INFO] response: https://search.yahoo.com/search;_ylt=32yKxmypm0MKwEh68icwkAsU;_ylu=976BjvGvKepopC9HhmL15MVWgdFg5hkyLgHxCvTDo4Qm_RI?p=site%3Agreatfon.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:50:14,671 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22iceberg%22 200
+2026-02-11 08:50:14,961 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22iceberg%22&limit=1 200
+2026-02-11 08:50:15,721 [INFO] response: https://search.yahoo.com/search;_ylt=wHZWHw-uJP07pRW1hogrFhFF;_ylu=nJtC0y_IFHAZE3bweTUCRi3mQ42cISdFy_OAaE-gWpsK6xE?p=site%3Adumpor.com+%22iceberg%22 200
+2026-02-11 08:50:16,915 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22iceberg%22 200
+2026-02-11 08:50:17,177 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22iceberg%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:50:17,709 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22iceberg%22&source=web 429
+2026-02-11 08:50:19,012 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22iceberg%22&web=1&searchid=3245684 200
+2026-02-11 08:51:14,791 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:15,086 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:51:15,934 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:51:16,192 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:51:17,214 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:18,146 [INFO] response: https://search.yahoo.com/search;_ylt=X_twOLkeKVnACxpZilmJ19TP;_ylu=N8T82j489g11PumdCBxgxBGuU0wcf9ZLabgma3FB2unI5c4?p=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:18,845 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:51:20,156 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=1255529 200
+2026-02-11 08:51:22,177 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:51:22,614 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Adumpor.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:23,222 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:51:23,636 [INFO] response: https://search.brave.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:51:24,878 [INFO] response: https://yandex.com/search/site/?text=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=5613996 200
+2026-02-11 08:51:25,600 [INFO] response: https://search.yahoo.com/search;_ylt=tmmhl6wG5MoHJJdVdvE3Uama;_ylu=FVNADfEyHG7Cp9-MkeZawv5gE5ZR-ZbALm9Zo4hsyzlvALc?p=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:26,578 [INFO] response: https://www.mojeek.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:51:27,015 [INFO] response: https://www.google.com/search?q=site%3Adumpor.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:51:27,468 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:51:29,966 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22iceberg%22 200
+2026-02-11 08:51:30,692 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22iceberg%22&limit=1 200
+2026-02-11 08:51:31,098 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22iceberg%22&source=web 429
+2026-02-11 08:51:32,004 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22iceberg%22 200
+2026-02-11 08:51:32,282 [INFO] response: https://www.google.com/search?q=site%3Agramhir.com+%22iceberg%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 200
+2026-02-11 08:51:33,612 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22iceberg%22&web=1&searchid=5088246 200
+2026-02-11 08:51:34,482 [INFO] response: https://search.yahoo.com/search;_ylt=Cm3yGu6yKio6H8D44Ooi1NmL;_ylu=L_yMtjkgjMhIu12nmIq7A8T7xD1KlWizTY4F5XDWM0e0yJs?p=site%3Agramhir.com+%22iceberg%22 200
+2026-02-11 08:54:58,900 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:54:59,110 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:54:59,938 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Agramhir.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGIjtr8wGIjDof891wtAyHRLcleG737apghfajvdkhO6tJG6xBt2Xk3m4AlpauLNycGsAjsW1AsAyAnJSWgFD 429
+2026-02-11 08:55:00,438 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:55:01,391 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:55:01,922 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:55:02,761 [INFO] response: https://search.yahoo.com/search;_ylt=A5hk9nV4eXUQaaCy9iq-brGl;_ylu=bI1Ki-2_FJVTwMvEFb23LZIF5o1qnHDa0xMHTWzy40_npCc?p=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:55:04,177 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=1859687 200
+2026-02-11 08:55:06,193 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:55:06,620 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Agramhir.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:55:07,364 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:55:07,782 [INFO] response: https://search.brave.com/search?q=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:55:08,797 [INFO] response: https://search.yahoo.com/search;_ylt=YOe5V3-wyroKsHEUX4NKWwWE;_ylu=yBfSCHh3fzWYplfSTSeaj_EZyjbvT0xdcfZ7kFN1oeAmz5U?p=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:55:10,310 [INFO] response: https://yandex.com/search/site/?text=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=1777293 200
+2026-02-11 08:55:10,615 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:55:11,236 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Agramhir.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGJPtr8wGIjBsssEWQeBhgEp_LBUymyfi_831Yaq6p8zAThThZhy37KlWoBd6MCMFPWAJ-NkGK_syAnJSWgFD 429
+2026-02-11 08:55:12,391 [INFO] response: https://www.mojeek.com/search?q=site%3Agramhir.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:55:12,608 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-02-11 08:55:14,832 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22iceberg%22 200
+2026-02-11 08:55:15,015 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22iceberg%22&limit=1 200
+2026-02-11 08:55:15,309 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:55:16,265 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22iceberg%22 200
+2026-02-11 08:55:16,880 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22iceberg%22&source=web 429
+2026-02-11 08:55:18,196 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22iceberg%22&web=1&searchid=2675959 200
+2026-02-11 08:57:01,006 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:01,086 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:57:01,681 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:57:02,316 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGIPur8wGIjCMCf0Eg9m53p4YxrvGQO6B5higIfMYxLg5P70KuilFz6GFun7tYrRVcUiz-OTy8_MyAnJSWgFD 429
+2026-02-11 08:57:03,126 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:04,506 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=3713280 200
+2026-02-11 08:57:04,870 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:05,674 [INFO] response: https://search.yahoo.com/search;_ylt=Omv9NBxka5WIn2syfTFZIwyP;_ylu=VAoCQJR10UcWjoK4iyIsNO-xcHoVoxLjZaSZF-PpJnZXTo8?p=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:07,905 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:57:08,355 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Atwstalker.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:08,921 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:57:09,727 [INFO] response: https://www.mojeek.com/search?q=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:10,320 [INFO] response: https://search.brave.com/search?q=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:57:10,647 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:11,822 [INFO] response: https://yandex.com/search/site/?text=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=8188460 200
+2026-02-11 08:57:12,501 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Atwstalker.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGI3ur8wGIjBKMVqR4PqmTC68GYs1kw8svs2jk7sh8T9ljUA6OTT3LteDZGB48lo1puvWfVaaPGEyAnJSWgFD 429
+2026-02-11 08:57:13,311 [INFO] response: https://search.yahoo.com/search;_ylt=RpLCRi6MAABwcUAJo7qG95ra;_ylu=XL0kIjHDJtHgYaaUhuUXd57nS2YBQJlmJWkoxO5yYptP9EI?p=site%3Atwstalker.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:15,329 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22iceberg%22 200
+2026-02-11 08:57:15,596 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22iceberg%22&limit=1 200
+2026-02-11 08:57:16,978 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22iceberg%22&web=1&searchid=5569779 200
+2026-02-11 08:57:17,471 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22iceberg%22&source=web 429
+2026-02-11 08:57:17,802 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:18,346 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522iceberg%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGJPur8wGIjDKFHC21Rrou6-0J4e7e40x-NCIElAWn5rXOnvMpovQmxyQeO6W3sQnD_aVndet8ToyAnJSWgFD 429
+2026-02-11 08:57:19,291 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22iceberg%22 200
+2026-02-11 08:57:20,212 [INFO] response: https://search.yahoo.com/search;_ylt=TEuvv6qzfNZ0tjIlfDosNK7q;_ylu=ksdXQSc-7prXA5ydSNAS9viTzLlranZFFOtR8ZExF_xuziQ?p=site%3Afreetwitter.com+%22iceberg%22 200
+2026-02-11 08:57:22,337 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:57:22,892 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22iceberg%22 200
+2026-02-11 08:57:23,386 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22iceberg%22&limit=1 200
+2026-02-11 08:57:24,303 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22iceberg%22 200
+2026-02-11 08:57:25,065 [INFO] response: https://search.yahoo.com/search;_ylt=_jVQ-dq0F724VBs3zFp8DFkq;_ylu=Nu6X_-v0nbpSZSH7fDAKY7OXLZcmZfBTlKZ0ctMtcuRGSqw?p=site%3Afreetwitter.com+%22iceberg%22 200
+2026-02-11 08:57:26,436 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22iceberg%22&web=1&searchid=6383178 200
+2026-02-11 08:57:26,741 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:27,247 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22iceberg%22&source=web 429
+2026-02-11 08:57:27,955 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522iceberg%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGJzur8wGIjC8t7S_lZ81B5o3SMI9Mco9JUCFXRJEGpyPbfHVuA65-EwtTCuIvRYJ99pUbXXFjD8yAnJSWgFD 429
+2026-02-11 08:57:30,038 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:30,357 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:57:30,708 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:31,148 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:57:32,404 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=3126143 200
+2026-02-11 08:57:33,125 [INFO] response: https://search.yahoo.com/search;_ylt=qQ2-IWXMo7H98CQgxM78R1Fb;_ylu=IWS35fCDwFxYFemJNi6qpfEVlSLZ-rA89029CZPT0hL6ang?p=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:33,968 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGKLur8wGIjBI7voN4HwjKJCp4xMHAI5TFL1AgxAkdicOgEzRsXR2UFsHQMLQUn0PEOKULKXCCYIyAnJSWgFD 429
+2026-02-11 08:57:34,828 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:37,003 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-02-11 08:57:37,459 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Afreetwitter.com%20%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:37,825 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&limit=1 200
+2026-02-11 08:57:40,064 [INFO] response: https://yandex.com/search/site/?text=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&web=1&searchid=1637891 200
+2026-02-11 08:57:40,689 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Afreetwitter.com%2B%2522%25D0%25A0%25D1%2583%25D1%2581%25D0%25BB%25D0%25B0%25D0%25BD%2B%25D0%2590%25D0%25B1%25D1%258B%25D0%25BA%25D0%25B5%25D0%25B5%25D0%25B2%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGKnur8wGIjBL0DmKV79t18aCF_r8UlDxcSyL1mqL6Uz2MiLioRshxCq6uCJQxAETwTeu4wBh0DMyAnJSWgFD 429
+2026-02-11 08:57:40,985 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-02-11 08:57:41,372 [INFO] response: https://search.brave.com/search?q=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22&source=web 429
+2026-02-11 08:57:42,289 [INFO] response: https://www.mojeek.com/search?q=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:43,274 [INFO] response: https://search.yahoo.com/search;_ylt=B1ZawV-cRzHy-M1o6F4_eTaJ;_ylu=uXCeSa8rIzyjgnN2BKXCeMuFnMshbNjbe20EOa0PDc5gnJQ?p=site%3Afreetwitter.com+%22%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD+%D0%90%D0%B1%D1%8B%D0%BA%D0%B5%D0%B5%D0%B2%22 200
+2026-02-11 08:57:45,363 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aimginn.com%20%22iceberg%22 200
+2026-02-11 08:57:45,725 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Aimginn.com+%22iceberg%22&limit=1 200
+2026-02-11 08:57:46,605 [INFO] response: https://www.mojeek.com/search?q=site%3Aimginn.com+%22iceberg%22 200
+2026-02-11 08:57:47,525 [INFO] response: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dsite%253Aimginn.com%2B%2522iceberg%2522%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&hl=en-US&q=EhAkCUDSIGmwG83yV6pTv5CWGLDur8wGIjCrWqsLJSTaYxW-57uGN3PtOtHwk9TIJNOHMZ9IJX5O6-qe_e5UTACIU_IfFRiYsCsyAnJSWgFD 429
+2026-02-11 08:57:48,838 [INFO] response: https://yandex.com/search/site/?text=site%3Aimginn.com+%22iceberg%22&web=1&searchid=2434885 200
+2026-02-11 08:57:49,246 [INFO] response: https://search.brave.com/search?q=site%3Aimginn.com+%22iceberg%22&source=web 429
+2026-02-11 08:57:50,045 [INFO] response: https://search.yahoo.com/search;_ylt=Z-55WYrrTHtvr-Pf0kor9Xby;_ylu=gCdGTai-ldvqkIFkFyUHmSnZVfVm3Fb17GkVLFykn89j9Lk?p=site%3Aimginn.com+%22iceberg%22 200
+2026-02-11 08:59:02,274 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-02-11 08:59:02,317 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-02-11 08:59:02,334 [INFO] Response Status: 200
+2026-08-13 00:10:55,869 [INFO] Incoming Request: GET /
+2026-08-13 00:10:55,871 [INFO] Response Status: 200
+2026-08-13 00:10:55,876 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 00:10:55,878 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 00:11:00,058 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:11:00,708 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 00:11:02,028 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:11:03,265 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=7214733 200
+2026-08-13 00:11:03,938 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 00:11:04,738 [INFO] response: https://search.yahoo.com/search;_ylt=TEmA67BTmkDiZokfhY7Cd2eb;_ylu=UpGiqQzRK7ukM43fv2_w2QfRcy-UfZr5JdQWQ4Y2tXqoHrU?p=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:11:06,028 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 00:11:06,050 [INFO] Response Status: 500
+2026-08-13 00:12:18,907 [INFO] Incoming Request: GET /
+2026-08-13 00:12:18,908 [INFO] Response Status: 200
+2026-08-13 00:12:18,912 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 00:12:18,916 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 00:12:21,378 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:12:21,603 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 00:12:22,298 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-08-13 00:12:23,407 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=8978615 200
+2026-08-13 00:12:24,077 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 00:12:24,935 [INFO] response: https://search.yahoo.com/search;_ylt=6HBW3y3wTOlX2thLWMZOOoB9;_ylu=4Pw-wClHgnbUNJxbMkAAvptMj7OjzQFIuyFQypMKtaXS-U0?p=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:12:25,585 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 00:14:17,340 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:25:58,479 [INFO] Incoming Request: GET /
+2026-08-13 00:25:58,481 [INFO] Response Status: 200
+2026-08-13 00:25:58,485 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 00:25:58,489 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 00:26:00,565 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:26:01,434 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 00:26:02,275 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:26:03,448 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=4344068 200
+2026-08-13 00:26:04,278 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-08-13 00:26:04,847 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 00:26:05,492 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 00:27:58,115 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 00:28:03,496 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-08-13 00:28:34,652 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-08-13 01:55:57,528 [INFO] Incoming Request: GET /
+2026-08-13 01:55:57,530 [INFO] Response Status: 200
+2026-08-13 01:55:57,535 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 01:55:57,538 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 01:55:59,781 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 01:55:59,885 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 01:56:00,752 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 01:56:01,006 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-08-13 01:56:01,888 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 01:57:43,918 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 01:58:03,870 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-08-13 01:58:20,535 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-08-13 02:05:00,501 [INFO] Incoming Request: GET /
+2026-08-13 02:05:00,504 [INFO] Response Status: 200
+2026-08-13 02:05:00,510 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 02:05:00,513 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 02:05:03,546 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:05:03,585 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 02:05:04,484 [INFO] response: https://search.yahoo.com/search;_ylt=Bwk121CD7TT04jYlfZfHp5lZ;_ylu=cwJHY6gqD35RUWPQVKRxs1yX_-VZqCxcRdw6nmmRQi8Du5Y?p=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:05:05,775 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=2493813 200
+2026-08-13 02:05:06,284 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 02:07:11,883 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:07:37,314 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-08-13 02:07:48,527 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-08-13 02:22:33,826 [INFO] Incoming Request: GET /
+2026-08-13 02:22:33,830 [INFO] Response Status: 200
+2026-08-13 02:22:33,834 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 02:22:33,838 [INFO] --- STARTING ANALYSIS FOR: Павел Столбовский ---
+2026-08-13 02:22:36,601 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&limit=1 200
+2026-08-13 02:22:36,601 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:22:36,921 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-08-13 02:22:37,468 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 02:22:38,331 [INFO] response: https://search.yahoo.com/search;_ylt=ieCktQA-SH0ZG4kriRLmk3Cb;_ylu=Gpl_Vd88p3Ib4kkqF83e_0U98FBUHWF6YH9KhtD2gbWM54k?p=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:22:39,617 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&web=1&searchid=2397148 200
+2026-08-13 02:22:40,649 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:22:41,530 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB+%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&source=web 200
+2026-08-13 02:24:22,534 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Aanonigviewer.com%20%22%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22 200
+2026-08-13 02:25:22,355 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 202 Accepted"
+2026-08-13 02:26:44,108 [WARNING] KeyError('html') - backend is not exist or disabled. Available: brave, duckduckgo, google, grokipedia, mojeek, wikipedia, yahoo, yandex. Using 'auto'
+2026-08-13 06:15:24,083 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 06:15:24,096 [INFO] --- STARTING ANALYSIS FOR: Макаров Артём ---
+2026-08-13 06:16:39,788 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%40Clownss02%22 200
+2026-08-13 06:16:40,253 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%40Clownss02%22&limit=1 200
+2026-08-13 06:16:40,883 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22%40Clownss02%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 06:16:42,093 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22%40Clownss02%22&web=1&searchid=1716390 200
+2026-08-13 06:16:42,946 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%40Clownss02%22&source=web 200
+2026-08-13 06:23:22,505 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2+%D0%90%D1%80%D1%82%D1%91%D0%BC%22&limit=1 200
+2026-08-13 06:23:23,064 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2%20%D0%90%D1%80%D1%82%D1%91%D0%BC%22 200
+2026-08-13 06:23:23,885 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2+%D0%90%D1%80%D1%82%D1%91%D0%BC%22&source=web 200
+2026-08-13 06:23:55,980 [INFO] HTTP Request: POST https://api.cerebras.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-13 06:23:57,595 [INFO] HTTP Request: POST https://api.cerebras.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-13 06:23:57,617 [INFO] Response Status: 200
+2026-08-13 06:29:42,302 [INFO] Incoming Request: GET /api/settings
+2026-08-13 06:29:42,305 [INFO] Response Status: 200
+2026-08-13 06:30:42,517 [INFO] Incoming Request: POST /api/analyze
+2026-08-13 06:30:42,518 [INFO] --- STARTING ANALYSIS FOR: Макаров Артем ---
+2026-08-13 06:31:32,612 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22Clownss02%22&limit=1 200
+2026-08-13 06:31:32,777 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22Clownss02%22 200
+2026-08-13 06:31:33,561 [INFO] HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 OK"
+2026-08-13 06:31:34,122 [INFO] response: https://www.google.com/search?q=site%3Anitter.net+%22Clownss02%22&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-08-13 06:31:35,279 [INFO] response: https://yandex.com/search/site/?text=site%3Anitter.net+%22Clownss02%22&web=1&searchid=3650952 200
+2026-08-13 06:31:36,226 [INFO] response: https://www.mojeek.com/search?q=site%3Anitter.net+%22Clownss02%22 200
+2026-08-13 06:31:37,213 [INFO] response: https://search.brave.com/search?q=site%3Anitter.net+%22Clownss02%22&source=web 429
+2026-08-13 06:38:14,390 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=site%3Anitter.net%20%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2%20%D0%90%D1%80%D1%82%D0%B5%D0%BC%22 200
+2026-08-13 06:38:14,567 [INFO] response: https://grokipedia.com/api/typeahead?query=site%3Anitter.net+%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2+%D0%90%D1%80%D1%82%D0%B5%D0%BC%22&limit=1 200
+2026-08-13 06:38:15,283 [INFO] response: https://search.yahoo.com/search;_ylt=j4Za49-NM9EwzCsZ_mdC89st;_ylu=lMS02CzgQy7sM4sSGogsKT1k-vT8tzB81eJk1OTK_k3WreU?p=site%3Anitter.net+%22%D0%9C%D0%B0%D0%BA%D0%B0%D1%80%D0%BE%D0%B2+%D0%90%D1%80%D1%82%D0%B5%D0%BC%22 200
+2026-08-13 06:38:44,158 [INFO] HTTP Request: POST https://api.cerebras.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-13 06:38:44,652 [INFO] HTTP Request: POST https://api.cerebras.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-13 06:38:44,653 [INFO] Retrying request to /chat/completions in 60.000000 seconds
+2026-08-13 06:39:46,267 [INFO] HTTP Request: POST https://api.cerebras.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-13 06:39:46,351 [INFO] Response Status: 200

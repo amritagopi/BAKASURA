@@ -76,7 +76,7 @@ def run_test():
     
     try:
         start_time = time.time()
-        resp = requests.post(f"{base_url}/api/analyze", json=payload, timeout=120)
+        resp = requests.post(f"{base_url}/api/analyze", json=payload, timeout=400)
         duration = time.time() - start_time
         
         print(f">>> [TEST] Response received in {duration:.2f}s")

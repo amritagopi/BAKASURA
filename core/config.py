@@ -46,6 +46,7 @@ def set_key(service: str, value: str) -> bool:
 
 # Service names (for reference)
 SERVICES = [
+    "searxng_url",       # Self-hosted SearXNG instance URL (default: http://localhost:8080)
     "brave_search",      # Brave Search API
     "exa_ai",            # Exa.ai semantic search
     "hunter_io",         # Hunter.io email finder

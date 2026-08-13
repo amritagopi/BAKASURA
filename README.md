@@ -38,7 +38,7 @@
 | Component | Technology |
 |-----------|------------|
 | **Backend** | Python 3.10+, FastAPI, LangGraph |
-| **LLM** | Ollama (Qwen2.5:14B recommended) |
+| **LLM** | Cerebras API (gpt-oss-120b) |
 | **Scraping** | Playwright (headless browser) |
 | **Social Scan** | Maigret CLI |
 | **Frontend** | React + TypeScript + Tauri |
@@ -49,7 +49,7 @@
 #### Prerequisites
 - Python 3.10+
 - Node.js 18+
-- [Ollama](https://ollama.ai/) with `qwen2.5:14b` model
+- Cerebras API Key (set via `CEREBRAS_API_KEY` environment variable)
 - Rust (for Tauri)
 
 #### Quick Start
@@ -69,8 +69,8 @@ pip install -r requirements.txt
 pip install maigret playwright
 playwright install chromium
 
-# 4. Install Ollama model
-ollama pull qwen2.5:14b
+# 4. Set Cerebras API Key
+setx CEREBRAS_API_KEY "your-api-key"
 
 # 5. Install frontend dependencies
 cd app
@@ -158,7 +158,7 @@ This tool is intended for **legal OSINT research only**. Users are responsible f
 | Компонент | Технология |
 |-----------|------------|
 | **Бэкенд** | Python 3.10+, FastAPI, LangGraph |
-| **LLM** | Ollama (рекомендуется Qwen2.5:14B) |
+| **LLM** | Cerebras API (gpt-oss-120b) |
 | **Скрапинг** | Playwright (headless браузер) |
 | **Соц.сети** | Maigret CLI |
 | **Фронтенд** | React + TypeScript + Tauri |
@@ -169,7 +169,7 @@ This tool is intended for **legal OSINT research only**. Users are responsible f
 #### Требования
 - Python 3.10+
 - Node.js 18+
-- [Ollama](https://ollama.ai/) с моделью `qwen2.5:14b`
+- Ключ Cerebras API (заданный через переменную окружения `CEREBRAS_API_KEY`)
 - Rust (для Tauri)
 
 #### Быстрый старт
@@ -189,8 +189,8 @@ pip install -r requirements.txt
 pip install maigret playwright
 playwright install chromium
 
-# 4. Загружаем модель Ollama
-ollama pull qwen2.5:14b
+# 4. Настраиваем API ключ Cerebras
+setx CEREBRAS_API_KEY "ваш-ключ-api"
 
 # 5. Устанавливаем зависимости фронтенда
 cd app

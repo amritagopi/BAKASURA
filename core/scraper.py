@@ -96,6 +96,17 @@ async def fetch_dynamic_page(url: str) -> str:
         print(f"[SCRAPER CRITICAL] Asyncio loop error: {e}")
         return ""
 
+def fetch_page_sync(url: str) -> str:
+    """
+    Synchronous wrapper that runs Playwright in a new event loop.
+    Safe to use inside asyncio.to_thread() from a parent async context.
+    """
+    try:
+        return asyncio.run(_fetch_with_playwright(url))
+    except Exception as e:
+        print(f"[SCRAPER SYNC] Error fetching {url}: {e}")
+        return ""
+
 if __name__ == "__main__":
     # Test
     test_url = "https://yandex.ru/maps" 

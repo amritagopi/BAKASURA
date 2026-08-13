@@ -99,8 +99,12 @@ function App() {
       }
 
       const data = await response.json();
+      console.log('--- BAKASURA INTEL RECEIVED ---');
+      console.log('Status:', data.status);
+      console.log('Intel Count:', data.gathered_data?.length || 0);
       setResult(data);
     } catch (err: any) {
+      console.error('FATAL ANALYSIS ERROR:', err);
       setError(err.message || 'Unknown error occurred');
     } finally {
       setIsThinking(false);
@@ -376,13 +380,19 @@ function App() {
                     )}
 
                     {/* Uncertain / Notes */}
-                    {((Array.isArray(parsed.uncertain) && parsed.uncertain.length > 0) || parsed.notes) && (
+                    {((Array.isArray(parsed?.uncertain) && parsed.uncertain.length > 0) || parsed?.notes) && (
                       <div style={{ background: '#151515', padding: '1rem', borderRadius: 'var(--radius-md)' }}>
                         <h4 style={{ color: '#eab308', marginBottom: '0.5rem', fontSize: '0.9rem' }}>⚠️ Uncertainty & Notes</h4>
-                        {Array.isArray(parsed.uncertain) && parsed.uncertain.map((u: string, i: number) => (
-                          <div key={i} style={{ marginBottom: '0.5rem' }}>• {u}</div>
+                        {Array.isArray(parsed?.uncertain) && parsed.uncertain.map((u: any, i: number) => (
+                          <div key={i} style={{ marginBottom: '0.5rem', color: '#ccc' }}>
+                            • {typeof u === 'string' ? u : JSON.stringify(u)}
+                          </div>
                         ))}
-                        {parsed.notes && <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>Note: {parsed.notes}</div>}
+                        {parsed?.notes && (
+                          <div style={{ marginTop: '0.5rem', fontStyle: 'italic', color: 'var(--text-muted)' }}>
+                            Note: {typeof parsed.notes === 'string' ? parsed.notes : JSON.stringify(parsed.notes)}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -390,11 +400,28 @@ function App() {
               })()}
             </div>
 
-            {result.gathered_data && result.gathered_data.length > 0 && (
-              <div className="logs">
-                <h4 style={{ color: 'var(--text-muted)', marginBottom: '0.5rem', fontSize: '0.85rem' }}>RAW INTEL FEED:</h4>
-                {result.gathered_data.map((log, i) => (
-                  <div key={i} className="log-entry">{log}</div>
+            {Array.isArray(result.gathered_data) && result.gathered_data.length > 0 && (
+              <div className="logs" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                <h4 style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.85rem', letterSpacing: '1px' }}>RAW INTEL FEED:</h4>
+                {result.gathered_data.map((log: any, i: number) => (
+                  <div key={i} className="log-entry" style={{
+                    marginBottom: '0.5rem',
+                    padding: '0.5rem',
+                    background: 'rgba(255,255,255,0.03)',
+                    borderRadius: '4px',
+                    fontSize: '0.85rem'
+                  }}>
+                    {typeof log === 'string'
+                      ? log
+                      : (log?.title || log?.url)
+                        ? <div>
+                          {log.title && <div style={{ color: 'var(--primary)' }}>{log.title}</div>}
+                          {log.url && <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>{log.url}</div>}
+                          {log.snippet && <div style={{ marginTop: '0.25rem' }}>{log.snippet}</div>}
+                        </div>
+                        : <pre style={{ margin: 0 }}>{JSON.stringify(log, null, 2)}</pre>
+                    }
+                  </div>
                 ))}
               </div>
             )}
@@ -421,6 +448,24 @@ function App() {
                 onClick={() => setResult(null)}
               >
                 NEW HUNT
+              </button>
+
+              <button
+                className="btn"
+                style={{
+                  background: 'rgba(0, 255, 136, 0.1)',
+                  border: '1px solid var(--primary)',
+                  color: 'var(--primary)'
+                }}
+                onClick={async () => {
+                  try {
+                    await fetch('/api/open-memories', { method: 'POST' });
+                  } catch (e) {
+                    console.error('Failed to open folder:', e);
+                  }
+                }}
+              >
+                📁 OPEN DOSSIER FOLDER
               </button>
             </div>
           </div>
