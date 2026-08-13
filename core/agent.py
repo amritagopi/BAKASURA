@@ -1,9 +1,10 @@
-from typing import TypedDict, List, Optional, Set
+from typing import TypedDict, List, Optional, Set, Tuple, Dict
 from langgraph.graph import StateGraph, END
 from langchain_cerebras import ChatCerebras
 from langchain_core.messages import SystemMessage, HumanMessage, BaseMessage
 import sys
 import os
+import re
 import asyncio
 
 # Ensure we can import our rust extension (Optional backup)
@@ -14,6 +15,55 @@ import json
 from scraper import fetch_page_sync
 from search_tool import perform_search
 from flowsint_tool import search_username_with_maigret
+from enrichment import enrich_pivots, lookup_phone_free
+from image_finder import extract_profile_image, reverse_search_yandex
+
+
+def _parse_json_loose(text) -> dict:
+    """Best-effort JSON parse - strips ```json fences if the LLM added them anyway."""
+    if not isinstance(text, str):
+        return {}
+    cleaned = text.strip()
+    if "```" in cleaned:
+        cleaned = re.sub(r"```json|```", "", cleaned).strip()
+    try:
+        return json.loads(cleaned)
+    except Exception:
+        return {}
+
+
+def score_confidence(text_lower: str, url_lower: str, profile: "TargetProfile") -> Tuple[float, List[str]]:
+    """
+    Weighted confidence score for a candidate source, replacing a flat boolean
+    'name-or-nickname appears somewhere' check with something a downstream LLM (or
+    a human) can actually triage by strength of evidence.
+    """
+    score = 0.0
+    reasons: List[str] = []
+    name = (profile.get("name") or "").lower()
+    nick = (profile.get("nickname") or "").lower()
+    phone = (profile.get("phone") or "").lower()
+    city = (profile.get("city") or "").lower()
+    country = (profile.get("country") or "").lower()
+
+    if name and name in text_lower:
+        score += 3; reasons.append("name in text")
+    if nick and nick in text_lower:
+        score += 3; reasons.append("nickname in text")
+    if phone and phone in text_lower:
+        score += 4; reasons.append("phone in text")
+    if city and city in text_lower:
+        score += 1; reasons.append("city in text")
+    if country and country in text_lower:
+        score += 0.5; reasons.append("country in text")
+    if nick and nick in url_lower:
+        score += 1; reasons.append("nickname in URL")
+
+    if sum(1 for r in reasons if "in text" in r) >= 2:
+        score += 1.5
+        reasons.append("multiple independent signals")
+
+    return round(score, 1), reasons
 
 # --- 1. State Definition (The Memory) ---
 
@@ -26,28 +76,37 @@ class TargetProfile(TypedDict):
     nickname: Optional[str]
     other_clues: Optional[str]
 
-class SourceItem(TypedDict):
+class SourceItem(TypedDict, total=False):
     """A single piece of gathered intelligence."""
     title: str
     url: str
     snippet: str
+    confidence: float                # Weighted evidence score - see score_confidence()
+    confidence_reasons: List[str]    # Which signals contributed to the score
 
 class AgentState(TypedDict):
     """The working memory of the demon."""
     messages: List[BaseMessage]
     profile: TargetProfile
-    
+
     # Snowball Logic State
     gathered_data: List[SourceItem]  # All confirmed relevant data
     search_queue: List[str]          # Queries waiting to be executed
     url_queue: List[str]             # URLs waiting to be fetched directly
     visited_queries: List[str]       # Queries strictly already executed
     visited_urls: List[str]          # URLs already fetched to avoid cycles
-    
+
     depth: int                       # Current recursion depth
     max_depth: int                   # Max recursion limit
-    
+
     hypocrisy_score: float
+
+    # Enrichment state (see enrich_node)
+    processed_pivots: Dict[str, List[str]]  # emails/ips/domains already enriched - avoids repeat lookups
+    profile_image_url: Optional[str]        # First profile photo found, for reverse-image search
+    reverse_image_done: bool                # Reverse-image search only ever runs once per hunt
+    phone_intel_done: bool                  # Offline phone lookup only ever runs once per hunt
+    image_checked_urls: List[str]           # URLs already probed for og:image - each checked at most once
 
 # --- 2. Nodes (The Actions) ---
 
@@ -112,7 +171,9 @@ async def input_validation_node(state: AgentState):
                  maigret_data.append({
                      "title": item["title"],
                      "url": item["url"],
-                     "snippet": item["snippet"]
+                     "snippet": item["snippet"],
+                     "confidence": 1.5,
+                     "confidence_reasons": ["Maigret claim - not yet content-verified"],
                  })
                  maigret_urls.append(item["url"])
          except Exception as e:
@@ -127,7 +188,11 @@ async def input_validation_node(state: AgentState):
         "visited_urls": [],
         "gathered_data": maigret_data,
         "depth": 0,
-        "max_depth": 3  # Allows 3 rounds of snowball expansion
+        "max_depth": 3,  # Allows 3 rounds of snowball expansion
+        "processed_pivots": {"emails": [], "ips": [], "domains": []},
+        "profile_image_url": None,
+        "reverse_image_done": False,
+        "image_checked_urls": [],
     }
 
 
@@ -289,11 +354,14 @@ async def search_node(state: AgentState):
                     print(f"[FILTER] Dropped {url[:40]} - No identity match in Text or URL.")
                     continue
                     
-                print(f"[FETCH] ACCEPTED: {url[:60]}")
+                conf_score, conf_reasons = score_confidence(lower_text, url.lower(), profile)
+                print(f"[FETCH] ACCEPTED: {url[:60]} (confidence {conf_score}: {', '.join(conf_reasons) or 'weak match'})")
                 item: SourceItem = {
                     "title": title[:200],
                     "url": url,
-                    "snippet": clean_text[:6000] # Increased cap
+                    "snippet": clean_text[:6000], # Increased cap
+                    "confidence": conf_score,
+                    "confidence_reasons": conf_reasons,
                 }
                 new_items.append(item)
                 
@@ -322,6 +390,74 @@ async def search_node(state: AgentState):
     }
 
 
+async def enrich_node(state: AgentState):
+    """
+    Free enrichment pass, run after every search round:
+      - Regex-extracts emails/IPs seen so far and fires HIBP/Hunter/Shodan/FullContact
+        (all no-op without a key) plus WHOIS + offline phone lookup (always free).
+      - One-shot reverse-image search via Yandex once we have a candidate profile photo.
+    Never blocks the hunt - every source degrades to "found nothing" on failure.
+    """
+    profile = state["profile"]
+    gathered = state.get("gathered_data", [])
+    processed = state.get("processed_pivots") or {"emails": [], "ips": [], "domains": []}
+
+    new_items, processed = await asyncio.to_thread(enrich_pivots, gathered, profile, processed)
+
+    if profile.get("phone") and not state.get("phone_intel_done"):
+        info = lookup_phone_free(profile["phone"])
+        if info:
+            new_items.append({
+                "title": f"Phone Intel: {profile['phone']}",
+                "url": "",
+                "snippet": f"Region: {info.get('region')}. Carrier: {info.get('carrier')}. "
+                           f"Type: {info.get('number_type')}. Valid E.164: {info.get('e164')}",
+                "confidence": 5.0,
+                "confidence_reasons": ["offline libphonenumber lookup - deterministic"],
+            })
+
+    image_url = state.get("profile_image_url")
+    reverse_done = state.get("reverse_image_done", False)
+    checked_urls = set(state.get("image_checked_urls") or [])
+    if not image_url and gathered:
+        for item in gathered:
+            u = item.get("url")
+            if not u or u in checked_urls:
+                continue
+            checked_urls.add(u)
+            img = await asyncio.to_thread(extract_profile_image, u)
+            if img:
+                image_url = img
+                print(f"[ENRICH] Found candidate profile image: {img[:80]}")
+                break
+
+    if image_url and not reverse_done:
+        print("[ENRICH] Running one-shot Yandex reverse image search...")
+        hits = await asyncio.to_thread(reverse_search_yandex, image_url)
+        for h in hits:
+            new_items.append({
+                "title": f"Reverse Image Hit: {h['title']}",
+                "url": h["href"],
+                "snippet": f"Page visually matches target's profile photo ({image_url}). "
+                           f"UNVERIFIED - identity not text-confirmed, treat as a lead not a fact.",
+                "confidence": 1.0,
+                "confidence_reasons": ["visual similarity only - not text confirmed"],
+            })
+        reverse_done = True
+
+    if new_items:
+        print(f"[ENRICH] Added {len(new_items)} enrichment item(s).")
+
+    return {
+        "gathered_data": gathered + new_items,
+        "processed_pivots": processed,
+        "profile_image_url": image_url,
+        "reverse_image_done": reverse_done,
+        "phone_intel_done": True,
+        "image_checked_urls": list(checked_urls),
+    }
+
+
 async def extraction_node(state: AgentState):
     """
     Analyzes gathered data to find NEW Pivots.
@@ -340,8 +476,9 @@ async def extraction_node(state: AgentState):
         return {"depth": depth + 1}
 
     llm = ChatCerebras(model="gpt-oss-120b").bind(response_format={"type": "json_object"})
-    
-    context = "\n".join([f"SOURCE {i}: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(data)])
+
+    ranked = sorted(data, key=lambda d: -(d.get("confidence") or 0))
+    context = "\n".join([f"SOURCE {i} [confidence {d.get('confidence', '?')}]: {d['title']}\n{d['snippet'][:800]}\n" for i, d in enumerate(ranked)])
     
     prompt = f"""You are a Hunter. extract explicit OSINT pivots from these snippets.
 Looking for: Email addresses, specific Usernames (handles), Phone numbers, unique identifiers, OR CURRENT OCCUPATION/JOB TITLE.
@@ -411,14 +548,19 @@ Nickname: {profile.get('nickname') or 'Unknown'}
 Additional Clues: {profile.get('other_clues') or 'Unknown'}
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 """
+    ranked_data = sorted(data, key=lambda d: -(d.get("confidence") or 0))
     sources_str = ""
-    for i, item in enumerate(data, start=1):
-        sources_str += f"\nSOURCE {i} ({item['title']}):\n{item['url']}\n{item['snippet'][:1000]}\n---\n"
+    for i, item in enumerate(ranked_data, start=1):
+        reasons = ", ".join(item.get("confidence_reasons") or []) or "no scored signals"
+        sources_str += (
+            f"\nSOURCE {i} ({item['title']}) [confidence: {item.get('confidence', 0)} - {reasons}]:\n"
+            f"{item['url']}\n{item['snippet'][:1000]}\n---\n"
+        )
 
     prompt = f"""You are a STRICT DATA ANALYST.
 {target_section}
 
-EVIDENCE COLLECTED:
+EVIDENCE COLLECTED (sorted strongest confidence first):
 {sources_str}
 
 TASK: Build a confirmed dossier.
@@ -436,6 +578,11 @@ HARD RULES:
    "uncertain" instead, and note the contradiction in "notes".
 8. A username appearing in a URL is not evidence on its own - the snippet content
    must actually reference the target (name, phone, or other confirmed clue).
+9. The bracketed "confidence" number is a pre-computed evidence-strength score, not
+   a verdict - a source scored 0-1.5 (e.g. an unverified Maigret claim or a reverse-
+   image visual match) needs its own snippet to actually confirm identity before it
+   can go in "matched_sources". Never promote a low-confidence source to "matched_sources"
+   on the strength of its title or URL alone.
 
 Analyze now."""
 
@@ -444,6 +591,93 @@ Analyze now."""
         return {"messages": [response]}
     except Exception as e:
         return {"messages": [SystemMessage(content=f"Error: {e}")]}
+
+
+async def verify_node(state: AgentState):
+    """
+    SECOND LLM pass: a skeptical fact-checker that tries to REFUTE every claim in
+    the draft dossier against its actual source snippet before anything is allowed
+    to stay "confirmed". Directly targets the #1 risk flagged by OSINT-with-AI
+    guidance: LLM output must be verified, since hallucinated connections can
+    mislead an investigation. Any parse failure here is a no-op - the original
+    draft from analyze_node is kept rather than risk destroying it.
+    """
+    messages = state.get("messages", [])
+    if not messages:
+        return {}
+
+    draft_raw = messages[-1].content if hasattr(messages[-1], "content") else str(messages[-1])
+    draft = _parse_json_loose(draft_raw)
+    if not draft:
+        print("[VERIFY] Draft dossier wasn't parseable JSON - skipping verification, keeping as-is.")
+        return {}
+
+    matched = draft.get("matched_sources", [])
+    facts = draft.get("facts", [])
+    if not matched and not facts:
+        return {}
+
+    data = state.get("gathered_data", [])
+    snippet_by_url = {d["url"]: d["snippet"][:1200] for d in data if d.get("url")}
+
+    matched_block = "\n".join(
+        f"- CLAIM: {m.get('reason')}\n  URL: {m.get('url')}\n  ACTUAL SNIPPET: "
+        f"{snippet_by_url.get(m.get('url'), '[snippet unavailable - treat as unverifiable]')}"
+        for m in matched
+    ) or "(none)"
+    facts_block = "\n".join(f"- {f}" for f in facts) or "(none)"
+
+    llm = ChatCerebras(model="gpt-oss-120b").bind(response_format={"type": "json_object"})
+    prompt = f"""You are a SKEPTICAL FACT-CHECKER reviewing another analyst's draft dossier.
+Your ONLY job is to try to REFUTE each claim below using the actual snippet text provided.
+Default to refuted=true if the snippet does not clearly and specifically support the claim,
+or if the snippet is marked unverifiable.
+
+MATCHED SOURCES TO CHECK:
+{matched_block}
+
+FREE-TEXT FACTS TO CHECK (no snippet attached - judge plausibility/specificity only):
+{facts_block}
+
+Return JSON:
+{{
+  "matched_sources_verdict": [{{"url": "...", "refuted": bool, "reason": "..."}}],
+  "facts_verdict": [{{"fact": "...", "refuted": bool, "reason": "..."}}]
+}}"""
+
+    try:
+        res = await llm.ainvoke([HumanMessage(content=prompt)])
+        verdict = _parse_json_loose(res.content)
+    except Exception as e:
+        print(f"[VERIFY] Verification pass failed ({e}), keeping draft as-is.")
+        return {}
+
+    if not verdict:
+        print("[VERIFY] Verifier response wasn't parseable JSON - keeping draft as-is.")
+        return {}
+
+    refuted_urls = {v.get("url") for v in verdict.get("matched_sources_verdict", []) if v.get("refuted")}
+    refuted_facts = {v.get("fact") for v in verdict.get("facts_verdict", []) if v.get("refuted")}
+
+    kept_matched = [m for m in matched if m.get("url") not in refuted_urls]
+    demoted = [m for m in matched if m.get("url") in refuted_urls]
+    kept_facts = [f for f in facts if f not in refuted_facts]
+
+    draft["matched_sources"] = kept_matched
+    draft["facts"] = kept_facts
+    draft.setdefault("uncertain", [])
+    draft["uncertain"].extend(d.get("url") for d in demoted if d.get("url"))
+    draft["uncertain"].extend(refuted_facts)
+    if demoted or refuted_facts:
+        draft["notes"] = (draft.get("notes") or "") + (
+            f" [Fact-check pass demoted {len(demoted)} source(s) and "
+            f"{len(refuted_facts)} fact(s) to uncertain.]"
+        )
+
+    print(f"[VERIFY] Kept {len(kept_matched)}/{len(matched)} matched sources, "
+          f"{len(kept_facts)}/{len(facts)} facts after fact-check.")
+
+    return {"messages": [SystemMessage(content=json.dumps(draft, ensure_ascii=False))]}
 
 
 def check_loop_condition(state: AgentState):
@@ -463,13 +697,16 @@ workflow = StateGraph(AgentState)
 
 workflow.add_node("validate", input_validation_node)
 workflow.add_node("search", search_node)
+workflow.add_node("enrich", enrich_node)
 workflow.add_node("extract", extraction_node)
 workflow.add_node("analyze", analyze_node)
+workflow.add_node("verify", verify_node)
 
 workflow.set_entry_point("validate")
 
 workflow.add_edge("validate", "search")
-workflow.add_edge("search", "extract")
+workflow.add_edge("search", "enrich")
+workflow.add_edge("enrich", "extract")
 
 workflow.add_conditional_edges(
     "extract",
@@ -480,6 +717,7 @@ workflow.add_conditional_edges(
     }
 )
 
-workflow.add_edge("analyze", END)
+workflow.add_edge("analyze", "verify")
+workflow.add_edge("verify", END)
 
 app = workflow.compile()

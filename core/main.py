@@ -20,6 +20,8 @@ from typing import Optional
 import uvicorn
 from agent import app as agent_app, TargetProfile
 from memory import save_memory
+from enrichment import extract_pivots
+import entity_graph
 
 import logging
 import traceback
@@ -203,7 +205,7 @@ async def analyze_target(request: AnalysisRequest):
             pass # Keep original if parsing fails
 
         gathered_data = result.get("gathered_data", [])
-        
+
         # Save to Obsidian/Memory
         try:
             memory_file = save_memory(profile_dict, clean_response_str, gathered_data)
@@ -211,10 +213,27 @@ async def analyze_target(request: AnalysisRequest):
         except Exception as e:
             print(f"[WARN] Memory loss: {e}")
 
+        # Persist confirmed pivots to the entity graph so the SAME email/phone/username
+        # showing up in a future, unrelated hunt gets flagged as a cross-investigation hit.
+        cross_hits = []
+        try:
+            pivots = result.get("processed_pivots") or extract_pivots(gathered_data, profile_dict.get("phone", ""))
+            singular_pivots = {
+                "email": pivots.get("emails", []),
+                "ip": pivots.get("ips", []),
+                "domain": pivots.get("domains", []),
+            }
+            cross_hits = entity_graph.record_hunt(profile_dict, singular_pivots)
+            if cross_hits:
+                logger.info(f"[ENTITY GRAPH] {len(cross_hits)} cross-investigation hit(s) for {profile_dict['name']}")
+        except Exception as e:
+            logger.error(f"[ENTITY GRAPH] Failed to record hunt: {e}")
+
         return {
             "status": "completed",
             "response": clean_response_str, # Return STRING to avoid React "Object not valid child" error
-            "gathered_data": gathered_data
+            "gathered_data": gathered_data,
+            "cross_investigation_hits": cross_hits,
         }
         
     except Exception as e:

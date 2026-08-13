@@ -22,6 +22,8 @@ googlesearch-python>=1.2.0
 
 # OSINT Tools
 maigret>=0.5.0
+phonenumbers>=8.13.0   # Free offline phone intel (region/carrier/line-type) - no API key
+python-whois>=0.9.0    # Free WHOIS domain lookups - no API key
 
 # Utilities
 python-dotenv>=1.0.0
