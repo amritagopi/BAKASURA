@@ -4,7 +4,6 @@ from langchain_cerebras import ChatCerebras
 from langchain_core.messages import SystemMessage, HumanMessage, BaseMessage
 import sys
 import os
-import time
 import asyncio
 
 # Ensure we can import our rust extension (Optional backup)
@@ -12,10 +11,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import json
 
-from scraper import fetch_dynamic_page, fetch_page_sync
+from scraper import fetch_page_sync
 from search_tool import perform_search
 from flowsint_tool import search_username_with_maigret
-from bs4 import BeautifulSoup
 
 # --- 1. State Definition (The Memory) ---
 
@@ -153,7 +151,7 @@ async def search_node(state: AgentState):
     
     print(f"\n[SEARCH NODE] Depth: {state.get('depth')} | Queue Size: {len(queue)}")
     
-    def is_garbage_url(url: str, title: str, profile: TargetProfile) -> bool:
+    def is_garbage_url(url: str, profile: TargetProfile) -> bool:
         """Face control for URLs to avoid obvious noise."""
         bad_domains = [
             "yandex.ru/maps", "google.com/search", 
@@ -165,8 +163,7 @@ async def search_node(state: AgentState):
              return True
         
         url_lower = url.lower()
-        title_lower = title.lower()
-        
+
         # 1. Domain Blacklist
         if any(d in url_lower for d in bad_domains):
             return True
@@ -244,7 +241,7 @@ async def search_node(state: AgentState):
                 continue
             
             # 1. PRE-FILTER (URL FAKECONTROL)
-            if is_garbage_url(url, title, profile):
+            if is_garbage_url(url, profile):
                 print(f"[SKIP] Garbage URL: {url[:60]}...")
                 visited_u.add(url) # Don't revisit garbage
                 continue
