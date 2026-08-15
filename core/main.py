@@ -102,6 +102,8 @@ class SettingsRequest(BaseModel):
     fullcontact: Optional[str] = None
     clearbit: Optional[str] = None
     social_searcher: Optional[str] = None
+    telegram_api_id: Optional[str] = None
+    telegram_api_hash: Optional[str] = None
 
 from config import load_keys, save_keys, SERVICES
 

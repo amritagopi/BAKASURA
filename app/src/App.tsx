@@ -40,7 +40,9 @@ function App() {
     shodan: '',
     fullcontact: '',
     clearbit: '',
-    social_searcher: ''
+    social_searcher: '',
+    telegram_api_id: '',
+    telegram_api_hash: ''
   });
 
   const fetchSettings = async () => {
@@ -182,6 +184,16 @@ function App() {
                 <label className="label">Social Searcher</label>
                 <input className="input" type="password" placeholder="key..." value={apiKeys.social_searcher}
                   onChange={(e) => setApiKeys({ ...apiKeys, social_searcher: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Telegram api_id</label>
+                <input className="input" type="password" placeholder="from my.telegram.org/apps" value={apiKeys.telegram_api_id}
+                  onChange={(e) => setApiKeys({ ...apiKeys, telegram_api_id: e.target.value })} />
+              </div>
+              <div className="input-group">
+                <label className="label">Telegram api_hash</label>
+                <input className="input" type="password" placeholder="from my.telegram.org/apps" value={apiKeys.telegram_api_hash}
+                  onChange={(e) => setApiKeys({ ...apiKeys, telegram_api_hash: e.target.value })} />
               </div>
             </div>
 

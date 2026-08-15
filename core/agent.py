@@ -15,6 +15,10 @@ import json
 from scraper import fetch_page_sync
 from search_tool import perform_search
 from flowsint_tool import search_username_with_maigret
+from pogoda_cse import search_pogoda_cse_sync
+from tg_search import search_lyzem_sync
+from getcontact_lookup import lookup_getcontact_sync
+from vk_enrichment import extract_vk_id, enrich_vk_profile_sync
 from enrichment import enrich_pivots, lookup_phone_free
 from image_finder import extract_profile_image, reverse_search_yandex
 
@@ -106,6 +110,8 @@ class AgentState(TypedDict):
     profile_image_url: Optional[str]        # First profile photo found, for reverse-image search
     reverse_image_done: bool                # Reverse-image search only ever runs once per hunt
     phone_intel_done: bool                  # Offline phone lookup only ever runs once per hunt
+    getcontact_done: bool                   # Getcontact web lookup only ever runs once per hunt
+    vk_profiles_enriched: List[str]         # VK ids already run through 220vk/regvk - each done at most once
     image_checked_urls: List[str]           # URLs already probed for og:image - each checked at most once
 
 # --- 2. Nodes (The Actions) ---
@@ -158,10 +164,15 @@ async def input_validation_node(state: AgentState):
     except Exception as e:
         print(f"[INIT] Failed to load mirrors: {e}")
 
+    # --- RUPEP (RU/BY/KZ politically-exposed-persons database) ---
+    # Just an ordinary indexed site, so a site: search is enough - no dedicated
+    # integration needed, unlike the CSE/bot sources below.
+    initial_queries.append(f'site:rupep.org "{name}"')
+
     # --- MAIGRET INTEGRATION ---
     maigret_data = []
     maigret_urls = []
-    
+
     if nick and len(nick) > 3:
          print(f"[INIT] Launching Maigret social scan for '{nick}'...")
          try:
@@ -179,6 +190,26 @@ async def input_validation_node(state: AgentState):
          except Exception as e:
              print(f"[INIT] Maigret failed: {e}")
 
+    # --- POGODA CSE (RU/CIS-scoped social search: VK/OK/Telegram/Dzen/etc.) ---
+    try:
+        cse_query = f"{name} {city}".strip() if city else name
+        cse_results = await asyncio.to_thread(search_pogoda_cse_sync, cse_query, 10)
+        for r in cse_results:
+            if r["href"] not in maigret_urls:
+                maigret_urls.append(r["href"])
+    except Exception as e:
+        print(f"[INIT] Pogoda CSE failed: {e}")
+
+    # --- LYZEM (Telegram channel/group/bot name+bio search) ---
+    try:
+        lyzem_query = f"{name} {city}".strip() if city else name
+        lyzem_results = await asyncio.to_thread(search_lyzem_sync, lyzem_query, 10)
+        for r in lyzem_results:
+            if r["href"] not in maigret_urls:
+                maigret_urls.append(r["href"])
+    except Exception as e:
+        print(f"[INIT] Lyzem search failed: {e}")
+
     # Defaults
     return {
         "messages": [SystemMessage(content=f"Target Locked: {name}. Initiating Snowball Protocol.")],
@@ -192,6 +223,8 @@ async def input_validation_node(state: AgentState):
         "processed_pivots": {"emails": [], "ips": [], "domains": []},
         "profile_image_url": None,
         "reverse_image_done": False,
+        "getcontact_done": False,
+        "vk_profiles_enriched": [],
         "image_checked_urls": [],
     }
 
@@ -416,6 +449,46 @@ async def enrich_node(state: AgentState):
                 "confidence_reasons": ["offline libphonenumber lookup - deterministic"],
             })
 
+    if profile.get("phone") and not state.get("getcontact_done"):
+        gc = await asyncio.to_thread(lookup_getcontact_sync, profile["phone"])
+        if gc and gc.get("found"):
+            new_items.append({
+                "title": f"Getcontact: {profile['phone']}",
+                "url": gc["url"],
+                "snippet": gc.get("raw_text", ""),
+                "confidence": 1.0,
+                "confidence_reasons": ["Getcontact community data - unparsed page text, not yet content-verified"],
+            })
+
+    vk_enriched = set(state.get("vk_profiles_enriched") or [])
+    new_vk_lookups = 0
+    for item in gathered:
+        if new_vk_lookups >= 3:  # cap browser launches per round - Pogoda CSE alone can surface many VK hits
+            break
+        vk_id = extract_vk_id(item.get("url", ""))
+        if not vk_id or vk_id in vk_enriched:
+            continue
+        vk_enriched.add(vk_id)
+        new_vk_lookups += 1
+        print(f"[ENRICH] New VK profile '{vk_id}' found - running 220vk/regvk...")
+        vk_data = await asyncio.to_thread(enrich_vk_profile_sync, vk_id)
+        if vk_data.get("220vk"):
+            new_items.append({
+                "title": f"220vk activity history: vk.com/{vk_id}",
+                "url": f"https://220vk.com/{vk_id}?i",
+                "snippet": vk_data["220vk"][:2500],
+                "confidence": 1.5,
+                "confidence_reasons": ["220vk activity/friend-history data - not yet content-verified"],
+            })
+        if vk_data.get("regvk"):
+            new_items.append({
+                "title": f"regvk registration date: vk.com/{vk_id}",
+                "url": "https://regvk.com/",
+                "snippet": vk_data["regvk"][:1500],
+                "confidence": 1.5,
+                "confidence_reasons": ["regvk registration-date data - not yet content-verified"],
+            })
+
     image_url = state.get("profile_image_url")
     reverse_done = state.get("reverse_image_done", False)
     checked_urls = set(state.get("image_checked_urls") or [])
@@ -454,6 +527,8 @@ async def enrich_node(state: AgentState):
         "profile_image_url": image_url,
         "reverse_image_done": reverse_done,
         "phone_intel_done": True,
+        "getcontact_done": True,
+        "vk_profiles_enriched": list(vk_enriched),
         "image_checked_urls": list(checked_urls),
     }
 

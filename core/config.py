@@ -55,4 +55,6 @@ SERVICES = [
     "fullcontact",       # FullContact person enrichment
     "clearbit",          # Clearbit company data
     "social_searcher",   # Social Searcher
+    "telegram_api_id",   # my.telegram.org - Telethon client (dedicated OSINT TG account, NOT the user's main account)
+    "telegram_api_hash", # my.telegram.org - Telethon client
 ]

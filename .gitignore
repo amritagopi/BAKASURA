@@ -1,5 +1,7 @@
 .venv
 config/api_keys.json
+config/*.session
+config/*.session-journal
 memories/
 
 # Byte-compiled / optimized / DLL files

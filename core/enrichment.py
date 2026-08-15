@@ -22,9 +22,11 @@ from api_services import (
     enrich_shodan,
     enrich_fullcontact,
 )
+from nalog_lookup import is_valid_inn_checksum, check_inn_invalid_sync
 
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}")
 IPV4_RE = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
+INN_RE = re.compile(r"\b\d{12}\b")  # personal (individual) RU INN - 12 digits, checksum-verified below
 
 # phonenumbers.PhoneNumberType is plain ints, not a real Python enum - str() on the
 # value just gives back the number, so build a name lookup by hand for readability.
@@ -44,11 +46,13 @@ FREEMAIL_DOMAINS = {
 
 
 def extract_pivots(gathered_data: List[Dict], profile_phone: str = "") -> Dict[str, List[str]]:
-    """Regex-scan all snippets for concrete pivots (emails/ips). Dedup'd, order-preserving."""
+    """Regex-scan all snippets for concrete pivots (emails/ips/INNs). Dedup'd, order-preserving."""
     emails: List[str] = []
     ips: List[str] = []
+    inns: List[str] = []
     seen_e: Set[str] = set()
     seen_i: Set[str] = set()
+    seen_n: Set[str] = set()
 
     for item in gathered_data:
         text = f"{item.get('title', '')} {item.get('snippet', '')}"
@@ -61,8 +65,12 @@ def extract_pivots(gathered_data: List[Dict], profile_phone: str = "") -> Dict[s
             if m not in seen_i and m != profile_phone:
                 seen_i.add(m)
                 ips.append(m)
+        for m in INN_RE.findall(text):
+            if m not in seen_n and is_valid_inn_checksum(m):
+                seen_n.add(m)
+                inns.append(m)
 
-    return {"emails": emails, "ips": ips}
+    return {"emails": emails, "ips": ips, "inns": inns}
 
 
 def lookup_phone_free(phone: str) -> Dict:
@@ -119,10 +127,25 @@ def enrich_pivots(gathered_data: List[Dict], profile: Dict,
     pivots = extract_pivots(gathered_data, profile.get("phone", ""))
     processed = {k: list(v) for k, v in (processed or {"emails": [], "ips": [], "domains": []}).items()}
     processed.setdefault("domains", [])
+    processed.setdefault("inns", [])
     new_items: List[Dict] = []
 
     new_emails = [e for e in pivots["emails"] if e not in processed["emails"]]
     new_ips = [i for i in pivots["ips"] if i not in processed["ips"]]
+    new_inns = [n for n in pivots["inns"] if n not in processed["inns"]]
+
+    for inn in new_inns:
+        processed["inns"].append(inn)
+        result = check_inn_invalid_sync(inn)
+        if result and result.get("checked"):
+            status = "INVALID/revoked" if result["invalid"] else "not on the invalid-INN registry (i.e. plausibly valid)"
+            new_items.append({
+                "title": f"FNS INN check: {inn}",
+                "url": "https://service.nalog.ru/invalid-inn-fl.html",
+                "snippet": f"INN {inn} (checksum-valid personal INN found in scraped text) is {status}.",
+                "confidence": 2.0,
+                "confidence_reasons": ["official FNS invalid-INN registry - deterministic, but doesn't itself confirm this INN belongs to the target"],
+            })
 
     for email in new_emails:
         processed["emails"].append(email)

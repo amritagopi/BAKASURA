@@ -12,23 +12,15 @@ from api_services import search_brave, search_exa, search_searxng
 
 def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     """
-    Orchestrator: Prioritizes the local SearXNG instance, then official APIs
-    (via api_services.py), then falls back to DDG's multi-engine scrape.
+    Orchestrator: Prioritizes official APIs with their own dedicated quota
+    (Brave/Exa - configured via config/api_keys.json), THEN the local SearXNG
+    instance (shared with other tools, e.g. OpenClaw - has its own upstream
+    rate limits, so it's not free capacity), and finally DDG's multi-engine
+    scrape as a last resort.
     """
     results = []
 
-    # 1. SEARXNG (Priority 1 - local, no rate limits)
-    try:
-        results = search_searxng(query, max_results)
-        if results:
-            print(f"[API SUCCESS] SearXNG found {len(results)} results for: {query}")
-            return results
-        else:
-            print(f"[API INFO] SearXNG returned 0 results for: {query} (or instance unreachable)")
-    except Exception as e:
-        print(f"[API WARN] SearXNG search failed: {e}")
-
-    # 2. BRAVE (Priority 2)
+    # 1. BRAVE (Priority 1 - dedicated API quota, doesn't compete with SearXNG)
     try:
         results = search_brave(query, max_results)
         if results:
@@ -39,7 +31,7 @@ def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     except Exception as e:
         print(f"[API WARN] Brave search failed: {e}")
 
-    # 2. EXA (Priority 2)
+    # 2. EXA (Priority 2 - dedicated API quota)
     try:
         results = search_exa(query, max_results)
         if results:
@@ -50,7 +42,22 @@ def perform_search(query: str, max_results: int = 10) -> List[Dict[str, str]]:
     except Exception as e:
         print(f"[API WARN] Exa search failed: {e}")
 
-    # 3. DUCKDUCKGO (Fallback)
+    # 3. SEARXNG (Priority 3 - shared local instance. Its own upstream engines
+    # get rate-limited/CAPTCHA'd by Google/Brave/DuckDuckGo under burst traffic,
+    # so a courtesy delay here protects OTHER clients of this same instance too,
+    # not just us.)
+    time.sleep(random.uniform(2.0, 4.0))
+    try:
+        results = search_searxng(query, max_results)
+        if results:
+            print(f"[API SUCCESS] SearXNG found {len(results)} results for: {query}")
+            return results
+        else:
+            print(f"[API INFO] SearXNG returned 0 results for: {query} (or instance/engines unavailable)")
+    except Exception as e:
+        print(f"[API WARN] SearXNG search failed: {e}")
+
+    # 4. DUCKDUCKGO (Fallback)
     results = []
     print(f"[FALLBACK] Hunting via DuckDuckGo: {query}")
     
